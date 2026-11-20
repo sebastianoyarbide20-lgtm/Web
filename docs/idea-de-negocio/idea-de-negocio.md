@@ -1,10 +1,12 @@
-FARMAGLASS ROSARIO
-Descripción general de la idea de negocio
-Noviembre de 2026 · borrador para discutir
+# ALIAR ROSARIO — Idea de negocio
 
-======================================================================
-1. LA IDEA EN UNA FRASE
-======================================================================
+Descripción general de la idea de negocio · Noviembre de 2026 · borrador para discutir
+
+> **Nombre vigente: ALIAR ROSARIO** (Alianza y Respaldo para farmacias independientes).
+> El prototipo se llamaba *FarmaGlass*; ese nombre ya no se usa en piezas públicas.
+> Para marca, voz y diseño manda `docs/guia-de-estilos/guia-de-estilos.md`.
+
+## 1. La idea en una frase
 
 Juntar a las farmacias de barrio de Rosario en una sola web y una sola
 app, para que compitan con las grandes cadenas con la misma tecnología,
@@ -16,9 +18,7 @@ clientes. La plataforma les da lo que solas no pueden pagar: una tienda
 online moderna, una app, marketing profesional, envíos y datos.
 
 
-======================================================================
-2. EL PROBLEMA
-======================================================================
+## 2. El problema
 
 Para la farmacia de barrio:
 - Las cadenas tienen app, web, envío a domicilio, programas de
@@ -38,15 +38,13 @@ Para el vecino:
   cadena).
 
 
-======================================================================
-3. LA SOLUCIÓN
-======================================================================
+## 3. La solución
 
 Una plataforma única (web + app) con:
 
 - Todas las farmacias adheridas en un solo lugar, cada una con su
-  página, su estilo y sus productos (lo que ya muestra el prototipo de
-  FarmaGlass con sus cuatro farmacias).
+  página, su estilo y sus productos (lo que ya muestra el prototipo con
+  sus cuatro farmacias).
 - La farmacia más cercana se elige sola al poner la dirección.
 - Un solo carrito: se puede comprar en varias farmacias a la vez y el
   pedido se agrupa por farmacia.
@@ -70,9 +68,7 @@ Lo que gana el vecino:
 - Precios claros, envío rápido y seguimiento del pedido.
 
 
-======================================================================
-4. CÓMO GANA DINERO LA PLATAFORMA
-======================================================================
+## 4. Cómo gana dinero la plataforma
 
 Opciones a combinar (los números concretos hay que definirlos con las
 farmacias y con el costo real de operación):
@@ -93,9 +89,7 @@ por pedido. Así la farmacia solo paga cuando vende y es más fácil
 sumarla.
 
 
-======================================================================
-5. A QUIÉN LE VENDEMOS
-======================================================================
+## 5. A quién le vendemos
 
 Primero a las farmacias (son los socios), después al público.
 
@@ -107,9 +101,7 @@ Primero a las farmacias (son los socios), después al público.
   que compran todos los meses.
 
 
-======================================================================
-6. COMPETENCIA Y DIFERENCIAL
-======================================================================
+## 6. Competencia y diferencial
 
 Competidores:
 - Cadenas con tienda online y app propia.
@@ -126,15 +118,13 @@ Diferencial de la red:
   idea "4 farmacias, 4 mundos" y "Entre todas" de las campañas).
 
 
-======================================================================
-7. CÓMO ARRANCAR (PLAN POR ETAPAS)
-======================================================================
+## 7. Cómo arrancar (plan por etapas)
 
 Etapa 0 · Validación (1 a 2 meses)
 - Entrevistar a 15–20 farmacias de Rosario: qué les duele, qué pagarían,
   qué sistema de gestión usan, si hacen envíos.
 - Consultar la normativa (ver punto 9).
-- Mostrarles el prototipo de FarmaGlass que ya existe.
+- Mostrarles el prototipo que ya existe.
 
 Etapa 1 · Piloto (3 a 4 meses)
 - 4 a 6 farmacias de barrios distintos.
@@ -156,9 +146,7 @@ Etapa 3 · Expansión
 - Compras en conjunto y marcas propias de la red.
 
 
-======================================================================
-8. QUÉ HACE FALTA
-======================================================================
+## 8. Qué hace falta
 
 Equipo mínimo:
 - Coordinación general y relación con las farmacias.
@@ -177,9 +165,7 @@ desarrollo de la app, marketing de lanzamiento, logística y el equipo de
 los primeros meses. Conviene presupuestarlo después de la validación.
 
 
-======================================================================
-9. RIESGOS Y PUNTOS A RESOLVER
-======================================================================
+## 9. Riesgos y puntos a resolver
 
 - Normativa: la venta de medicamentos tiene reglas nacionales (ANMAT) y
   provinciales (Santa Fe y el Colegio de Farmacéuticos). Hay que
@@ -198,9 +184,7 @@ los primeros meses. Conviene presupuestarlo después de la validación.
 - Competencia de cadenas con mucho presupuesto.
 
 
-======================================================================
-10. CÓMO SABER SI FUNCIONA (INDICADORES)
-======================================================================
+## 10. Cómo saber si funciona (indicadores)
 
 - Farmacias adheridas y barrios cubiertos.
 - Pedidos online por semana y por farmacia.
@@ -210,11 +194,9 @@ los primeros meses. Conviene presupuestarlo después de la validación.
 - Satisfacción de farmacias y clientes.
 
 
-======================================================================
-11. PRÓXIMOS PASOS
-======================================================================
+## 11. Próximos pasos
 
-1. Definir nombre y marca para Rosario (FarmaGlass u otro).
+1. ~~Definir nombre y marca para Rosario.~~ Hecho: ALIAR ROSARIO (guía de estilos v2.0).
 2. Armar la lista de farmacias a visitar y una entrevista corta.
 3. Consulta legal sobre venta online y recetas en Santa Fe.
 4. Elegir las farmacias del piloto y adaptar el prototipo actual a

@@ -1,0 +1,4 @@
+node_modules/
+# Las imágenes se regeneran con `npm run render`; no se versionan
+publicaciones/**/export/
+.DS_Store

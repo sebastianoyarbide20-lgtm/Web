@@ -1,0 +1,13 @@
+{
+  "name": "aliar-rosario-web",
+  "private": true,
+  "type": "module",
+  "description": "ALIAR ROSARIO: landing y piezas para redes sociales",
+  "scripts": {
+    "render": "node scripts/render.mjs",
+    "render:borrador": "node scripts/render.mjs --permitir-fuentes-respaldo"
+  },
+  "devDependencies": {
+    "playwright": "^1.49.0"
+  }
+}
