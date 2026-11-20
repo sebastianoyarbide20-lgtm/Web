@@ -1,0 +1,57 @@
+<template>
+  <style>
+    @font-face { font-family: "Bricolage Grotesque"; src: url("assets/fonts/BricolageGrotesque-var.woff2") format("woff2"); font-weight: 200 800; }
+    @font-face { font-family: "Figtree"; src: url("assets/fonts/Figtree-var.woff2") format("woff2"); font-weight: 300 900; }
+    #root { position: absolute; inset: 0; overflow: hidden; background: #bff0da; color: #0d2b27; font-family: "Figtree", sans-serif; }
+    #root .dots { position: absolute; inset: 0; background-image: radial-gradient(circle, rgba(13, 43, 39, 0.1) 3px, transparent 3.6px); background-size: 40px 40px; background-position: 20px 20px; }
+    #root .title { position: absolute; left: 120px; top: 420px; font-family: "Bricolage Grotesque", sans-serif; font-weight: 800; font-size: 172px; line-height: 0.98; letter-spacing: -0.04em; }
+    #root .line { display: block; white-space: nowrap; }
+    #root .w { display: inline-block; }
+    /* Tarjeta flotante de la web (.float-card), escalada para 1080 px */
+    #root .card-pos { position: absolute; left: 120px; top: 850px; }
+    #root .card { display: flex; align-items: center; gap: 28px; transform: rotate(-3deg); padding: 30px 32px 30px 30px; background: #ffffff; border: 4px solid #0d2b27; border-radius: 40px; box-shadow: 12px 12px 0 #0d2b27; }
+    #root .badge { flex: none; width: 124px; height: 124px; border-radius: 50%; border: 4px solid #0d2b27; background: #ddf57a; display: flex; align-items: center; justify-content: center; }
+    #root .badge svg { width: 66px; height: 66px; }
+    #root .card-h { font-family: "Bricolage Grotesque", sans-serif; font-weight: 800; font-size: 64px; line-height: 1.05; letter-spacing: -0.015em; white-space: nowrap; }
+    #root .card-p { margin-top: 6px; font-weight: 600; font-size: 38px; line-height: 1.2; color: #3d5752; white-space: nowrap; }
+  </style>
+  <div id="root" data-composition-id="online" data-width="1080" data-height="1920">
+    <div class="dots"></div>
+
+    <h1 id="on-title" class="title">
+      <span class="line"><span class="w">Vendé</span></span>
+      <span class="line"><span class="w">online.</span></span>
+    </h1>
+
+    <div id="on-card" class="card-pos">
+      <div class="card">
+        <div class="badge">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#0d2b27" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path id="on-check" pathLength="1" stroke-dasharray="1 1.2" stroke-dashoffset="1.1" d="m16 16 2 2 4-4" />
+            <path d="M21 10V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l2-1.14" />
+            <path d="m7.5 4.27 9 5.15" /><polyline points="3.29 7 12 12 20.71 7" /><line x1="12" x2="12" y1="22" y2="12" />
+          </svg>
+        </div>
+        <div>
+          <div class="card-h">¡Pedido nuevo!</div>
+          <div class="card-p">Del Parque · retiro 18 h</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const tl = gsap.timeline({ paused: true });
+      // Entra justo después del iris: el titular por palabra, la tarjeta se pega con resorte.
+      tl.fromTo("#on-title .w", { opacity: 0, filter: "blur(6px)" }, { opacity: 1, filter: "blur(0px)", duration: 0.14, ease: "power2.out", stagger: 0.08 }, 0.04);
+      tl.fromTo("#on-card", { opacity: 0, y: 150, scale: 0.7, rotation: -10 }, { opacity: 1, y: 0, scale: 1, rotation: 0, duration: 0.45, ease: "back.out(1.6)" }, 0.28);
+      tl.fromTo("#on-check", { strokeDashoffset: 1.1 }, { strokeDashoffset: 0, duration: 0.28, ease: "power2.out" }, 0.62);
+
+      // 1,84 · latigazo a la izquierda (la escena «recetas» entra desde la derecha)
+      tl.fromTo("#on-card", { x: 0, filter: "blur(0px)" }, { x: -1250, filter: "blur(18px)", duration: 0.16, ease: "power3.in", immediateRender: false }, 1.84);
+      tl.fromTo("#on-title", { x: 0, filter: "blur(0px)" }, { x: -1100, filter: "blur(18px)", duration: 0.16, ease: "power3.in", immediateRender: false }, 1.82);
+
+      window.__timelines["online"] = tl;
+    })();
+  </script>
+</template>

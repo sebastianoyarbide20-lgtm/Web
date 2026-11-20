@@ -1,0 +1,91 @@
+<template>
+  <style>
+    @font-face { font-family: "Bricolage Grotesque"; src: url("assets/fonts/BricolageGrotesque-var.woff2") format("woff2"); font-weight: 200 800; }
+    @font-face { font-family: "Figtree"; src: url("assets/fonts/Figtree-var.woff2") format("woff2"); font-weight: 300 900; }
+    #root { position: absolute; inset: 0; overflow: hidden; background: #fff9f0; color: #0d2b27; font-family: "Figtree", sans-serif; }
+    #root .curtain { position: absolute; inset: 0; z-index: 1; background: #0d2b27; }
+    #root .ground { position: absolute; inset: 0; background-image: radial-gradient(circle, #e8dfd1 3px, transparent 3.6px); background-size: 40px 40px; background-position: 20px 20px; }
+    /* Logotipo: isotipo (Petróleo, borde Tinta, cruz Lima, −6°) + ALIAR / ROSARIO */
+    #root .logo { position: absolute; z-index: 2; left: 120px; top: 284px; width: 240px; height: 240px; }
+    #root .logo svg { width: 240px; height: 240px; overflow: visible; }
+    #root .word { position: absolute; left: 386px; top: 302px; font-family: "Bricolage Grotesque", sans-serif; font-weight: 800; font-size: 100px; line-height: 0.93; letter-spacing: -0.01em; white-space: nowrap; }
+    #root .word .pet { color: #0f766e; }
+    #root .spark { position: absolute; width: 58px; height: 58px; }
+    /* Sticker de urgencia (.tag--urgent + .tag--tilt) */
+    #root .tag-pos { position: absolute; left: 120px; top: 572px; }
+    #root .tag { display: inline-flex; align-items: center; gap: 16px; transform: rotate(-3deg); padding: 14px 28px 14px 22px; background: #ffe3d0; color: #b4410c; border: 4px solid #0d2b27; border-radius: 999px; box-shadow: 6px 6px 0 #0d2b27; font: 800 30px/1.2 "Figtree", sans-serif; letter-spacing: 0.05em; text-transform: uppercase; white-space: nowrap; }
+    #root .pdot { position: relative; flex: none; width: 22px; height: 22px; }
+    #root .pdot i { position: absolute; inset: 0; border-radius: 50%; background: #f97316; }
+    #root .title { position: absolute; left: 120px; top: 672px; font-family: "Bricolage Grotesque", sans-serif; font-weight: 800; font-size: 108px; line-height: 1; letter-spacing: -0.038em; }
+    #root .line { display: block; white-space: nowrap; }
+    #root .w { display: inline-block; }
+    #root .pill { display: inline-block; transform: rotate(-1.5deg); background: #e4dbff; border: 5px solid #0d2b27; border-radius: 999px; box-shadow: 7px 7px 0 #0d2b27; padding: 0 0.16em 0.06em; line-height: 0.98; }
+    /* Botón principal (.btn--primary --lg): Coral, texto Tinta, círculo Tinta con flecha Crema */
+    #root .btn-pos { position: absolute; left: 120px; top: 1036px; }
+    #root .btn { display: inline-flex; align-items: center; gap: 22px; height: 120px; padding: 0 16px 0 44px; background: #f97316; border: 4px solid #0d2b27; border-radius: 999px; box-shadow: 8px 8px 0 #0d2b27; font: 800 44px/1 "Figtree", sans-serif; white-space: nowrap; }
+    #root .btn-circle { width: 88px; height: 88px; border-radius: 50%; background: #0d2b27; display: flex; align-items: center; justify-content: center; }
+    #root .btn-circle svg { width: 48px; height: 48px; }
+    #root .launch { position: absolute; left: 120px; top: 1190px; font-weight: 700; font-size: 34px; line-height: 1.2; color: #3d5752; white-space: nowrap; }
+  </style>
+  <div id="root" data-composition-id="cierre" data-width="1080" data-height="1920"
+    data-composition-variables='[{"id":"deadline","type":"string","label":"Urgencia","default":"Inscripción hasta el 10 de diciembre","maxLength":40},{"id":"cta","type":"string","label":"Botón","default":"Postular mi farmacia","maxLength":24},{"id":"launch","type":"string","label":"Lanzamiento","default":"Lanzamiento: 1.º de enero de 2027","maxLength":40}]'>
+    <div class="ground"></div>
+
+    <!-- Cortina Tinta que se levanta (flood Tinta → Crema), arrastrada por el isotipo -->
+    <div id="ci-curtain" class="curtain"></div>
+
+    <div id="ci-logo" class="logo">
+      <svg viewBox="66 70 100 100" aria-label="Isotipo de ALIAR ROSARIO" role="img">
+        <rect x="76" y="80" width="88" height="88" rx="28" fill="#0d2b27" />
+        <rect x="70" y="74" width="88" height="88" rx="28" fill="#0f766e" stroke="#0d2b27" stroke-width="4" />
+        <g transform="translate(88 92) scale(1.625)" fill="#ddf57a">
+          <rect x="11.6" y="2.2" width="8.8" height="9.6" rx="2.6" />
+          <rect x="11.6" y="20.2" width="8.8" height="9.6" rx="2.6" />
+          <rect x="2.2" y="11.6" width="9.6" height="8.8" rx="2.6" />
+          <rect x="20.2" y="11.6" width="9.6" height="8.8" rx="2.6" />
+          <circle cx="16" cy="16" r="2.4" />
+        </g>
+      </svg>
+    </div>
+    <div id="ci-word" class="word">ALIAR<br /><span class="pet">ROSARIO</span></div>
+    <svg id="ci-spark1" class="spark" style="left: 812px; top: 270px" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 0C13 8 16 11 24 12C16 13 13 16 12 24C11 16 8 13 0 12C8 11 11 8 12 0Z" fill="#0f766e" /></svg>
+    <svg id="ci-spark2" class="spark" style="left: 800px; top: 960px; width: 44px; height: 44px" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 0C13 8 16 11 24 12C16 13 13 16 12 24C11 16 8 13 0 12C8 11 11 8 12 0Z" fill="#0d2b27" /></svg>
+
+    <div id="ci-tag" class="tag-pos">
+      <span class="tag"><span class="pdot"><i id="ci-ring"></i><i></i></span><span data-var-text="deadline">Inscripción hasta el 10 de diciembre</span></span>
+    </div>
+
+    <h2 id="ci-title" class="title">
+      <span class="line"><span class="w">Sumate</span> <span class="w">como</span></span>
+      <span class="line"><span class="w">Farmacia</span></span>
+      <span class="line"><span class="w"><span class="pill">Fundadora</span></span><span class="w">.</span></span>
+    </h2>
+
+    <div id="ci-btn" class="btn-pos">
+      <span class="btn"><span data-var-text="cta">Postular mi farmacia</span><span class="btn-circle"><svg id="ci-arrow" viewBox="0 0 24 24" fill="none" stroke="#fff9f0" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14" /><path d="m12 5 7 7-7 7" /></svg></span></span>
+    </div>
+
+    <div id="ci-launch" class="launch" data-var-text="launch">Lanzamiento: 1.º de enero de 2027</div>
+  </div>
+  <script>
+    (function () {
+      const tl = gsap.timeline({ paused: true });
+      // 0,0 · el isotipo sube desde abajo y arrastra el fondo Crema (flood Tinta → Crema)
+      tl.fromTo("#ci-curtain", { yPercent: 0 }, { yPercent: -100, duration: 0.45, ease: "power2.inOut" }, 0);
+      tl.fromTo("#ci-logo", { y: 1700, rotation: 40, scale: 0.85, transformOrigin: "115px 115px" }, { y: 0, rotation: -6, scale: 1, duration: 0.5, ease: "back.out(1.25)" }, 0.06);
+      // 0,5 · la palabra se barre de izquierda a derecha
+      tl.fromTo("#ci-word", { clipPath: "inset(-10% 100% -10% 0%)" }, { clipPath: "inset(-10% 0% -10% 0%)", duration: 0.42, ease: "power3.out" }, 0.48);
+      tl.fromTo("#ci-spark1", { scale: 0, rotation: -45 }, { scale: 1, rotation: 0, duration: 0.4, ease: "back.out(2)" }, 0.86);
+      // 1,0 · urgencia, 1,15 · titular, 1,75 · botón, 2,05 · fecha
+      tl.fromTo("#ci-tag", { opacity: 0, scale: 1.3, rotation: 6 }, { opacity: 1, scale: 1, rotation: 0, duration: 0.32, ease: "back.out(1.8)" }, 1.0);
+      tl.fromTo("#ci-ring", { scale: 1, opacity: 0.75 }, { scale: 2.8, opacity: 0, duration: 0.9, ease: "power2.out", repeat: 3, repeatDelay: 0.1 }, 1.3);
+      tl.fromTo("#ci-title .w", { opacity: 0, filter: "blur(6px)" }, { opacity: 1, filter: "blur(0px)", duration: 0.14, ease: "power2.out", stagger: 0.08 }, 1.15);
+      tl.fromTo("#ci-btn", { opacity: 0, scale: 0.6, y: 40, transformOrigin: "0% 50%" }, { opacity: 1, scale: 1, y: 0, duration: 0.42, ease: "back.out(1.7)" }, 1.72);
+      tl.fromTo("#ci-spark2", { scale: 0, rotation: 45 }, { scale: 1, rotation: 0, duration: 0.4, ease: "back.out(2)" }, 2.0);
+      tl.fromTo("#ci-launch", { opacity: 0, filter: "blur(6px)" }, { opacity: 1, filter: "blur(0px)", duration: 0.2, ease: "power2.out" }, 2.05);
+      // 2,9 · la flecha empuja dos veces: «tocá acá»
+      tl.fromTo("#ci-arrow", { x: 0 }, { x: 9, duration: 0.16, ease: "power2.out", yoyo: true, repeat: 3 }, 2.9);
+      window.__timelines["cierre"] = tl;
+    })();
+  </script>
+</template>

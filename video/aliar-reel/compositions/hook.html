@@ -1,0 +1,75 @@
+<template>
+  <style>
+    @font-face { font-family: "Bricolage Grotesque"; src: url("assets/fonts/BricolageGrotesque-var.woff2") format("woff2"); font-weight: 200 800; }
+    @font-face { font-family: "Figtree"; src: url("assets/fonts/Figtree-var.woff2") format("woff2"); font-weight: 300 900; }
+    #root { position: absolute; inset: 0; overflow: hidden; background: #fff9f0; color: #0d2b27; font-family: "Figtree", sans-serif; }
+    #root .dots { position: absolute; inset: 0; background-image: radial-gradient(circle, #e8dfd1 3px, transparent 3.6px); background-size: 40px 40px; background-position: 20px 20px; }
+    #root .title { position: absolute; left: 120px; font-family: "Bricolage Grotesque", sans-serif; font-weight: 800; font-size: 128px; line-height: 1; letter-spacing: -0.038em; }
+    #root .line { display: block; position: relative; white-space: nowrap; }
+    #root .w { display: inline-block; }
+    #root .pet { color: #0f766e; }
+    #root .pill { display: inline-block; transform: rotate(-1.5deg); background: #e4dbff; border: 5px solid #0d2b27; border-radius: 999px; box-shadow: 7px 7px 0 #0d2b27; padding: 0 0.16em 0.06em; line-height: 0.98; }
+    #root .eyebrow { position: absolute; left: 120px; top: 300px; }
+    #root .eyebrow-in { display: inline-block; transform: rotate(-2deg); padding: 14px 28px; background: #ddf57a; border: 4px solid #0d2b27; border-radius: 999px; box-shadow: 6px 6px 0 #0d2b27; font: 800 30px/1.2 "Figtree", sans-serif; letter-spacing: 0.08em; text-transform: uppercase; }
+    #root .wave { position: absolute; left: 0; top: 112px; width: 445px; height: 34px; overflow: visible; }
+    /* Módulo-farmacia: rectángulo del isotipo (8,8 × 9,6 u, u = 18,84 px) */
+    #root .mod { position: absolute; width: 166px; height: 181px; }
+    #root .mod-body { position: absolute; inset: 0; border-radius: 49px; border: 4px solid #0d2b27; box-shadow: 8px 8px 0 #0d2b27; display: flex; align-items: center; justify-content: center; }
+    #root .mod-body svg { width: 76px; height: 76px; }
+    #root .tag { position: absolute; left: 50%; top: -36px; white-space: nowrap; transform: translateX(-50%) rotate(-3deg); padding: 10px 20px; background: #ffffff; border: 4px solid #0d2b27; border-radius: 999px; box-shadow: 5px 5px 0 #0d2b27; font: 800 30px/1.2 "Figtree", sans-serif; letter-spacing: 0.06em; text-transform: uppercase; }
+  </style>
+  <div id="root" data-composition-id="hook" data-width="1080" data-height="1920">
+    <div class="dots"></div>
+
+    <div id="hook-eyebrow" class="eyebrow"><span class="eyebrow-in">Para farmacias de barrio</span></div>
+
+    <h1 id="hook-t1" class="title" style="top: 420px">
+      <span class="line"><span class="w">Las</span> <span class="w"><span class="pill">cadenas</span></span></span>
+      <span class="line"><span class="w">tienen</span> <span class="w">app,</span></span>
+      <span class="line"><span class="w">web</span> <span class="w">y</span> <span class="w">envíos.</span></span>
+    </h1>
+
+    <h1 id="hook-t2" class="title" style="top: 420px">
+      <span class="line"><span class="w">¿Y</span> <span class="w">tu</span></span>
+      <span class="line"><span class="w pet">farmacia</span></span>
+      <span class="line"><span class="w pet">de</span> <span class="w pet">barrio</span><span class="w">?</span>
+        <svg id="hook-wave" class="wave" viewBox="0 0 470 34" aria-hidden="true">
+          <path id="hook-wave-path" pathLength="1" d="M6 17 q 19.5 -14 39 0 t 39 0 t 39 0 t 39 0 t 39 0 t 39 0 t 39 0 t 39 0 t 39 0 t 39 0 t 39 0 t 39 0" fill="none" stroke="#b6db2e" stroke-width="11" stroke-linecap="round" stroke-dasharray="1 1.2" stroke-dashoffset="1.1" />
+        </svg>
+      </span>
+    </h1>
+
+    <!-- La farmacia sola: cae al final y pasa tal cual a la escena «red» -->
+    <div id="hook-mod" class="mod" style="left: 421px; top: 899.5px">
+      <div class="mod-body" style="background: #bff0da">
+        <svg viewBox="0 0 24 24" fill="none" stroke="#0d2b27" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m2 7 4.41-4.41A2 2 0 0 1 7.83 2h8.34a2 2 0 0 1 1.42.59L22 7" /><path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8" /><path d="M15 22v-4a2 2 0 0 0-2-2h-2a2 2 0 0 0-2 2v4" /><path d="M2 7h20" /><path d="M22 7v3a2 2 0 0 1-2 2a2.7 2.7 0 0 1-1.59-.63.7.7 0 0 0-.82 0A2.7 2.7 0 0 1 16 12a2.7 2.7 0 0 1-1.59-.63.7.7 0 0 0-.82 0A2.7 2.7 0 0 1 12 12a2.7 2.7 0 0 1-1.59-.63.7.7 0 0 0-.82 0A2.7 2.7 0 0 1 8 12a2.7 2.7 0 0 1-1.59-.63.7.7 0 0 0-.82 0A2.7 2.7 0 0 1 4 12a2 2 0 0 1-2-2V7" /></svg>
+      </div>
+      <span class="tag">Tu farmacia</span>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const tl = gsap.timeline({ paused: true });
+      const IN = { opacity: 1, filter: "blur(0px)", duration: 0.14, ease: "power2.out" };
+
+      // Cuadro 0: antetítulo + «Las cadenas» ya en pantalla (miniatura). El resto entra por palabra.
+      const t1rest = gsap.utils.toArray("#hook-t1 .line:nth-child(n+2) .w");
+      tl.fromTo(t1rest, { opacity: 0, filter: "blur(6px)" }, { ...IN, stagger: 0.07 }, 0.15);
+
+      // 2,0 s (compás 2): sale el titular de las cadenas, entra la pregunta.
+      tl.fromTo("#hook-t1 .w", { opacity: 1, filter: "blur(0px)" }, { opacity: 0, filter: "blur(8px)", duration: 0.13, ease: "power2.in", stagger: 0.02, immediateRender: false }, 1.85);
+      tl.fromTo("#hook-t2 .w", { opacity: 0, filter: "blur(6px)" }, { ...IN, stagger: 0.07 }, 2.02);
+      tl.fromTo("#hook-wave-path", { strokeDashoffset: 1.1 }, { strokeDashoffset: 0, duration: 0.42, ease: "power2.inOut" }, 2.45);
+
+      // 3,5 s: la farmacia sola se pega en el centro (resorte juguetón).
+      tl.fromTo("#hook-mod", { opacity: 0, y: -220, rotation: 14, scale: 1.25 }, { opacity: 1, y: 0, rotation: 0, scale: 1, duration: 0.4, ease: "back.out(1.6)" }, 3.18);
+
+      // Salida: la pregunta y el antetítulo se borronean; el módulo queda (pasa a la escena siguiente).
+      tl.fromTo("#hook-t2 .w", { opacity: 1, filter: "blur(0px)" }, { opacity: 0, filter: "blur(8px)", duration: 0.12, ease: "power2.in", stagger: 0.02, immediateRender: false }, 3.8);
+      tl.fromTo("#hook-wave", { opacity: 1 }, { opacity: 0, duration: 0.12, immediateRender: false }, 3.86);
+      tl.fromTo("#hook-eyebrow", { opacity: 1, filter: "blur(0px)" }, { opacity: 0, filter: "blur(8px)", duration: 0.14, immediateRender: false }, 3.8);
+
+      window.__timelines["hook"] = tl;
+    })();
+  </script>
+</template>

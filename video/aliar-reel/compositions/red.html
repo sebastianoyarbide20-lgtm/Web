@@ -1,0 +1,124 @@
+<template>
+  <style>
+    @font-face { font-family: "Bricolage Grotesque"; src: url("assets/fonts/BricolageGrotesque-var.woff2") format("woff2"); font-weight: 200 800; }
+    @font-face { font-family: "Figtree"; src: url("assets/fonts/Figtree-var.woff2") format("woff2"); font-weight: 300 900; }
+    @font-face { font-family: "Caveat"; src: url("assets/fonts/Caveat-var.woff2") format("woff2"); font-weight: 400 700; }
+    #root { position: absolute; inset: 0; overflow: hidden; background: #fff9f0; color: #0d2b27; font-family: "Figtree", sans-serif; }
+    #root .dots { position: absolute; inset: 0; background-image: radial-gradient(circle, #e8dfd1 3px, transparent 3.6px); background-size: 40px 40px; background-position: 20px 20px; }
+    #root .title { position: absolute; left: 120px; top: 360px; font-family: "Bricolage Grotesque", sans-serif; font-weight: 800; font-size: 136px; line-height: 1; letter-spacing: -0.038em; }
+    #root .line { display: block; white-space: nowrap; }
+    #root .w { display: inline-block; }
+    #root .pill { display: inline-block; transform: rotate(-1.5deg); background: #e4dbff; border: 5px solid #0d2b27; border-radius: 999px; box-shadow: 7px 7px 0 #0d2b27; padding: 0 0.16em 0.06em; line-height: 0.98; }
+    /* La cruz: centro C = (504, 990), u = 18,84 px */
+    #root .stage { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; }
+    #root .box { position: absolute; left: -6px; top: 480px; width: 1020px; height: 1020px; border-radius: 324px; }
+    #root .mod { position: absolute; }
+    #root .mod.v { width: 166px; height: 181px; }
+    #root .mod.h { width: 181px; height: 166px; }
+    #root .mod-body { position: absolute; inset: 0; border-radius: 49px; border: 4px solid #0d2b27; box-shadow: 8px 8px 0 #0d2b27; display: flex; align-items: center; justify-content: center; }
+    #root .mod-body svg { width: 76px; height: 76px; }
+    #root .tag { position: absolute; left: 50%; top: -36px; white-space: nowrap; transform: translateX(-50%) rotate(-3deg); padding: 10px 20px; background: #ffffff; border: 4px solid #0d2b27; border-radius: 999px; box-shadow: 5px 5px 0 #0d2b27; font: 800 30px/1.2 "Figtree", sans-serif; letter-spacing: 0.06em; text-transform: uppercase; }
+    #root .dot { position: absolute; left: 458.8px; top: 944.8px; width: 90.4px; height: 90.4px; border-radius: 50%; background: #ddf57a; border: 4px solid #0d2b27; }
+    #root .note { position: absolute; left: 612px; top: 1092px; font: 700 58px/1.02 "Caveat", cursive; color: #0f766e; white-space: nowrap; }
+    #root .note-arrow { position: absolute; left: 560px; top: 1030px; width: 90px; height: 80px; overflow: visible; }
+    #root .iris { position: absolute; left: -616px; top: -130px; width: 2240px; height: 2240px; border-radius: 50%; background: #bff0da; }
+  </style>
+  <div id="root" data-composition-id="red" data-width="1080" data-height="1920">
+    <div class="dots"></div>
+
+    <h1 id="red-t1" class="title">
+      <span class="line"><span class="w">Sola,</span></span>
+      <span class="line"><span class="w">no</span> <span class="w">llega</span></span>
+      <span class="line"><span class="w">a</span> <span class="w">todo.</span></span>
+    </h1>
+    <h1 id="red-t2" class="title">
+      <span class="line"><span class="w">Juntas,</span></span>
+      <span class="line"><span class="w">son</span> <span class="w">una</span> <span class="w"><span class="pill">red</span></span><span class="w">.</span></span>
+    </h1>
+
+    <div id="red-mark" class="stage" data-layout-allow-overflow data-layout-allow-overlap>
+      <!-- Contenedor del isotipo: Petróleo con borde Tinta y sombra sólida desplazada -->
+      <div id="red-boxwrap" class="stage">
+        <div class="box" style="transform: translate(70px, 70px); background: #0d2b27"></div>
+        <div class="box" style="background: #0f766e; border: 8px solid #0d2b27"></div>
+      </div>
+
+      <!-- Cuatro farmacias, cuatro mundos -->
+      <div id="red-m0" class="mod v" style="left: 421px; top: 730px">
+        <div class="mod-body" style="background: #bff0da">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#0d2b27" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m2 7 4.41-4.41A2 2 0 0 1 7.83 2h8.34a2 2 0 0 1 1.42.59L22 7" /><path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8" /><path d="M15 22v-4a2 2 0 0 0-2-2h-2a2 2 0 0 0-2 2v4" /><path d="M2 7h20" /><path d="M22 7v3a2 2 0 0 1-2 2a2.7 2.7 0 0 1-1.59-.63.7.7 0 0 0-.82 0A2.7 2.7 0 0 1 16 12a2.7 2.7 0 0 1-1.59-.63.7.7 0 0 0-.82 0A2.7 2.7 0 0 1 12 12a2.7 2.7 0 0 1-1.59-.63.7.7 0 0 0-.82 0A2.7 2.7 0 0 1 8 12a2.7 2.7 0 0 1-1.59-.63.7.7 0 0 0-.82 0A2.7 2.7 0 0 1 4 12a2 2 0 0 1-2-2V7" /></svg>
+        </div>
+        <span class="tag">Tu farmacia</span>
+      </div>
+      <div id="red-m1" class="mod h" style="left: 243.9px; top: 907px">
+        <div class="mod-body" style="background: #e4dbff">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#0d2b27" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m2 7 4.41-4.41A2 2 0 0 1 7.83 2h8.34a2 2 0 0 1 1.42.59L22 7" /><path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8" /><path d="M15 22v-4a2 2 0 0 0-2-2h-2a2 2 0 0 0-2 2v4" /><path d="M2 7h20" /><path d="M22 7v3a2 2 0 0 1-2 2a2.7 2.7 0 0 1-1.59-.63.7.7 0 0 0-.82 0A2.7 2.7 0 0 1 16 12a2.7 2.7 0 0 1-1.59-.63.7.7 0 0 0-.82 0A2.7 2.7 0 0 1 12 12a2.7 2.7 0 0 1-1.59-.63.7.7 0 0 0-.82 0A2.7 2.7 0 0 1 8 12a2.7 2.7 0 0 1-1.59-.63.7.7 0 0 0-.82 0A2.7 2.7 0 0 1 4 12a2 2 0 0 1-2-2V7" /></svg>
+        </div>
+        <span class="tag" style="left: 40%">Fisherton</span>
+      </div>
+      <div id="red-m2" class="mod h" style="left: 583.1px; top: 907px">
+        <div class="mod-body" style="background: #ffedb3">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#0d2b27" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m2 7 4.41-4.41A2 2 0 0 1 7.83 2h8.34a2 2 0 0 1 1.42.59L22 7" /><path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8" /><path d="M15 22v-4a2 2 0 0 0-2-2h-2a2 2 0 0 0-2 2v4" /><path d="M2 7h20" /><path d="M22 7v3a2 2 0 0 1-2 2a2.7 2.7 0 0 1-1.59-.63.7.7 0 0 0-.82 0A2.7 2.7 0 0 1 16 12a2.7 2.7 0 0 1-1.59-.63.7.7 0 0 0-.82 0A2.7 2.7 0 0 1 12 12a2.7 2.7 0 0 1-1.59-.63.7.7 0 0 0-.82 0A2.7 2.7 0 0 1 8 12a2.7 2.7 0 0 1-1.59-.63.7.7 0 0 0-.82 0A2.7 2.7 0 0 1 4 12a2 2 0 0 1-2-2V7" /></svg>
+        </div>
+        <span class="tag" style="left: 54%">Echesortu</span>
+      </div>
+      <div id="red-m3" class="mod v" style="left: 421px; top: 1069px">
+        <div class="mod-body" style="background: #ddf57a">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#0d2b27" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m2 7 4.41-4.41A2 2 0 0 1 7.83 2h8.34a2 2 0 0 1 1.42.59L22 7" /><path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8" /><path d="M15 22v-4a2 2 0 0 0-2-2h-2a2 2 0 0 0-2 2v4" /><path d="M2 7h20" /><path d="M22 7v3a2 2 0 0 1-2 2a2.7 2.7 0 0 1-1.59-.63.7.7 0 0 0-.82 0A2.7 2.7 0 0 1 16 12a2.7 2.7 0 0 1-1.59-.63.7.7 0 0 0-.82 0A2.7 2.7 0 0 1 12 12a2.7 2.7 0 0 1-1.59-.63.7.7 0 0 0-.82 0A2.7 2.7 0 0 1 8 12a2.7 2.7 0 0 1-1.59-.63.7.7 0 0 0-.82 0A2.7 2.7 0 0 1 4 12a2 2 0 0 1-2-2V7" /></svg>
+        </div>
+        <span class="tag" style="left: -112px; top: 50px">Alberdi</span>
+      </div>
+
+      <!-- El punto: la red que las une -->
+      <div id="red-dot" class="dot"></div>
+    </div>
+
+    <!-- Una sola nota manuscrita en todo el film -->
+    <svg id="red-arrow" class="note-arrow" viewBox="0 0 90 80" aria-hidden="true">
+      <path id="red-arrow-path" pathLength="1" d="M78 74 C 70 46, 52 26, 22 14 M22 14 l 16 -8 M22 14 l 10 14" fill="none" stroke="#0f766e" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="1 1.2" stroke-dashoffset="1.1" />
+    </svg>
+    <div id="red-note" class="note">el punto<br />es la red</div>
+
+    <!-- Iris hacia el mundo Menta, desde el punto -->
+    <div id="red-iris" class="iris"></div>
+  </div>
+  <script>
+    (function () {
+      const tl = gsap.timeline({ paused: true });
+      const IN = { opacity: 1, filter: "blur(0px)", duration: 0.14, ease: "power2.out" };
+      const OUT = { opacity: 0, filter: "blur(8px)", duration: 0.13, ease: "power2.in", stagger: 0.02, immediateRender: false };
+      const FROM_ON = { opacity: 1, filter: "blur(0px)" };
+
+      // 0,0 · la farmacia sola (llega de «hook» en el centro de la cruz)
+      tl.fromTo("#red-t1 .w", { opacity: 0, filter: "blur(6px)" }, { ...IN, stagger: 0.07 }, 0.05);
+      tl.fromTo("#red-t2 .line:nth-child(1) .w", { opacity: 0, filter: "blur(6px)" }, { ...IN, stagger: 0.07 }, 2.0);
+      tl.fromTo("#red-t1 .w", FROM_ON, OUT, 1.84);
+
+      // 2,0 · «Juntas,»: la primera sube a su lugar y llegan las otras tres (corcheas: 6,5 · 6,75 · 7,0 s)
+      tl.fromTo("#red-m0", { y: 169.5 }, { y: 0, duration: 0.5, ease: "power3.inOut" }, 2.0);
+      tl.fromTo("#red-m1", { x: -620, y: -360, rotation: -28 }, { x: 0, y: 0, rotation: 0, duration: 0.55, ease: "back.out(1.4)" }, 2.22);
+      tl.fromTo("#red-m2", { x: 640, y: -260, rotation: 24 }, { x: 0, y: 0, rotation: 0, duration: 0.55, ease: "back.out(1.4)" }, 2.47);
+      tl.fromTo("#red-m3", { x: 120, y: 900, rotation: 18 }, { x: 0, y: 0, rotation: 0, duration: 0.55, ease: "back.out(1.4)" }, 2.72);
+
+      // 3,25 · el punto aparece; 3,5 · «son una red.»
+      tl.fromTo("#red-dot", { scale: 0 }, { scale: 1, duration: 0.35, ease: "back.out(2.2)" }, 3.2);
+      tl.fromTo("#red-t2 .line:nth-child(2) .w", { opacity: 0, filter: "blur(6px)" }, { ...IN, stagger: 0.07 }, 3.5);
+      tl.fromTo("#red-arrow-path", { strokeDashoffset: 1.1 }, { strokeDashoffset: 0, duration: 0.35, ease: "power2.out" }, 3.28);
+      tl.fromTo("#red-note", { opacity: 0, filter: "blur(4px)" }, { opacity: 1, filter: "blur(0px)", duration: 0.2 }, 3.36);
+
+      // 4,5 · se vuelven el isotipo: Lima sobre Petróleo, giro −6°
+      tl.fromTo(["#red-mark .tag", "#red-mark .mod-body svg", "#red-note", "#red-arrow"], { opacity: 1 }, { opacity: 0, duration: 0.15, immediateRender: false }, 4.5);
+      tl.fromTo("#red-mark .mod-body", { borderColor: "#0d2b27", boxShadow: "8px 8px 0px #0d2b27" }, { backgroundColor: "#ddf57a", borderColor: "#ddf57a", boxShadow: "0px 0px 0px #0f766e", duration: 0.3, ease: "power2.inOut", immediateRender: false }, 4.6);
+      tl.fromTo("#red-dot", { borderColor: "#0d2b27" }, { borderColor: "#ddf57a", duration: 0.3, immediateRender: false }, 4.6);
+      tl.fromTo("#red-boxwrap", { scale: 0, transformOrigin: "504px 990px" }, { scale: 1, duration: 0.55, ease: "back.out(1.3)" }, 4.6);
+      tl.fromTo("#red-mark", { scale: 1, rotation: 0, transformOrigin: "504px 990px" }, { scale: 0.5, rotation: -6, duration: 0.55, ease: "power3.inOut" }, 4.6);
+
+      // 5,15 · empuje de cámara hacia el punto, 5,45 · iris Menta desde el punto
+      tl.fromTo("#red-mark", { scale: 0.5 }, { scale: 0.57, duration: 0.3, ease: "power2.inOut", immediateRender: false }, 5.15);
+      tl.fromTo("#red-t2 .w", FROM_ON, OUT, 5.3);
+      tl.fromTo("#red-iris", { scale: 0 }, { scale: 1, duration: 0.5, ease: "power3.in" }, 5.45);
+
+      window.__timelines["red"] = tl;
+    })();
+  </script>
+</template>

@@ -1,0 +1,34 @@
+<template>
+  <style>
+    @font-face { font-family: "Bricolage Grotesque"; src: url("assets/fonts/BricolageGrotesque-var.woff2") format("woff2"); font-weight: 200 800; }
+    @font-face { font-family: "Figtree"; src: url("assets/fonts/Figtree-var.woff2") format("woff2"); font-weight: 300 900; }
+    #root { position: absolute; inset: 0; overflow: hidden; background: #0d2b27; color: #fff9f0; font-family: "Figtree", sans-serif; }
+    #root .dots { position: absolute; inset: 0; background-image: radial-gradient(circle, rgba(255, 249, 240, 0.07) 3px, transparent 3.6px); background-size: 40px 40px; background-position: 20px 20px; }
+    #root .num { position: absolute; left: 124px; top: 352px; font-family: "Bricolage Grotesque", sans-serif; font-weight: 800; font-size: 400px; line-height: 0.9; letter-spacing: -0.045em; color: #ddf57a; white-space: nowrap; }
+    #root .sub { position: absolute; left: 120px; top: 736px; font-family: "Bricolage Grotesque", sans-serif; font-weight: 800; font-size: 124px; line-height: 1; letter-spacing: -0.038em; white-space: nowrap; }
+    #root .body { position: absolute; left: 120px; top: 916px; font-weight: 600; font-size: 56px; line-height: 1.25; }
+    #root .line { display: block; white-space: nowrap; }
+    #root .w { display: inline-block; }
+  </style>
+  <div id="root" data-composition-id="costo" data-width="1080" data-height="1920">
+    <div class="dots"></div>
+    <div id="co-num" class="num">0&nbsp;%</div>
+    <div id="co-sub" class="sub">costo fijo</div>
+    <p id="co-body" class="body">
+      <span class="line"><span class="w">Solo</span> <span class="w">pagás</span> <span class="w">cuando</span></span>
+      <span class="line"><span class="w">concretás</span> <span class="w">una</span> <span class="w">venta.</span></span>
+    </p>
+  </div>
+  <script>
+    (function () {
+      const tl = gsap.timeline({ paused: true });
+      // El número cae con peso y queda quieto.
+      tl.fromTo("#co-num", { opacity: 0, scale: 1.6, filter: "blur(16px)", transformOrigin: "0% 60%" }, { opacity: 1, scale: 1, filter: "blur(0px)", duration: 0.3, ease: "expo.out" }, 0.02);
+      tl.fromTo("#co-sub", { opacity: 0, filter: "blur(8px)" }, { opacity: 1, filter: "blur(0px)", duration: 0.18, ease: "power2.out" }, 0.32);
+      tl.fromTo("#co-body .w", { opacity: 0.1 }, { opacity: 1, duration: 0.12, ease: "power1.out", stagger: 0.08 }, 0.62);
+      // 2,8 · se borronea antes del cierre (corte de música 2,5–3,0)
+      tl.fromTo(["#co-num", "#co-sub", "#co-body"], { opacity: 1, filter: "blur(0px)" }, { opacity: 0, filter: "blur(10px)", duration: 0.15, ease: "power2.in", stagger: 0.03, immediateRender: false }, 2.78);
+      window.__timelines["costo"] = tl;
+    })();
+  </script>
+</template>

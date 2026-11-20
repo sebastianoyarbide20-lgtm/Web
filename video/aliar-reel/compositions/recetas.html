@@ -1,0 +1,66 @@
+<template>
+  <style>
+    @font-face { font-family: "Bricolage Grotesque"; src: url("assets/fonts/BricolageGrotesque-var.woff2") format("woff2"); font-weight: 200 800; }
+    @font-face { font-family: "Figtree"; src: url("assets/fonts/Figtree-var.woff2") format("woff2"); font-weight: 300 900; }
+    #root { position: absolute; inset: 0; overflow: hidden; background: #e4dbff; color: #0d2b27; font-family: "Figtree", sans-serif; }
+    #root .dots { position: absolute; inset: 0; background-image: radial-gradient(circle, rgba(13, 43, 39, 0.1) 3px, transparent 3.6px); background-size: 40px 40px; background-position: 20px 20px; }
+    #root .title { position: absolute; left: 120px; top: 390px; font-family: "Bricolage Grotesque", sans-serif; font-weight: 800; font-size: 136px; line-height: 1; letter-spacing: -0.038em; }
+    #root .line { display: block; white-space: nowrap; }
+    #root .deep { color: #0b4f49; }
+    /* Burbuja de «escribiendo…» que se transforma en la tarjeta */
+    #root .bubble-pos { position: absolute; left: 120px; top: 870px; }
+    #root .bubble { display: flex; gap: 18px; align-items: center; padding: 40px 46px; background: #ffffff; border: 4px solid #0d2b27; border-radius: 48px 48px 48px 10px; box-shadow: 10px 10px 0 #0d2b27; }
+    #root .bdot { width: 26px; height: 26px; border-radius: 50%; background: #0d2b27; }
+    #root .card-pos { position: absolute; left: 120px; top: 870px; }
+    #root .card { display: flex; align-items: center; gap: 24px; transform: rotate(2deg); padding: 30px 34px 30px 28px; background: #ffffff; border: 4px solid #0d2b27; border-radius: 40px; box-shadow: 12px 12px 0 #0d2b27; }
+    #root .badge { flex: none; width: 112px; height: 112px; border-radius: 50%; border: 4px solid #0d2b27; background: #0f766e; display: flex; align-items: center; justify-content: center; }
+    #root .badge svg { width: 58px; height: 58px; }
+    #root .card-h { font-family: "Bricolage Grotesque", sans-serif; font-weight: 800; font-size: 60px; line-height: 1.05; letter-spacing: -0.015em; white-space: nowrap; }
+    #root .card-p { margin-top: 6px; font-weight: 600; font-size: 36px; line-height: 1.2; color: #3d5752; white-space: nowrap; }
+  </style>
+  <div id="root" data-composition-id="recetas" data-width="1080" data-height="1920">
+    <div class="dots"></div>
+
+    <h1 id="rx-title" class="title">
+      <span class="line">Cotizá</span>
+      <span class="line">recetas por</span>
+      <span class="line deep">WhatsApp.</span>
+    </h1>
+
+    <div id="rx-bubble" class="bubble-pos" data-layout-allow-overlap>
+      <div class="bubble"><span id="rx-d1" class="bdot"></span><span id="rx-d2" class="bdot"></span><span id="rx-d3" class="bdot"></span></div>
+    </div>
+
+    <div id="rx-card" class="card-pos" data-layout-allow-overlap>
+      <div class="card">
+        <div class="badge">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z" /></svg>
+        </div>
+        <div>
+          <div class="card-h">Receta cotizada</div>
+          <div class="card-p">Confirmada por WhatsApp</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const tl = gsap.timeline({ paused: true });
+      // Latigazo desde la derecha: el titular aterriza borroso y se enfoca.
+      tl.fromTo("#rx-title", { x: 1100, filter: "blur(18px)" }, { x: 0, filter: "blur(0px)", duration: 0.3, ease: "expo.out" }, 0);
+      // Burbuja de «escribiendo…»
+      tl.fromTo("#rx-bubble", { opacity: 0, scale: 0.6, transformOrigin: "0% 100%" }, { opacity: 1, scale: 1, duration: 0.28, ease: "back.out(1.7)" }, 0.14);
+      ["#rx-d1", "#rx-d2", "#rx-d3"].forEach((d, i) => {
+        tl.fromTo(d, { y: 0 }, { y: -14, duration: 0.12, ease: "power2.out", yoyo: true, repeat: 1 }, 0.3 + i * 0.08);
+      });
+      // 0,68 · la burbuja se transforma en la tarjeta (se ensancha hacia la derecha)
+      tl.fromTo("#rx-bubble", { opacity: 1, scaleX: 1 }, { opacity: 0, scaleX: 2.4, duration: 0.2, ease: "power3.out", immediateRender: false }, 0.68);
+      tl.fromTo("#rx-card", { opacity: 0, scaleX: 0.35, filter: "blur(10px)", transformOrigin: "0% 50%" }, { opacity: 1, scaleX: 1, filter: "blur(0px)", duration: 0.24, ease: "power3.out" }, 0.7);
+
+      // 1,86 · salida: todo se borronea (entra la cinta de barrios)
+      tl.fromTo(["#rx-title", "#rx-card"], { opacity: 1, filter: "blur(0px)" }, { opacity: 0, filter: "blur(10px)", duration: 0.13, ease: "power2.in", immediateRender: false }, 1.86);
+
+      window.__timelines["recetas"] = tl;
+    })();
+  </script>
+</template>
