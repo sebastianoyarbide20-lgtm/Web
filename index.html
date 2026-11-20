@@ -1,0 +1,1076 @@
+<!doctype html>
+<html lang="es-AR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>ALIAR ROSARIO · Alianza y Respaldo para farmacias independientes</title>
+  <meta name="description" content="Tu farmacia de barrio, con la fuerza de una red. Plataforma común para que las farmacias independientes de Rosario vendan online, coticen recetas por WhatsApp y lleguen a más vecinos. Lanzamiento piloto: 1.º de enero de 2027.">
+  <meta name="theme-color" content="#0F766E">
+  <meta name="color-scheme" content="light">
+
+  <!-- Vista previa al compartir el link (WhatsApp, redes) -->
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="es_AR">
+  <meta property="og:site_name" content="ALIAR ROSARIO">
+  <meta property="og:title" content="ALIAR ROSARIO · Postulá tu farmacia como Fundadora">
+  <meta property="og:description" content="La tecnología y el marketing de una gran cadena, sin dejar de ser tu farmacia de barrio. Inscripción abierta hasta el 10 de diciembre · Cupos limitados por barrio.">
+  <meta name="twitter:card" content="summary">
+
+  <!-- Favicon en SVG embebido (no depende de archivos externos) -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%230F766E'/%3E%3Cg fill='%23fff'%3E%3Crect x='12.6' y='4.5' width='6.8' height='7.6' rx='2'/%3E%3Crect x='12.6' y='19.9' width='6.8' height='7.6' rx='2'/%3E%3Crect x='4.5' y='12.6' width='7.6' height='6.8' rx='2'/%3E%3Crect x='19.9' y='12.6' width='7.6' height='6.8' rx='2'/%3E%3Ccircle cx='16' cy='16' r='1.9'/%3E%3C/g%3E%3C/svg%3E">
+
+  <!-- Tipografías: Bricolage Grotesque (títulos) + Figtree (texto) + Caveat (notas a mano) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500..800&family=Caveat:wght@600..700&family=Figtree:wght@400..800&display=swap">
+
+  <link rel="stylesheet" href="./styles.css">
+
+  <!-- Íconos lineales Lucide (versión fija + integridad) -->
+  <script src="https://unpkg.com/lucide@0.469.0/dist/umd/lucide.min.js" integrity="sha384-hJnF5AwidE18GSWTAGHv3ByzzvfNZ1Tcx5y1UUV3WkauuMCEzBJBMSwSt/PUPXnM" crossorigin="anonymous" defer></script>
+  <script src="./script.js" defer></script>
+</head>
+<body>
+  <!-- Isotipo reutilizable: cruz de farmacia formada por 4 piezas (las farmacias) y un punto común (la alianza) -->
+  <svg width="0" height="0" class="sprite" aria-hidden="true" focusable="false">
+    <symbol id="mark" viewBox="0 0 32 32">
+      <rect x="11.6" y="2.2" width="8.8" height="9.6" rx="2.6"/>
+      <rect x="11.6" y="20.2" width="8.8" height="9.6" rx="2.6"/>
+      <rect x="2.2" y="11.6" width="9.6" height="8.8" rx="2.6"/>
+      <rect x="20.2" y="11.6" width="9.6" height="8.8" rx="2.6"/>
+      <circle cx="16" cy="16" r="2.4"/>
+    </symbol>
+  </svg>
+
+  <a class="skip-link" href="#contenido">Saltar al contenido</a>
+
+  <!-- ===================================================================
+       ENCABEZADO: barra de anuncio + navegación flotante
+       =================================================================== -->
+  <header class="site-header" id="site-header">
+    <div class="announce" id="announce">
+      <div class="container">
+        <p class="announce__text">
+          <span class="announce__star" aria-hidden="true">✦</span>
+          <span>Lanzamiento oficial en Rosario: <strong>1.º de enero de 2027</strong></span>
+          <span class="announce__sep" aria-hidden="true">·</span>
+          <span>Inscripción de Farmacias Fundadoras abierta hasta el <strong>10 de diciembre</strong></span>
+          <span class="announce__sep" aria-hidden="true">·</span>
+          <span class="tag tag--urgent"><span class="tag__dot" aria-hidden="true"></span>Cupos limitados por barrio</span>
+        </p>
+      </div>
+    </div>
+
+    <div class="navbar" id="navbar">
+      <div class="container">
+        <nav class="navbar__inner" aria-label="Navegación principal">
+          <a class="brand" href="#inicio">
+            <span class="brand__mark" aria-hidden="true"><svg><use href="#mark"/></svg></span>
+            <span class="brand__text">
+              <span class="brand__name">ALIAR <span>ROSARIO</span></span>
+              <span class="brand__tagline">Alianza y Respaldo para farmacias independientes</span>
+            </span>
+          </a>
+
+          <ul class="navbar__links" role="list">
+            <li><a href="#como-funciona" data-nav-link>Cómo funciona</a></li>
+            <li><a href="#prototipo" data-nav-link>Ver prototipo</a></li>
+            <li><a href="#barrios" data-nav-link>Barrios del piloto</a></li>
+            <li><a href="#preguntas" data-nav-link>Preguntas frecuentes</a></li>
+          </ul>
+
+          <div class="navbar__actions">
+            <a class="btn btn--primary btn--sm navbar__cta" href="#postular">Postular mi farmacia</a>
+            <button class="navbar__toggle" type="button" aria-expanded="false" aria-controls="menu-movil">
+              <span class="visually-hidden" data-toggle-label>Abrir menú</span>
+              <i data-lucide="menu" class="navbar__toggle-open"></i>
+              <i data-lucide="x" class="navbar__toggle-close"></i>
+            </button>
+          </div>
+        </nav>
+      </div>
+
+      <div class="mobile-menu" id="menu-movil">
+        <div class="container">
+          <div class="mobile-menu__panel">
+            <ul class="mobile-menu__links" role="list">
+              <li><a href="#como-funciona"><span>Cómo funciona</span><i data-lucide="arrow-up-right"></i></a></li>
+              <li><a href="#prototipo"><span>Ver prototipo</span><i data-lucide="arrow-up-right"></i></a></li>
+              <li><a href="#barrios"><span>Barrios del piloto</span><i data-lucide="arrow-up-right"></i></a></li>
+              <li><a href="#preguntas"><span>Preguntas frecuentes</span><i data-lucide="arrow-up-right"></i></a></li>
+            </ul>
+            <a class="btn btn--primary btn--lg btn--block" href="#postular"><span>Postular mi farmacia</span><span class="btn__icon" aria-hidden="true"><i data-lucide="arrow-right"></i></span></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main id="contenido" tabindex="-1">
+
+    <!-- ===================================================================
+         SECCIÓN 1 · PORTADA / HERO (foto generada en Canva + tarjetas flotantes)
+         =================================================================== -->
+    <section class="hero" id="inicio" aria-labelledby="hero-title">
+      <div class="container hero__grid">
+        <div class="hero__content">
+          <p class="hero__badge">
+            <span class="hero__badge-text"><span class="hero__badge-dot" aria-hidden="true"></span>Alianza y Respaldo para farmacias independientes de Rosario</span>
+            <span class="tag tag--urgent tag--tilt"><span class="tag__dot" aria-hidden="true"></span>Salida 1.º de enero 2027</span>
+          </p>
+
+          <h1 class="hero__title" id="hero-title">
+            La tecnología y el marketing de una <span class="nowrap"><span class="hero__pill">gran cadena</span>,</span> sin dejar de ser tu <span class="hero__marker">farmacia de barrio<svg class="hero__squiggle" viewBox="0 0 300 18" preserveAspectRatio="none" aria-hidden="true" focusable="false"><path d="M3 13c40-9 70-9 100-3s60 6 96-2 70-7 98 1" fill="none" stroke="currentColor" stroke-width="5" stroke-linecap="round"/></svg></span>.
+          </h1>
+
+          <p class="hero__lead">
+            El 1.º de enero lanzamos ALIAR ROSARIO (Alianza y Respaldo para farmacias independientes): una plataforma común creada para que las farmacias de barrio vendan online, coticen recetas por WhatsApp y lleguen a más vecinos.
+            <strong>Vos seguís siendo el único dueño de tu negocio, tu mostrador y tus clientes.</strong>
+          </p>
+
+          <div class="hero__actions" id="hero-actions">
+            <a class="btn btn--primary btn--lg" href="#postular"><span>Postular mi farmacia como Fundadora</span><span class="btn__icon" aria-hidden="true"><i data-lucide="arrow-right"></i></span></a>
+            <a class="btn btn--secondary btn--lg" href="#prototipo"><span>Ver el prototipo funcionando</span><span class="btn__icon" aria-hidden="true"><i data-lucide="play"></i></span></a>
+          </div>
+
+          <ul class="hero__micro" role="list">
+            <li><i data-lucide="check"></i>Sin abono fijo inicial</li>
+            <li><i data-lucide="check"></i>Solo pagás cuando concretás una venta</li>
+            <li><i data-lucide="check"></i>Reunión de 15 minutos sin compromiso</li>
+          </ul>
+        </div>
+
+        <div class="hero__visual">
+          <div class="hero__stage">
+            <span class="hero__blob" aria-hidden="true"></span>
+            <figure class="hero__photo">
+              <img src="./assets/hero-farmaceutica.webp" width="864" height="1080" fetchpriority="high"
+                   alt="Farmacéutica joven sonriendo detrás del mostrador de una farmacia de barrio, mostrando un pedido en su celular.">
+            </figure>
+
+            <div class="float-card float-card--order" aria-hidden="true">
+              <span class="float-card__icon"><i data-lucide="package-check"></i></span>
+              <span class="float-card__text"><b>¡Pedido nuevo!</b><small>Del Parque · retiro 18 h</small></span>
+            </div>
+            <div class="float-card float-card--rx" aria-hidden="true">
+              <span class="float-card__icon float-card__icon--lilac"><i data-lucide="message-circle"></i></span>
+              <span class="float-card__text"><b>Receta cotizada</b><small>Confirmada por WhatsApp</small></span>
+            </div>
+            <div class="float-card float-card--open" aria-hidden="true">
+              <span class="float-card__avatars"><span style="--c:#15803D">DP</span><span style="--c:#6D28D9">AL</span><span style="--c:#BE123C">EN</span><span style="--c:#1D4ED8">LA</span></span>
+              <span class="float-card__text"><b>4 abiertas ahora</b><small>en tu barrio y alrededores</small></span>
+            </div>
+
+            <p class="hero__note" aria-hidden="true">
+              tu farmacia, ¡ahora también online!
+              <svg viewBox="0 0 120 70" focusable="false"><path d="M6 8c30 2 62 14 80 38" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"/><path d="M74 48l13 1 2-13" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </p>
+            <span class="hero__spark hero__spark--a" aria-hidden="true">✦</span>
+            <span class="hero__spark hero__spark--b" aria-hidden="true">✦</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Cinta animada con los barrios del piloto (decorativa) -->
+    <div class="marquee" aria-hidden="true">
+      <div class="marquee__track">
+        <span>Centro</span><i>✦</i><span>Fisherton</span><i>✦</i><span>Pichincha</span><i>✦</i><span>Echesortu</span><i>✦</i><span>Alberdi</span><i>✦</i><span>Barrio Martin</span><i>✦</i><span>Tu farmacia de barrio, con la fuerza de una red</span><i>✦</i>
+        <span>Centro</span><i>✦</i><span>Fisherton</span><i>✦</i><span>Pichincha</span><i>✦</i><span>Echesortu</span><i>✦</i><span>Alberdi</span><i>✦</i><span>Barrio Martin</span><i>✦</i><span>Tu farmacia de barrio, con la fuerza de una red</span><i>✦</i>
+      </div>
+    </div>
+
+    <!-- ===================================================================
+         SECCIÓN 2 · CINTILLO DE CONFIANZA INMEDIATA
+         =================================================================== -->
+    <section class="trust" aria-labelledby="trust-title">
+      <div class="container">
+        <h2 class="visually-hidden" id="trust-title">Por qué confiar en ALIAR ROSARIO</h2>
+        <ul class="trust__grid" role="list" data-reveal-group>
+          <li class="trust__item trust__item--mint" data-reveal>
+            <span class="icon-badge"><i data-lucide="badge-percent"></i></span>
+            <h3 class="trust__title">0% costo fijo para arrancar</h3>
+            <p>En la etapa piloto no pagás abono mensual: solo una comisión por pedido efectivamente vendido.</p>
+          </li>
+          <li class="trust__item trust__item--lilac" data-reveal>
+            <span class="icon-badge"><i data-lucide="store"></i></span>
+            <h3 class="trust__title">Tu marca y tus clientes son tuyos</h3>
+            <p>La red trabaja para las farmacias independientes, nunca compite con ellas ni te quita el vínculo con el vecino.</p>
+          </li>
+          <li class="trust__item trust__item--butter" data-reveal>
+            <span class="icon-badge"><i data-lucide="shield-check"></i></span>
+            <h3 class="trust__title">Encuadre profesional y normativo</h3>
+            <p>Operación pensada junto a referentes farmacéuticos y bajo la normativa vigente en Santa Fe y ANMAT.</p>
+          </li>
+          <li class="trust__item trust__item--lime" data-reveal>
+            <span class="icon-badge"><i data-lucide="monitor-smartphone"></i></span>
+            <h3 class="trust__title">No es una idea en papel</h3>
+            <p>Ya contamos con un prototipo web funcional y campañas creativas listas para salir al mercado el 1.º de enero.</p>
+          </li>
+        </ul>
+      </div>
+    </section>
+    <!-- ===================================================================
+         SECCIÓN 3 · EL PROBLEMA QUE VIVÍS TODOS LOS DÍAS
+         =================================================================== -->
+    <section class="section problem" id="problema" aria-labelledby="problema-title">
+      <div class="container">
+        <header class="section-head" data-reveal>
+          <p class="eyebrow">La realidad del mostrador hoy</p>
+          <h2 id="problema-title">El vecino confía en vos, pero muchas veces termina comprando en una cadena.</h2>
+          <p class="lead">No es porque atiendan mejor. Es porque hoy el vecino se ve obligado a elegir entre la cercanía de su farmacia de siempre y la comodidad de pedir desde el celular.</p>
+        </header>
+
+        <div class="problem__grid" data-reveal-group>
+          <article class="card card--hover problem-card" data-reveal>
+            <div class="problem-card__top">
+              <span class="icon-badge icon-badge--muted"><i data-lucide="smartphone"></i></span>
+              <span class="card-num" aria-hidden="true">01</span>
+            </div>
+            <h3>La brecha tecnológica</h3>
+            <p>Las grandes cadenas tienen tienda online, app, envío a domicilio, descuentos y campañas permanentes en redes. Sostener todo eso desde una farmacia sola es caro y lleva un tiempo que detrás del mostrador no existe.</p>
+          </article>
+          <article class="card card--hover problem-card" data-reveal>
+            <div class="problem-card__top">
+              <span class="icon-badge icon-badge--muted"><i data-lucide="door-closed"></i></span>
+              <span class="card-num" aria-hidden="true">02</span>
+            </div>
+            <h3>Ventas que se pierden al bajar la persiana</h3>
+            <p>Hoy le vendés sobre todo a quien pasa por tu puerta y dentro de tu horario. Cuando cerrás o cuando el vecino no puede salir de su casa, esa compra se va a otra farmacia.</p>
+          </article>
+          <article class="card card--hover problem-card" data-reveal>
+            <div class="problem-card__top">
+              <span class="icon-badge icon-badge--muted"><i data-lucide="chart-no-axes-column"></i></span>
+              <span class="card-num" aria-hidden="true">03</span>
+            </div>
+            <h3>Sin datos para volver a vender</h3>
+            <p>Una farmacia independiente rara vez tiene información ordenada sobre qué busca la gente de su zona o cómo hacer que un cliente vuelva a comprar todos los meses.</p>
+          </article>
+        </div>
+
+        <div class="bridge" data-reveal>
+          <p class="bridge__text">
+            Una farmacia sola no puede pagar la estructura de una cadena.
+            <strong>Pero unidas en una misma alianza, las farmacias de barrio de Rosario pueden competir de igual a igual.</strong>
+          </p>
+          <svg class="bridge__art" viewBox="0 0 240 132" aria-hidden="true" focusable="false">
+            <circle cx="30" cy="66" r="15" fill="#fff" stroke="#94A3B8" stroke-width="2"/>
+            <path d="M24 66h12M30 60v12" stroke="#94A3B8" stroke-width="2.4" stroke-linecap="round"/>
+            <path d="M56 66h44" stroke="#94A3B8" stroke-width="2" stroke-dasharray="3 5" stroke-linecap="round"/>
+            <path d="M96 59l8 7-8 7" fill="none" stroke="#94A3B8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            <g stroke="#0F766E" stroke-opacity=".35" stroke-width="2">
+              <path d="M172 66L140 34M172 66l34-34M172 66l40 18M172 66l14 44M172 66l-36 38M172 66h-44"/>
+            </g>
+            <circle cx="172" cy="66" r="15" fill="#0F766E"/>
+            <path d="M166 66h12M172 60v12" stroke="#fff" stroke-width="2.4" stroke-linecap="round"/>
+            <g fill="#fff" stroke="#0F766E" stroke-width="2">
+              <circle cx="140" cy="34" r="9"/><circle cx="206" cy="32" r="9"/><circle cx="212" cy="84" r="9"/>
+              <circle cx="186" cy="110" r="9"/><circle cx="136" cy="104" r="9"/><circle cx="128" cy="66" r="9"/>
+            </g>
+          </svg>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================================================================
+         SECCIÓN 4 · LA SOLUCIÓN Y DEMOSTRACIÓN DEL PROTOTIPO
+         =================================================================== -->
+    <section class="section solution" id="como-funciona" aria-labelledby="solucion-title">
+      <div class="container">
+        <header class="section-head section-head--center" data-reveal>
+          <p class="eyebrow">Cómo funciona ALIAR ROSARIO</p>
+          <h2 id="solucion-title">Una sola plataforma para el vecino. Identidad propia para cada farmacia.</h2>
+          <p class="lead">Cada farmacia mantiene su página, su nombre, su estilo y su vidriera de productos, pero se potencia con la fuerza comercial, publicitaria y logística de toda la alianza.</p>
+        </header>
+
+        <!-- Bloque interactivo del prototipo (todo en HTML/CSS/JS, sin imágenes) -->
+        <div class="demo" id="prototipo" data-reveal>
+          <div class="demo__intro">
+            <span class="tag tag--teal"><i data-lucide="mouse-pointer-click"></i>Prototipo navegable</span>
+            <h3 class="demo__title" id="demo-title">Mirá el prototipo que ya tenemos construido</h3>
+            <p class="demo__caption">Así se ve la plataforma base actual: cada farmacia con su propio mundo, carrito unificado, canal de recetas y campañas diseñadas para Instagram.</p>
+
+            <div class="demo__tabs" role="tablist" aria-label="Pantallas del prototipo">
+              <button class="demo__tab" type="button" role="tab" id="tab-tienda" aria-controls="panel-tienda" aria-selected="true" data-tab="tienda">
+                <span class="demo__tab-icon"><i data-lucide="store"></i></span>
+                <span class="demo__tab-text"><span class="demo__tab-label">Cada farmacia, su mundo</span><span class="demo__tab-desc">Su página, su nombre y su vidriera.</span></span>
+              </button>
+              <button class="demo__tab" type="button" role="tab" id="tab-carrito" aria-controls="panel-carrito" aria-selected="false" tabindex="-1" data-tab="carrito">
+                <span class="demo__tab-icon"><i data-lucide="shopping-basket"></i></span>
+                <span class="demo__tab-text"><span class="demo__tab-label">Carrito unificado</span><span class="demo__tab-desc">Un solo pedido, ordenado por farmacia.</span></span>
+              </button>
+              <button class="demo__tab" type="button" role="tab" id="tab-recetas" aria-controls="panel-recetas" aria-selected="false" tabindex="-1" data-tab="recetas">
+                <span class="demo__tab-icon"><i data-lucide="camera"></i></span>
+                <span class="demo__tab-text"><span class="demo__tab-label">Canal de recetas</span><span class="demo__tab-desc">Foto de la receta y cotización por WhatsApp.</span></span>
+              </button>
+              <button class="demo__tab" type="button" role="tab" id="tab-campanas" aria-controls="panel-campanas" aria-selected="false" tabindex="-1" data-tab="campanas">
+                <span class="demo__tab-icon"><i data-lucide="megaphone"></i></span>
+                <span class="demo__tab-text"><span class="demo__tab-label">Campañas para Instagram</span><span class="demo__tab-desc">Piezas listas para toda la red.</span></span>
+              </button>
+            </div>
+
+            <p class="demo__note"><i data-lucide="info"></i>Probalo: elegí una farmacia y agregá productos. Los datos son de ejemplo.</p>
+          </div>
+
+          <div class="demo__screen">
+            <div class="browser">
+              <div class="browser__bar" aria-hidden="true">
+                <span class="browser__dots"><i></i><i></i><i></i></span>
+                <span class="browser__url"><i data-lucide="lock"></i><span data-demo-url>aliarrosario.com.ar/farmacia-del-parque</span></span>
+              </div>
+
+              <div class="app">
+                <div class="app__bar">
+                  <span class="app__logo"><span class="app__logo-mark" aria-hidden="true"><svg><use href="#mark"/></svg></span><span>ALIAR <b>ROSARIO</b></span></span>
+                  <span class="app__address"><i data-lucide="map-pin"></i><span>Bv. Oroño 1200</span></span>
+                  <button class="app__cart" type="button" data-cart-open aria-label="Ver carrito: 4 productos">
+                    <i data-lucide="shopping-basket"></i>
+                    <span class="app__cart-count" data-cart-count aria-hidden="true">4</span>
+                  </button>
+                </div>
+
+                <div class="app__panels">
+                  <!-- Pantalla 1: tienda propia de cada farmacia -->
+                  <div class="panel" id="panel-tienda" role="tabpanel" aria-labelledby="tab-tienda">
+                    <div class="store-switch">
+                      <p class="store-switch__label">Farmacias de la red cerca de vos</p>
+                      <div class="store-switch__chips">
+                        <button type="button" class="pharm-chip" data-farmacia="parque" aria-pressed="true" style="--c:#15803D"><span class="pharm-chip__dot"></span>Del Parque <small>450 m</small></button>
+                        <button type="button" class="pharm-chip" data-farmacia="alameda" aria-pressed="false" style="--c:#6D28D9"><span class="pharm-chip__dot"></span>Alameda <small>1,2 km</small></button>
+                        <button type="button" class="pharm-chip" data-farmacia="nogal" aria-pressed="false" style="--c:#BE123C"><span class="pharm-chip__dot"></span>El Nogal <small>2,1 km</small></button>
+                        <button type="button" class="pharm-chip" data-farmacia="aromos" aria-pressed="false" style="--c:#1D4ED8"><span class="pharm-chip__dot"></span>Los Aromos <small>7,4 km</small></button>
+                      </div>
+                    </div>
+                    <div class="store" data-store></div>
+                  </div>
+
+                  <!-- Pantalla 2: carrito unificado agrupado por farmacia -->
+                  <div class="panel" id="panel-carrito" role="tabpanel" aria-labelledby="tab-carrito" hidden>
+                    <div class="cart" data-cart></div>
+                  </div>
+
+                  <!-- Pantalla 3: canal de recetas por foto + WhatsApp -->
+                  <div class="panel" id="panel-recetas" role="tabpanel" aria-labelledby="tab-recetas" hidden>
+                    <div class="rx">
+                      <div class="rx__form">
+                        <p class="rx__title">Enviá la foto de tu receta</p>
+                        <div class="rx__photo">
+                          <svg class="rx__paper" viewBox="0 0 120 150" aria-hidden="true" focusable="false">
+                            <rect x="6" y="4" width="108" height="142" rx="8" fill="#fff" stroke="#CBD5E1" stroke-width="2"/>
+                            <rect x="18" y="18" width="46" height="8" rx="4" fill="#0F766E" opacity=".75"/>
+                            <rect x="18" y="34" width="84" height="5" rx="2.5" fill="#E2E8F0"/>
+                            <rect x="18" y="46" width="70" height="5" rx="2.5" fill="#E2E8F0"/>
+                            <rect x="18" y="66" width="84" height="5" rx="2.5" fill="#E2E8F0"/>
+                            <rect x="18" y="78" width="60" height="5" rx="2.5" fill="#E2E8F0"/>
+                            <rect x="18" y="90" width="76" height="5" rx="2.5" fill="#E2E8F0"/>
+                            <path d="M66 126c6-10 12-10 16-2s10 6 18-4" fill="none" stroke="#64748B" stroke-width="2" stroke-linecap="round"/>
+                          </svg>
+                          <span class="rx__photo-label"><i data-lucide="camera"></i>receta.jpg · lista para enviar</span>
+                        </div>
+                        <dl class="rx__fields">
+                          <div><dt>Obra social</dt><dd>Tu obra social o prepaga</dd></div>
+                          <div><dt>Retiro en</dt><dd>Farmacia Del Parque</dd></div>
+                        </dl>
+                        <button class="app-btn" type="button" data-rx-send><i data-lucide="send"></i>Enviar a un farmacéutico</button>
+                      </div>
+
+                      <div class="chat">
+                        <div class="chat__head">
+                          <span class="chat__avatar" aria-hidden="true">C</span>
+                          <span class="chat__who"><b>Farmacéutica de la red</b><small>WhatsApp · en línea</small></span>
+                          <i data-lucide="message-circle" class="chat__icon"></i>
+                        </div>
+                        <div class="chat__body" data-chat>
+                          <div class="msg msg--out" data-step>
+                            <span class="msg__img"><i data-lucide="image"></i>receta.jpg</span>
+                            Hola, les mando la receta de mi mamá. Tenemos obra social.
+                            <time>10:24</time>
+                          </div>
+                          <div class="msg msg--in" data-step>¡Hola! Soy Carla, farmacéutica de la red. Ya revisé la receta y está todo en orden.<time>10:26</time></div>
+                          <div class="msg msg--in" data-step>Con su cobertura le queda en <b>$ 9.850</b>. ¿La retiran en Farmacia Del Parque o se la enviamos hoy?<time>10:26</time></div>
+                          <div class="msg msg--out" data-step>La paso a buscar a la tarde. ¡Gracias!<time>10:27</time></div>
+                          <div class="msg msg--system" data-step><i data-lucide="circle-check-big"></i>Dispensa confirmada por la farmacéutica</div>
+                          <div class="typing" data-typing hidden><i></i><i></i><i></i></div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- Pantalla 4: kit de campañas para Instagram -->
+                  <div class="panel" id="panel-campanas" role="tabpanel" aria-labelledby="tab-campanas" hidden>
+                    <div class="ads">
+                      <div class="ads__head">
+                        <p class="ads__title">Kit de campañas de la red</p>
+                        <p class="ads__sub">Piezas para Instagram hechas una vez, para todas las farmacias.</p>
+                      </div>
+                      <div class="posts">
+                        <figure class="post">
+                          <div class="post__head"><span class="post__avatar"><svg><use href="#mark"/></svg></span><b>aliarrosario</b><span>Rosario</span></div>
+                          <img class="post__img" src="./assets/campana-lanzamiento.webp" width="720" height="720" loading="lazy"
+                               alt="Pieza de campaña: «Tu farmacia de siempre, ahora más cerca.» Pedí online y retirá en tu barrio. Lanzamiento 1.º de enero.">
+                          <div class="post__actions" aria-hidden="true"><i data-lucide="heart"></i><i data-lucide="message-circle"></i><i data-lucide="send"></i><i data-lucide="bookmark" class="post__save"></i></div>
+                          <figcaption>Campaña de lanzamiento</figcaption>
+                        </figure>
+                        <figure class="post">
+                          <div class="post__head"><span class="post__avatar"><svg><use href="#mark"/></svg></span><b>aliarrosario</b><span>Rosario</span></div>
+                          <img class="post__img" src="./assets/campana-verano.webp" width="720" height="720" loading="lazy"
+                               alt="Pieza de campaña: «Este verano, cuidá tu piel con tu farmacia de barrio.» Protección solar y dermocosmética, retiro en mostrador o envío en el día.">
+                          <div class="post__actions" aria-hidden="true"><i data-lucide="heart"></i><i data-lucide="message-circle"></i><i data-lucide="send"></i><i data-lucide="bookmark" class="post__save"></i></div>
+                          <figcaption>Promoción estacional</figcaption>
+                        </figure>
+                        <figure class="post">
+                          <div class="post__head"><span class="post__avatar"><svg><use href="#mark"/></svg></span><b>aliarrosario</b><span>Rosario</span></div>
+                          <img class="post__img" src="./assets/campana-recetas.webp" width="720" height="720" loading="lazy"
+                               alt="Pieza de campaña: «¿Tratamiento de todos los meses? Mandá la foto de tu receta.» Un farmacéutico de la red la revisa y te la cotiza por WhatsApp.">
+                          <div class="post__actions" aria-hidden="true"><i data-lucide="heart"></i><i data-lucide="message-circle"></i><i data-lucide="send"></i><i data-lucide="bookmark" class="post__save"></i></div>
+                          <figcaption>Pacientes con tratamientos mensuales</figcaption>
+                        </figure>
+                      </div>
+                      <div class="ads__audiences">
+                        <span class="ads__audiences-label">Contenido pensado para</span>
+                        <ul role="list">
+                          <li>Familias</li>
+                          <li>Adultos mayores</li>
+                          <li>Trabajadores sin tiempo</li>
+                          <li>Pacientes con tratamientos mensuales</li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="app__toast" data-app-toast role="status" aria-live="polite"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 5 pilares operativos en grilla Bento -->
+        <ol class="pillars" role="list" data-reveal-group>
+          <li class="card card--hover pillar pillar--wide" data-reveal>
+            <div class="pillar__body">
+              <div class="pillar__top">
+                <span class="icon-badge"><i data-lucide="locate-fixed"></i></span>
+                <span class="card-num" aria-hidden="true">01</span>
+              </div>
+              <h3>Tu barrio te encuentra primero</h3>
+              <p>Cuando el vecino ingresa su dirección, la plataforma prioriza automáticamente a la farmacia más cercana.</p>
+            </div>
+            <svg class="pillar__art radar" viewBox="0 0 260 170" aria-hidden="true" focusable="false">
+              <circle cx="130" cy="85" r="78" fill="none" stroke="#E2E8F0" stroke-dasharray="4 5"/>
+              <circle cx="130" cy="85" r="52" fill="none" stroke="#E2E8F0" stroke-dasharray="4 5"/>
+              <circle cx="130" cy="85" r="27" fill="rgba(15,118,110,.07)" stroke="rgba(15,118,110,.25)"/>
+              <g fill="#fff" stroke="#94A3B8" stroke-width="2">
+                <circle cx="62" cy="44" r="7"/><circle cx="200" cy="128" r="7"/><circle cx="78" cy="140" r="7"/>
+              </g>
+              <circle class="radar__pulse" cx="150" cy="66" r="14" fill="rgba(15,118,110,.18)"/>
+              <circle cx="150" cy="66" r="8" fill="#0F766E" stroke="#fff" stroke-width="2.5"/>
+              <circle cx="130" cy="85" r="6" fill="#0F172A" stroke="#fff" stroke-width="2.5"/>
+              <rect x="164" y="40" width="88" height="24" rx="12" fill="#fff" stroke="#E2E8F0"/>
+              <text x="208" y="56" text-anchor="middle" class="radar__label">Más cercana</text>
+              <text x="130" y="112" text-anchor="middle" class="radar__you">Vos</text>
+            </svg>
+          </li>
+          <li class="card card--hover pillar" data-reveal>
+            <div class="pillar__top">
+              <span class="icon-badge"><i data-lucide="shopping-basket"></i></span>
+              <span class="card-num" aria-hidden="true">02</span>
+            </div>
+            <h3>Carrito compartido, ventas nuevas</h3>
+            <p>Los clientes pueden comprar productos habilitados de venta libre en la red y el pedido llega ordenado y agrupado para tu farmacia, con retiro en mostrador o envío en el día.</p>
+          </li>
+          <li class="card card--hover pillar" data-reveal>
+            <div class="pillar__top">
+              <span class="icon-badge"><i data-lucide="camera"></i></span>
+              <span class="card-num" aria-hidden="true">03</span>
+            </div>
+            <h3>Recetas por foto, directo con un farmacéutico</h3>
+            <p>El vecino envía la foto de su receta y los datos de su obra social; un farmacéutico de la red la revisa, cotiza y confirma la dispensa directamente por WhatsApp.</p>
+          </li>
+          <li class="card card--hover pillar" data-reveal>
+            <div class="pillar__top">
+              <span class="icon-badge"><i data-lucide="clock"></i></span>
+              <span class="card-num" aria-hidden="true">04</span>
+            </div>
+            <h3>Horarios combinados en toda la ciudad</h3>
+            <p>Al estar agrupadas, la alianza muestra siempre qué farmacia de la red está abierta, captando demanda que hoy se escapa hacia las cadenas.</p>
+            <div class="hours" aria-hidden="true">
+              <div class="hours__row"><span>Del Parque</span><span class="hours__track"><span class="hours__bar" style="--from:8;--to:21;--c:#15803D"></span></span></div>
+              <div class="hours__row"><span>Alameda</span><span class="hours__track"><span class="hours__bar" style="--from:8.5;--to:20;--c:#6D28D9"></span></span></div>
+              <div class="hours__row"><span>El Nogal</span><span class="hours__track"><span class="hours__bar" style="--from:9;--to:23;--c:#BE123C"></span></span></div>
+              <div class="hours__row"><span>Los Aromos</span><span class="hours__track"><span class="hours__bar" style="--from:0;--to:8.5;--c:#1D4ED8"></span><span class="hours__bar" style="--from:20.5;--to:24;--c:#1D4ED8"></span></span></div>
+              <div class="hours__row hours__row--total"><span>Toda la red</span><span class="hours__track"><span class="hours__bar" style="--from:0;--to:24;--c:#0F766E"></span></span></div>
+              <div class="hours__axis"><span>0 h</span><span>6 h</span><span>12 h</span><span>18 h</span><span>24 h</span></div>
+            </div>
+          </li>
+          <li class="card card--hover pillar" data-reveal>
+            <div class="pillar__top">
+              <span class="icon-badge"><i data-lucide="megaphone"></i></span>
+              <span class="card-num" aria-hidden="true">05</span>
+            </div>
+            <h3>Marketing profesional hecho una vez para todas</h3>
+            <p>Campañas en Instagram, promociones estacionales y contenido pensado para atraer familias, adultos mayores, trabajadores sin tiempo y pacientes con tratamientos mensuales, sin que tengas que armar un equipo propio.</p>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- ===================================================================
+         SECCIÓN 5 · FECHA DE SALIDA AL MERCADO Y HOJA DE RUTA
+         =================================================================== -->
+    <section class="section roadmap" id="lanzamiento" aria-labelledby="lanzamiento-title">
+      <div class="container">
+        <header class="section-head" data-reveal>
+          <p class="eyebrow">Plan de lanzamiento real y por etapas</p>
+          <h2 id="lanzamiento-title">Salimos al público el 1.º de enero de 2027. Crecemos con los pies en la tierra.</h2>
+          <p class="lead">No prometemos soluciones mágicas para mañana. Arrancamos con un piloto sólido, medible y cuidado junto a un primer grupo de farmacias de Rosario, para escalar con resultados reales en la mano.</p>
+        </header>
+
+        <ol class="timeline" role="list" data-reveal-group>
+          <li class="milestone milestone--now" data-reveal>
+            <span class="milestone__marker" aria-hidden="true"><i data-lucide="users"></i></span>
+            <div class="milestone__card card card--hover">
+              <p class="milestone__meta"><span class="milestone__n">Hito 1</span><span class="tag tag--urgent tag--tilt"><span class="tag__dot" aria-hidden="true"></span>Ahora</span></p>
+              <p class="milestone__date">Hasta el 10 de diciembre de 2026</p>
+              <h3>Convocatoria de Farmacias Fundadoras</h3>
+              <p>Entrevistas breves con farmacias interesadas, muestra del prototipo y selección de las primeras 4 a 6 farmacias de barrios distintos.</p>
+            </div>
+          </li>
+          <li class="milestone" data-reveal>
+            <span class="milestone__marker" aria-hidden="true"><i data-lucide="handshake"></i></span>
+            <div class="milestone__card card card--hover">
+              <p class="milestone__meta"><span class="milestone__n">Hito 2</span></p>
+              <p class="milestone__date">11 al 28 de diciembre de 2026</p>
+              <h3>Mesa Fundadora y Puesta a Punto</h3>
+              <p>Definimos juntas las reglas claras de convivencia (zonas, operativa y estándares) y adaptamos la plataforma web a la identidad de cada farmacia piloto.</p>
+            </div>
+          </li>
+          <li class="milestone milestone--launch" data-reveal>
+            <span class="milestone__marker" aria-hidden="true"><i data-lucide="rocket"></i></span>
+            <div class="milestone__card card card--hover">
+              <p class="milestone__meta"><span class="milestone__n">Hito 3</span><span class="tag tag--solid">Salida al mercado</span><span class="tag tag--teal">Etapa 1</span></p>
+              <p class="milestone__date">1.º de enero de 2027</p>
+              <h3>Lanzamiento Piloto en Rosario (3 a 4 meses)</h3>
+              <p>Salimos al público con la tienda web, gestión de recetas por WhatsApp, retiro en mostrador o envío coordinado y campaña activa en Instagram. Medimos pedidos semanales, ticket promedio y clientes que vuelven a comprar.</p>
+            </div>
+          </li>
+          <li class="milestone milestone--future" data-reveal>
+            <span class="milestone__marker" aria-hidden="true"><i data-lucide="trending-up"></i></span>
+            <div class="milestone__card card card--hover">
+              <p class="milestone__meta"><span class="milestone__n">Hito 4</span><span class="tag tag--neutral">Etapas 2 y 3</span></p>
+              <p class="milestone__date">Evolución 2027</p>
+              <h3>App Propia, Integración y Escala</h3>
+              <p>Con el piloto validado avanzamos hacia la app nativa (iPhone y Android), integración de stock y obras sociales, cobertura de más barrios, expansión al Gran Rosario (Funes, Villa Gobernador Gálvez, Granadero Baigorria y Pérez) y acuerdos de compra en conjunto para mejorar tus márgenes.</p>
+            </div>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- ===================================================================
+         SECCIÓN 6 · MAPA DE BARRIOS Y CUPOS FUNDADORES
+         =================================================================== -->
+    <section class="section barrios" id="barrios" aria-labelledby="barrios-title">
+      <div class="container barrios__layout">
+        <div class="barrios__main">
+          <header class="section-head" data-reveal>
+            <p class="eyebrow">Protección territorial en el lanzamiento</p>
+            <h2 id="barrios-title">Buscamos de 4 a 6 farmacias referentes en barrios clave de Rosario.</h2>
+            <p class="lead">Para evitar superposiciones y asegurar volumen de pedidos a cada farmacia en el arranque del 1.º de enero, seleccionaremos un cupo acotado por zona en esta primera etapa.</p>
+          </header>
+
+          <ul class="barrio-grid" role="list" data-reveal-group>
+            <li data-reveal>
+              <button class="barrio" type="button" data-barrio="Centro">
+                <span class="barrio__pin"><i data-lucide="map-pin"></i></span>
+                <span class="barrio__name">Centro</span>
+                <span class="tag tag--urgent tag--sm"><span class="tag__dot" aria-hidden="true"></span>Cupo Piloto Abierto</span>
+                <span class="barrio__cta">Postularme acá <i data-lucide="arrow-right"></i></span>
+              </button>
+            </li>
+            <li data-reveal>
+              <button class="barrio" type="button" data-barrio="Fisherton">
+                <span class="barrio__pin"><i data-lucide="map-pin"></i></span>
+                <span class="barrio__name">Fisherton</span>
+                <span class="tag tag--urgent tag--sm"><span class="tag__dot" aria-hidden="true"></span>Cupo Piloto Abierto</span>
+                <span class="barrio__cta">Postularme acá <i data-lucide="arrow-right"></i></span>
+              </button>
+            </li>
+            <li data-reveal>
+              <button class="barrio" type="button" data-barrio="Pichincha">
+                <span class="barrio__pin"><i data-lucide="map-pin"></i></span>
+                <span class="barrio__name">Pichincha</span>
+                <span class="tag tag--urgent tag--sm"><span class="tag__dot" aria-hidden="true"></span>Cupo Piloto Abierto</span>
+                <span class="barrio__cta">Postularme acá <i data-lucide="arrow-right"></i></span>
+              </button>
+            </li>
+            <li data-reveal>
+              <button class="barrio" type="button" data-barrio="Echesortu">
+                <span class="barrio__pin"><i data-lucide="map-pin"></i></span>
+                <span class="barrio__name">Echesortu</span>
+                <span class="tag tag--urgent tag--sm"><span class="tag__dot" aria-hidden="true"></span>Cupo Piloto Abierto</span>
+                <span class="barrio__cta">Postularme acá <i data-lucide="arrow-right"></i></span>
+              </button>
+            </li>
+            <li data-reveal>
+              <button class="barrio" type="button" data-barrio="Alberdi">
+                <span class="barrio__pin"><i data-lucide="map-pin"></i></span>
+                <span class="barrio__name">Alberdi</span>
+                <span class="tag tag--urgent tag--sm"><span class="tag__dot" aria-hidden="true"></span>Cupo Piloto Abierto</span>
+                <span class="barrio__cta">Postularme acá <i data-lucide="arrow-right"></i></span>
+              </button>
+            </li>
+            <li data-reveal>
+              <button class="barrio" type="button" data-barrio="Barrio Martin">
+                <span class="barrio__pin"><i data-lucide="map-pin"></i></span>
+                <span class="barrio__name">Barrio Martin</span>
+                <span class="tag tag--urgent tag--sm"><span class="tag__dot" aria-hidden="true"></span>Cupo Piloto Abierto</span>
+                <span class="barrio__cta">Postularme acá <i data-lucide="arrow-right"></i></span>
+              </button>
+            </li>
+            <li class="barrio-grid__wide" data-reveal>
+              <button class="barrio barrio--other" type="button" data-barrio="Otro barrio de Rosario">
+                <span class="barrio__pin"><i data-lucide="map"></i></span>
+                <span class="barrio__name">Otros barrios de Rosario</span>
+                <span class="tag tag--neutral tag--sm">Lista prioritaria para Etapa 2</span>
+                <span class="barrio__cta">Sumarme a la lista <i data-lucide="arrow-right"></i></span>
+              </button>
+            </li>
+          </ul>
+
+          <p class="barrios__note" data-reveal>
+            <i data-lucide="info"></i>
+            <span>¿Tu farmacia está en otro barrio de Rosario o en el Gran Rosario? Inscribite igual: estamos mapeando demanda para abrir nuevas zonas apenas finalice el piloto inicial.</span>
+          </p>
+        </div>
+
+        <figure class="barrios__map card" data-reveal>
+          <svg class="map" viewBox="0 0 400 420" role="img" aria-labelledby="mapa-title" focusable="false">
+            <title id="mapa-title">Esquema de Rosario con los seis barrios del piloto: Alberdi, Pichincha, Centro, Barrio Martin, Echesortu y Fisherton.</title>
+            <defs>
+              <pattern id="map-grid" width="22" height="22" patternUnits="userSpaceOnUse" patternTransform="rotate(-8)">
+                <path d="M22 0H0V22" fill="none" stroke="#E2E8F0" stroke-width="1"/>
+              </pattern>
+            </defs>
+            <rect width="400" height="420" rx="18" fill="#F1F5F9"/>
+            <path class="map__city" d="M268 10C120 28 30 118 34 230S176 412 334 410L352 410C340 350 336 300 348 226C356 160 326 104 302 36L290 10Z" fill="#FFFFFF"/>
+            <path d="M268 10C120 28 30 118 34 230S176 412 334 410L352 410C340 350 336 300 348 226C356 160 326 104 302 36L290 10Z" fill="url(#map-grid)" opacity=".9"/>
+            <path class="map__ring" d="M268 10C120 28 30 118 34 230S176 412 334 410" fill="none" stroke="#CBD5E1" stroke-width="2.5" stroke-dasharray="7 7"/>
+            <path class="map__river" d="M300 -14C318 66 372 130 368 214S346 330 372 440" fill="none" stroke="#D6ECF3" stroke-width="40" stroke-linecap="round"/>
+            <text class="map__water" x="384" y="330" transform="rotate(-84 384 330)">Río Paraná</text>
+            <text class="map__road" x="58" y="118" transform="rotate(-42 58 118)">Av. Circunvalación</text>
+
+            <g class="map__pin" data-pin="Alberdi" transform="translate(286 84)">
+              <circle class="map__pulse" r="15"/><circle class="map__dot" r="8"/>
+              <text x="-14" y="5" text-anchor="end">Alberdi</text>
+            </g>
+            <g class="map__pin" data-pin="Pichincha" transform="translate(306 160)">
+              <circle class="map__pulse" r="15"/><circle class="map__dot" r="8"/>
+              <text x="-14" y="5" text-anchor="end">Pichincha</text>
+            </g>
+            <g class="map__pin" data-pin="Centro" transform="translate(322 222)">
+              <circle class="map__pulse" r="15"/><circle class="map__dot" r="8"/>
+              <text x="-14" y="5" text-anchor="end">Centro</text>
+            </g>
+            <g class="map__pin" data-pin="Barrio Martin" transform="translate(318 290)">
+              <circle class="map__pulse" r="15"/><circle class="map__dot" r="8"/>
+              <text x="-14" y="5" text-anchor="end">Barrio Martin</text>
+            </g>
+            <g class="map__pin" data-pin="Echesortu" transform="translate(196 236)">
+              <circle class="map__pulse" r="15"/><circle class="map__dot" r="8"/>
+              <text x="0" y="30" text-anchor="middle">Echesortu</text>
+            </g>
+            <g class="map__pin" data-pin="Fisherton" transform="translate(92 182)">
+              <circle class="map__pulse" r="15"/><circle class="map__dot" r="8"/>
+              <text x="0" y="30" text-anchor="middle">Fisherton</text>
+            </g>
+          </svg>
+          <figcaption class="map__legend">
+            <span><span class="map__legend-dot" aria-hidden="true"></span>Cupo piloto abierto</span>
+            <span>Esquema ilustrativo, no a escala</span>
+          </figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <!-- ===================================================================
+         SECCIÓN 7 · BENEFICIOS EXCLUSIVOS PARA FARMACIAS FUNDADORAS
+         =================================================================== -->
+    <section class="section founders" id="fundadoras" aria-labelledby="fundadoras-title">
+      <div class="container">
+        <header class="section-head section-head--center" data-reveal>
+          <p class="eyebrow">Por qué sumarte ahora y no esperar</p>
+          <h2 id="fundadoras-title">Ventajas reservadas para las farmacias que lanzan el 1.º de enero</h2>
+        </header>
+
+        <div class="bento" data-reveal-group>
+          <article class="bento__item bento__item--feature" data-reveal>
+            <div class="bento__figure" aria-hidden="true">
+              <span class="bento__big">0%</span>
+              <span class="bento__big-label">cuota fija mensual</span>
+            </div>
+            <div>
+              <h3>Riesgo cero en el arranque</h3>
+              <p>Sin cuota fija mensual durante el piloto: solo pagás comisión sobre ventas concretadas a través de la plataforma.</p>
+            </div>
+          </article>
+
+          <article class="bento__item bento__item--wide card card--hover" data-reveal>
+            <div class="bento__text">
+              <span class="icon-badge"><i data-lucide="vote"></i></span>
+              <h3>Voz y voto en las reglas de la alianza</h3>
+              <p>Las farmacias fundadoras participan directamente en la definición de los acuerdos de zonas, operación y estándares de la red.</p>
+            </div>
+            <div class="table-art" aria-hidden="true">
+              <div class="table-art__seats">
+                <span style="--c:#15803D">DP</span><span style="--c:#6D28D9">AL</span><span style="--c:#BE123C">EN</span><span style="--c:#1D4ED8">LA</span><span class="table-art__more">+2</span>
+              </div>
+              <div class="table-art__topics"><span>Zonas</span><span>Operación</span><span>Estándares</span></div>
+            </div>
+          </article>
+
+          <article class="bento__item card card--hover" data-reveal>
+            <span class="icon-badge"><i data-lucide="map-pin"></i></span>
+            <h3>Prioridad en tu barrio</h3>
+            <p>Sos la farmacia referente de tu zona en las primeras campañas publicitarias de lanzamiento en Rosario.</p>
+          </article>
+
+          <article class="bento__item card card--hover" data-reveal>
+            <span class="icon-badge"><i data-lucide="hand-helping"></i></span>
+            <h3>Acompañamiento mano a mano</h3>
+            <p>Nuestro equipo te asiste en la adaptación de tu perfil, la carga inicial y el seguimiento semanal de métricas durante todo el piloto.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================================================================
+         SECCIÓN 8 · RESPALDO PROFESIONAL Y REGLAS CLARAS
+         =================================================================== -->
+    <section class="section backing" id="respaldo" aria-labelledby="respaldo-title">
+      <div class="container">
+        <div class="backing__layout">
+          <div class="backing__text" data-reveal>
+            <p class="eyebrow">Seriedad y transparencia desde el día uno</p>
+            <h2 id="respaldo-title">Tecnología moderna, respetando a rajatabla la profesión farmacéutica.</h2>
+            <p class="lead">Sabemos que la farmacia no es un comercio más: es un servicio de salud con reglas claras. Por eso ALIAR ROSARIO trabaja con asesoramiento legal y un referente farmacéutico para que cada paso cumpla con la normativa nacional (ANMAT), provincial (Santa Fe) y del Colegio de Farmacéuticos. En la etapa de lanzamiento, la venta online directa se enfoca en productos de venta libre habilitados que no son medicamentos, mientras que toda receta se canaliza y valida siempre con intervención farmacéutica.</p>
+          </div>
+
+          <aside class="compliance card" aria-labelledby="compliance-title" data-reveal>
+            <h3 class="compliance__title" id="compliance-title">Marco normativo de referencia</h3>
+            <ul class="compliance__list" role="list">
+              <li><span class="icon-badge icon-badge--sm"><i data-lucide="landmark"></i></span><span><small>Nacional</small>ANMAT</span></li>
+              <li><span class="icon-badge icon-badge--sm"><i data-lucide="scale"></i></span><span><small>Provincial</small>Provincia de Santa Fe</span></li>
+              <li><span class="icon-badge icon-badge--sm"><i data-lucide="badge-check"></i></span><span><small>Profesional</small>Colegio de Farmacéuticos</span></li>
+            </ul>
+            <div class="compliance__rules">
+              <p><i data-lucide="shopping-bag"></i><span><b>Venta online:</b> productos de venta libre habilitados que no son medicamentos.</span></p>
+              <p><i data-lucide="clipboard-check"></i><span><b>Recetas:</b> siempre validadas con intervención farmacéutica.</span></p>
+            </div>
+          </aside>
+        </div>
+
+        <!-- BLOQUE OPCIONAL "Quiénes impulsan el proyecto":
+             completar con foto, nombre y rol cuando estén confirmados los perfiles (o eliminar el bloque). -->
+        <div class="team" data-reveal>
+          <h3 class="team__title">Quiénes impulsan el proyecto</h3>
+          <div class="team__grid">
+            <article class="person card">
+              <span class="person__avatar" aria-hidden="true"><i data-lucide="user-round"></i></span>
+              <div class="person__info">
+                <p class="person__name">[Nombre y apellido]</p>
+                <p class="person__role">Coordinador/a general en Rosario</p>
+              </div>
+              <span class="tag tag--neutral tag--sm">Perfil a confirmar</span>
+            </article>
+            <article class="person card">
+              <span class="person__avatar" aria-hidden="true"><i data-lucide="stethoscope"></i></span>
+              <div class="person__info">
+                <p class="person__name">[Nombre y apellido]</p>
+                <p class="person__role">Farmacéutico/a referente · Área profesional y normativa</p>
+              </div>
+              <span class="tag tag--neutral tag--sm">Perfil a confirmar</span>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================================================================
+         SECCIÓN 9 · PREGUNTAS FRECUENTES
+         =================================================================== -->
+    <section class="section faq" id="preguntas" aria-labelledby="faq-title">
+      <div class="container faq__layout">
+        <div class="faq__intro" data-reveal>
+          <p class="eyebrow">Preguntas frecuentes</p>
+          <h2 id="faq-title">Preguntas directas, respuestas claras</h2>
+          <div class="faq__help">
+            <span class="icon-badge"><i data-lucide="messages-square"></i></span>
+            <p><b>¿Tenés otra duda?</b> Escribinos por WhatsApp y te responde el coordinador en Rosario.</p>
+            <a class="btn btn--whatsapp btn--sm" href="#" data-wa="Hola, tengo una consulta sobre ALIAR ROSARIO para mi farmacia."><span>Escribir por WhatsApp</span><span class="btn__icon" aria-hidden="true"><i data-lucide="message-circle"></i></span></a>
+          </div>
+        </div>
+
+        <div class="faq__list" data-reveal>
+          <details class="faq-item" open>
+            <summary><span>¿La plataforma se queda con mis clientes?</span><span class="faq-item__icon" aria-hidden="true"><i data-lucide="plus"></i></span></summary>
+            <div class="faq-item__answer"><p>No. Cada farmacia mantiene su nombre, su mostrador y la relación directa con sus clientes. La plataforma es una herramienta al servicio de las farmacias independientes para ayudarlas a vender más y fidelizar a su barrio.</p></div>
+          </details>
+          <details class="faq-item">
+            <summary><span>¿Qué pasa si se inscribe una farmacia competidora en mi misma cuadra?</span><span class="faq-item__icon" aria-hidden="true"><i data-lucide="plus"></i></span></summary>
+            <div class="faq-item__answer"><p>Justamente para evitar conflictos entre colegas, el piloto del 1.º de enero arranca con 4 a 6 farmacias distribuidas en barrios distintos y con reglas de convivencia, zonas y precios acordadas de manera transparente antes de salir al público.</p></div>
+          </details>
+          <details class="faq-item">
+            <summary><span>¿Cuánto cuesta sumarse a ALIAR ROSARIO?</span><span class="faq-item__icon" aria-hidden="true"><i data-lucide="plus"></i></span></summary>
+            <div class="faq-item__answer"><p>Para las Farmacias Fundadoras que ingresen al piloto, el modelo está diseñado sin costo fijo inicial (o cuota bonificada), trabajando únicamente con una comisión por pedido concretado. Si no vendés por la plataforma, no pagás. Los detalles exactos los revisamos juntos en la charla inicial.</p></div>
+          </details>
+          <details class="faq-item">
+            <summary><span>¿Voy a tener que cargar precios y stock a mano todos los días?</span><span class="faq-item__icon" aria-hidden="true"><i data-lucide="plus"></i></span></summary>
+            <div class="faq-item__answer"><p>Sabemos que un catálogo desactualizado genera problemas en el mostrador. En el piloto trabajaremos de forma ordenada y asistida por nuestro equipo para que no te sume carga operativa, mientras planificamos la integración directa con los sistemas de gestión de cada farmacia para la Etapa 2.</p></div>
+          </details>
+          <details class="faq-item">
+            <summary><span>¿Cómo se resuelven los envíos a domicilio?</span><span class="faq-item__icon" aria-hidden="true"><i data-lucide="plus"></i></span></summary>
+            <div class="faq-item__answer"><p>El cliente podrá elegir retiro en tu mostrador (llevándote tráfico directo al local) o envío en el día, ya sea aprovechando tu propia logística si ya hacés envíos o coordinando con un servicio de mensajería de la red.</p></div>
+          </details>
+          <details class="faq-item">
+            <summary><span>¿Es legal vender así en la provincia de Santa Fe?</span><span class="faq-item__icon" aria-hidden="true"><i data-lucide="plus"></i></span></summary>
+            <div class="faq-item__answer"><p>Sí, siempre que se respeten las incumbencias. La plataforma está diseñada para operar dentro del marco de ANMAT, la Provincia de Santa Fe y el Colegio de Farmacéuticos: venta online de productos habilitados (perfumería, dermocosmética y venta libre no medicamentosa) y gestión/cotización de recetas supervisada por un farmacéutico vía WhatsApp.</p></div>
+          </details>
+          <details class="faq-item">
+            <summary><span>¿Hay algún contrato de permanencia forzosa?</span><span class="faq-item__icon" aria-hidden="true"><i data-lucide="plus"></i></span></summary>
+            <div class="faq-item__answer"><p>No. Queremos que te quedes porque ves ventas nuevas, clientes que vuelven y resultados concretos durante los primeros 3 meses del piloto.</p></div>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================================================================
+         SECCIÓN 10 · FORMULARIO DE INSCRIPCIÓN / POSTULACIÓN
+         =================================================================== -->
+    <section class="section signup" id="postular" aria-labelledby="postular-title">
+      <div class="container signup__layout">
+        <div class="signup__intro" data-reveal>
+          <p class="signup__kicker"><span class="eyebrow">Último paso</span><span class="tag tag--urgent"><span class="tag__dot" aria-hidden="true"></span>Cierre de inscripción: 10 de diciembre</span></p>
+          <h2 id="postular-title">Postulá tu farmacia para el lanzamiento del 1.º de enero</h2>
+          <p class="hand-note" aria-hidden="true">¡te lleva menos de 1 minuto!</p>
+          <p class="lead">Completá estos datos en menos de 1 minuto. Te contactamos por WhatsApp para mostrarte el prototipo en vivo y evaluar el cupo de tu barrio.</p>
+
+          <div class="reminder">
+            <div class="reminder__head">
+              <p class="reminder__title"><i data-lucide="calendar-days"></i>Fechas clave</p>
+              <span class="tag tag--urgent tag--sm" data-countdown hidden></span>
+            </div>
+            <ol class="reminder__dates" role="list">
+              <li class="is-current"><span class="reminder__date">Hasta el 10 de diciembre</span><span>Inscripción de Farmacias Fundadoras</span></li>
+              <li><span class="reminder__date">11 al 28 de diciembre</span><span>Selección de las 4 a 6 farmacias piloto</span></li>
+              <li><span class="reminder__date">1.º de enero de 2027</span><span>Salida oficial al mercado en Rosario</span></li>
+            </ol>
+            <p class="reminder__title reminder__title--spaced"><i data-lucide="list-checks"></i>Qué incluye la charla</p>
+            <ul class="checklist" role="list">
+              <li><i data-lucide="check"></i>15 minutos sin compromiso, en tu farmacia o por videollamada</li>
+              <li><i data-lucide="check"></i>El prototipo funcionando, en vivo</li>
+              <li><i data-lucide="check"></i>Revisión del cupo disponible en tu barrio</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="signup__col" data-reveal>
+          <div class="form-card" id="form-card">
+            <!-- FORMULARIO -->
+            <form class="form" id="postulacion-form" method="post" novalidate>
+              <p class="form__heading">Tus datos <span>Los campos con * son obligatorios</span></p>
+
+              <div class="field" data-field="nombre">
+                <label for="f-nombre">Tu nombre y apellido <span class="req" aria-hidden="true">*</span></label>
+                <div class="field__control">
+                  <input id="f-nombre" name="nombre" type="text" autocomplete="name" required maxlength="80" placeholder="Ej. Dra. Laura Gómez / Martín Pérez" aria-describedby="f-nombre-error">
+                  <span class="field__ok" aria-hidden="true"><i data-lucide="check"></i></span>
+                </div>
+                <p class="field__error" id="f-nombre-error"></p>
+              </div>
+
+              <div class="field" data-field="farmacia">
+                <label for="f-farmacia">Nombre de la farmacia <span class="req" aria-hidden="true">*</span></label>
+                <div class="field__control">
+                  <input id="f-farmacia" name="farmacia" type="text" autocomplete="organization" required maxlength="80" placeholder="Ej. Farmacia San Martín" aria-describedby="f-farmacia-error">
+                  <span class="field__ok" aria-hidden="true"><i data-lucide="check"></i></span>
+                </div>
+                <p class="field__error" id="f-farmacia-error"></p>
+              </div>
+
+              <div class="form__row">
+                <div class="field" data-field="barrio">
+                  <label for="f-barrio">Barrio de Rosario <span class="req" aria-hidden="true">*</span></label>
+                  <div class="field__control field__control--select">
+                    <select id="f-barrio" name="barrio" required aria-describedby="f-barrio-error">
+                      <option value="" selected disabled>Elegí tu barrio</option>
+                      <option>Centro</option>
+                      <option>Fisherton</option>
+                      <option>Pichincha</option>
+                      <option>Echesortu</option>
+                      <option>Alberdi</option>
+                      <option>Barrio Martin</option>
+                      <option>Otro barrio de Rosario</option>
+                      <option>Gran Rosario</option>
+                    </select>
+                    <i data-lucide="chevron-down" class="field__chevron"></i>
+                  </div>
+                  <p class="field__error" id="f-barrio-error"></p>
+                </div>
+
+                <div class="field" data-field="whatsapp">
+                  <label for="f-whatsapp">Tu WhatsApp de contacto <span class="req" aria-hidden="true">*</span></label>
+                  <div class="field__control">
+                    <input id="f-whatsapp" name="whatsapp" type="tel" inputmode="tel" autocomplete="tel" required maxlength="24" placeholder="Ej. 341 5XXXXXX" aria-describedby="f-whatsapp-error">
+                    <span class="field__ok" aria-hidden="true"><i data-lucide="check"></i></span>
+                  </div>
+                  <p class="field__error" id="f-whatsapp-error"></p>
+                </div>
+              </div>
+
+              <fieldset class="field field--choices">
+                <legend>¿Actualmente hacés envíos a domicilio? <span class="optional">(opcional)</span></legend>
+                <div class="choices">
+                  <label class="choice">
+                    <input type="radio" name="envios" value="Sí, con cadetería propia">
+                    <span class="choice__box"><span class="choice__radio" aria-hidden="true"></span><i data-lucide="bike"></i>Sí, con cadetería propia</span>
+                  </label>
+                  <label class="choice">
+                    <input type="radio" name="envios" value="Sí, con servicio externo / mensajería">
+                    <span class="choice__box"><span class="choice__radio" aria-hidden="true"></span><i data-lucide="truck"></i>Sí, con servicio externo / mensajería</span>
+                  </label>
+                  <label class="choice">
+                    <input type="radio" name="envios" value="Todavía no hacemos envíos">
+                    <span class="choice__box"><span class="choice__radio" aria-hidden="true"></span><i data-lucide="store"></i>Todavía no hacemos envíos</span>
+                  </label>
+                </div>
+              </fieldset>
+
+              <div class="field" data-field="sistema">
+                <label for="f-sistema">¿Qué sistema de gestión usás en el mostrador? <span class="optional">(opcional)</span></label>
+                <div class="field__control">
+                  <input id="f-sistema" name="sistema" type="text" list="sistemas" maxlength="60" autocomplete="off" placeholder="Ej. WinFarma, Plex, Siaf, otro / no aplica">
+                </div>
+                <datalist id="sistemas">
+                  <option value="WinFarma"></option>
+                  <option value="Plex"></option>
+                  <option value="Siaf"></option>
+                  <option value="Otro"></option>
+                  <option value="No aplica"></option>
+                </datalist>
+              </div>
+
+              <!-- Campo trampa anti-spam (lo usan servicios como Formspree). No borrar. -->
+              <input class="hp-field" type="text" name="_gotcha" tabindex="-1" autocomplete="off" aria-hidden="true">
+
+              <p class="form__alert" id="form-alert" role="alert"></p>
+
+              <button class="btn btn--primary btn--lg btn--block form__submit" type="submit">
+                <span class="btn__spinner" aria-hidden="true"></span>
+                <span class="btn__label">Reservar charla y ver el prototipo</span>
+                <span class="btn__icon" aria-hidden="true"><i data-lucide="arrow-right"></i></span>
+              </button>
+
+              <p class="form__privacy"><i data-lucide="lock"></i><span>Tus datos son 100% confidenciales y se usan únicamente para coordinar una reunión informativa. Inscribirte no implica compromiso comercial.</span></p>
+            </form>
+
+            <!-- PANTALLA DE CONFIRMACIÓN (Página de Gracias) -->
+            <div class="success" id="form-success" hidden>
+              <div class="success__check" aria-hidden="true">
+                <svg viewBox="0 0 64 64">
+                  <circle class="success__bg" cx="32" cy="32" r="30"/>
+                  <circle class="success__ring" cx="32" cy="32" r="24"/>
+                  <path class="success__tick" d="M21 33l7.5 7.5L44 25"/>
+                </svg>
+              </div>
+              <h3 class="success__title" id="success-title" tabindex="-1">¡Recibimos la postulación de tu farmacia!</h3>
+              <p>Gracias por dar el primer paso para sumarte a ALIAR ROSARIO (Alianza y Respaldo para farmacias independientes). Ya registramos tu interés para el lanzamiento del 1.º de enero de 2027.</p>
+              <p>En las próximas 24 horas hábiles te vamos a escribir por WhatsApp para mostrarte el prototipo funcionando, escuchar qué necesita tu farmacia hoy y revisar la disponibilidad en tu barrio.</p>
+
+              <div class="summary">
+                <p class="summary__title"><i data-lucide="clipboard-check"></i>Resumen de tu postulación</p>
+                <dl class="summary__list" id="summary-list"></dl>
+              </div>
+
+              <div class="accelerate">
+                <p class="accelerate__title">¿Querés adelantar la charla?</p>
+                <p>Elegí un horario de 15 minutos (presencial en tu farmacia o por videollamada):</p>
+                <div class="accelerate__actions">
+                  <a class="btn btn--primary btn--block" href="#" id="btn-agendar"><span>Agendar visita o videollamada de 15 min</span><span class="btn__icon" aria-hidden="true"><i data-lucide="calendar-check"></i></span></a>
+                  <a class="btn btn--whatsapp btn--block" href="#" id="btn-wa-ahora"><span>Enviar mensaje por WhatsApp ahora</span><span class="btn__icon" aria-hidden="true"><i data-lucide="message-circle"></i></span></a>
+                </div>
+              </div>
+
+              <button class="link-btn" type="button" id="btn-volver"><i data-lucide="rotate-ccw"></i>Volver al formulario</button>
+            </div>
+          </div>
+
+          <!-- Alternativa directa por WhatsApp -->
+          <div class="wa-alt">
+            <p class="wa-alt__text">¿Preferís mandarnos un audio o mensaje rápido ahora?</p>
+            <a class="btn btn--whatsapp btn--lg btn--block" href="#" data-wa="Hola, quiero sumar mi farmacia a ALIAR ROSARIO. ¿Me pasan más información?"><span>Escribir por WhatsApp al coordinador en Rosario</span><span class="btn__icon" aria-hidden="true"><i data-lucide="message-circle"></i></span></a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ===================================================================
+       PIE DE PÁGINA
+       =================================================================== -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer__cta">
+        <p class="footer__cta-text">¿Tu farmacia de barrio, con la fuerza de una red?</p>
+        <a class="btn btn--primary btn--lg" href="#postular"><span>Postular mi farmacia</span><span class="btn__icon" aria-hidden="true"><i data-lucide="arrow-right"></i></span></a>
+      </div>
+
+      <div class="footer__grid">
+        <div class="footer__brand">
+          <a class="brand brand--light" href="#inicio">
+            <span class="brand__mark" aria-hidden="true"><svg><use href="#mark"/></svg></span>
+            <span class="brand__text"><span class="brand__name">ALIAR <span>ROSARIO</span></span></span>
+          </a>
+          <p>Alianza y Respaldo para farmacias independientes</p>
+          <p class="footer__meta"><i data-lucide="map-pin"></i>Rosario, Santa Fe, Argentina · Lanzamiento Piloto: 1.º de enero de 2027</p>
+        </div>
+
+        <nav class="footer__nav" aria-label="Secciones">
+          <p class="footer__label">Secciones</p>
+          <ul role="list">
+            <li><a href="#como-funciona">Cómo funciona</a></li>
+            <li><a href="#prototipo">Ver prototipo</a></li>
+            <li><a href="#barrios">Barrios del piloto</a></li>
+            <li><a href="#preguntas">Preguntas frecuentes</a></li>
+            <li><a href="#postular">Postular mi farmacia</a></li>
+          </ul>
+        </nav>
+
+        <div class="footer__contact">
+          <p class="footer__label">Contacto</p>
+          <ul role="list">
+            <!-- Reemplazar por el correo definitivo -->
+            <li><a href="mailto:correo@aliarrosario.com.ar"><i data-lucide="mail"></i>correo@aliarrosario.com.ar</a></li>
+            <li><a href="#" data-wa="Hola, quiero consultar por ALIAR ROSARIO."><i data-lucide="message-circle"></i>WhatsApp: <span data-wa-display>+54 9 341 XXXXXXX</span></a></li>
+          </ul>
+        </div>
+      </div>
+
+      <p class="footer__wordmark" aria-hidden="true">ALIAR ROSARIO</p>
+
+      <div class="footer__bottom">
+        <p>© 2026 ALIAR ROSARIO. Proyecto en etapa de convocatoria de Farmacias Fundadoras.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- CTA fija en celulares -->
+  <div class="sticky-cta" id="sticky-cta">
+    <a class="btn btn--primary btn--block" href="#postular"><span>Postular mi farmacia</span><span class="btn__icon" aria-hidden="true"><i data-lucide="arrow-right"></i></span></a>
+    <a class="btn btn--whatsapp btn--icon" href="#" data-wa="Hola, quiero sumar mi farmacia a ALIAR ROSARIO." aria-label="Escribir por WhatsApp"><i data-lucide="message-circle"></i></a>
+  </div>
+
+  <!-- Avisos breves -->
+  <div class="toast" id="toast" role="status" aria-live="polite" aria-atomic="true"></div>
+</body>
+</html>
