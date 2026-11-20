@@ -44,3 +44,9 @@ Audio y proceso:
 - Conversión y compresión: `ffmpeg`
 
 Regla: antes de renderizar, consulta `video-delivery-specs` para el formato de destino.
+
+## Guía de estilos (ALIAR ROSARIO · «Barrio pop» v2.0)
+
+Antes de diseñar o escribir cualquier pieza (web, redes, flyers, video), lee `docs/guia-de-estilos/guia-de-estilos.md`. Es la fuente de verdad de marca: logotipo, color, tipografía, componentes, movimiento, voz y tono, accesibilidad y checklist. Los tokens CSS están en su sección 15. La versión PDF (`guia-de-estilos.pdf`) es solo para humanos; las imágenes están en `docs/guia-de-estilos/img/`.
+
+Reglas clave: Coral `#F97316` solo en botones principales y urgencia · fuentes Bricolage Grotesque / Figtree / Caveat · bordes de 2 px en Tinta `#0D2B27` con sombras sólidas desplazadas · voseo rioplatense.

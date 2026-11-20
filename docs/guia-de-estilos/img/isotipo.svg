@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 240" width="720" height="240" role="img" aria-label="Isotipo de ALIAR ROSARIO en sus tres versiones">
+  <defs>
+    <symbol id="mark" viewBox="0 0 32 32">
+      <rect x="11.6" y="2.2" width="8.8" height="9.6" rx="2.6"/>
+      <rect x="11.6" y="20.2" width="8.8" height="9.6" rx="2.6"/>
+      <rect x="2.2" y="11.6" width="9.6" height="8.8" rx="2.6"/>
+      <rect x="20.2" y="11.6" width="9.6" height="8.8" rx="2.6"/>
+      <circle cx="16" cy="16" r="2.4"/>
+    </symbol>
+  </defs>
+  <!-- Principal sobre crema -->
+  <rect x="0" y="0" width="240" height="240" fill="#FFF9F0"/>
+  <g transform="rotate(-6 120 120)">
+    <rect x="76" y="80" width="88" height="88" rx="28" fill="#0D2B27"/>
+    <rect x="70" y="74" width="88" height="88" rx="28" fill="#0F766E" stroke="#0D2B27" stroke-width="4"/>
+    <use href="#mark" x="88" y="92" width="52" height="52" fill="#DDF57A"/>
+  </g>
+  <!-- Inversa sobre tinta -->
+  <rect x="240" y="0" width="240" height="240" fill="#0D2B27"/>
+  <g transform="rotate(-6 360 120)">
+    <rect x="310" y="74" width="88" height="88" rx="28" fill="#0F766E" stroke="#DDF57A" stroke-width="4"/>
+    <use href="#mark" x="328" y="92" width="52" height="52" fill="#DDF57A"/>
+  </g>
+  <!-- Favicon / tamaños chicos -->
+  <rect x="480" y="0" width="240" height="240" fill="#FBF1E3"/>
+  <rect x="556" y="76" width="88" height="88" rx="22" fill="#0F766E"/>
+  <g fill="#FFFFFF">
+    <rect x="590.65" y="88.375" width="18.7" height="20.9" rx="5.5"/>
+    <rect x="590.65" y="130.725" width="18.7" height="20.9" rx="5.5"/>
+    <rect x="568.375" y="110.65" width="20.9" height="18.7" rx="5.5"/>
+    <rect x="610.725" y="110.65" width="20.9" height="18.7" rx="5.5"/>
+    <circle cx="600" cy="120" r="5.2"/>
+  </g>
+</svg>
