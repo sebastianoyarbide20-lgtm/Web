@@ -105,15 +105,17 @@ window.SCORE = (ac) => {
   pad(0, [57, 60, 64].map((m) => m - 12), 4.8, 0.9);
   for (let bar = 0; bar < 3; bar++) {
     const t0 = bar * BAR;
-    sub(t0, 33, 1.0, 1); sub(t0 + 2.5 * B, 33, 0.35, 0.8);
-    kick(t0, 0.9); kick(t0 + 2.5 * B, 0.7);
-    snare(t0 + 2 * B, bar === 0 ? 0.6 : 0.9);
-    for (let s = 0; s < 16; s++) { const ts = t0 + s * B / 4; if (bar === 0) { if (s % 2 === 0) tick(ts, s % 4 === 0 ? 1 : 0.6); } else hat(ts, s % 4 === 2 ? 1 : 0.55); }
+    sub(t0, 33, bar === 0 ? 1.0 : 0.75, 1); if (bar === 0) sub(t0 + 2.5 * B, 33, 0.35, 0.8);
+    kick(t0, 1.05); if (bar === 0) kick(t0 + 2.5 * B, 0.6);
+    // golpe de medio tiempo marcado (corte de imagen en 2,4 y 4,0 s): bombo + redoblante + clap
+    snare(t0 + 2 * B, bar === 0 ? 0.7 : 1.4); if (bar > 0) { clap(t0 + 2 * B, 1.3); kick(t0 + 2 * B, 0.9); }
+    for (let s = 0; s < 16; s++) { const ts = t0 + s * B / 4; if (s % 4 === 0 && s !== 8 && s !== 0) continue; if (bar === 0) { if (s % 2 === 0) tick(ts, s % 4 === 0 ? 0.8 : 0.5); } else hat(ts, s % 4 === 2 ? 0.6 : 0.35); }
     if (bar === 2) ohat(t0 + 3.5 * B);
   }
   shutter(0.95, 0.27); // la persiana baja (aterriza 1,2 s)
 
   // ===== SUBIDA (compás 3, 4,8–6,4 s): redoble que acelera, corte de 1/8 al final
+  kick(4.8, 1.1); clap(4.8, 1); crash(4.8, 0.45);
   riser(4.8, 6.2);
   for (const [a, b, step] of [[4.8, 5.6, B / 2], [5.6, 6.0, B / 4], [6.0, 6.2, B / 8]]) for (let t = a; t < b - 1e-6; t += step) snare(t, 0.35 + 0.65 * (t - 4.8) / 1.4);
   pad(4.8, [57, 60, 64, 69].map((m) => m - 12), 1.35, 1.4);
@@ -135,10 +137,11 @@ window.SCORE = (ac) => {
     if (bar >= 6) HOOK.forEach((m, s) => { if (m) pluck(t0 + s * B / 4, m, bar % 2 ? 0.9 : 1); });
   }
   // relleno antes de la frase
-  for (let t = 18.8; t < 19.2 - 1e-6; t += B / 4) snare(t, 0.5 + (t - 18.8));
+  for (let t = 18.8; t < 19.2 - 1e-6; t += B / 4) snare(t, 0.28 + 0.6 * (t - 18.8));
 
   // ===== FRASE (compás 12, 19,2–20,8 s): break filtrado + persiana que baja
-  shutter(19.18, 0.24);
+  shutter(18.95, 0.24); // la persiana cae y golpea en 19,2
+  kick(19.2, 1.15); clap(19.2, 1.2); crash(19.2, 0.9);
   sub(19.2, 33, 1.4, 1);
   stab(19.2, [57, 60, 64].map((m) => m + 12), 0.5, 1.2, 1600);
   stab(20.0, [53, 57, 60].map((m) => m + 12), 0.4, 1, 1400);
