@@ -24,6 +24,34 @@ de la convocatoria de **Farmacias Fundadoras**. Hecho con [HyperFrames](https://
 | 18–21 s | `costo` | «0 % costo fijo. Solo pagás cuando concretás una venta.» |
 | 21–26 s | `cierre` | Logo, «Inscripción hasta el 10 de diciembre», «Sumate como Farmacia Fundadora», botón «Postular mi farmacia», «Lanzamiento: 1.º de enero de 2027». |
 
+## Texto para publicar
+
+La guía (sección 13) pide que el mensaje clave también esté en el texto del posteo y en el texto
+alternativo, no solo dentro del video. Propuesta (revisar el llamado final según dónde se postule):
+
+**Posteo**
+
+> Tu farmacia de barrio, con la fuerza de una red. 💚
+>
+> ALIAR ROSARIO (Alianza y Respaldo para farmacias independientes) es una plataforma común para que las
+> farmacias de barrio de Rosario vendan online, coticen recetas por WhatsApp y lleguen a más vecinos.
+> Vos seguís siendo el único dueño de tu negocio, tu mostrador y tus clientes. 0 % costo fijo: solo
+> pagás cuando concretás una venta.
+>
+> Inscripción de Farmacias Fundadoras abierta hasta el 10 de diciembre. Cupos limitados por barrio.
+> Lanzamiento: 1.º de enero de 2027.
+>
+> 👉 Postulá tu farmacia desde el link de la bio.
+
+**Texto alternativo**
+
+> Video animado de ALIAR ROSARIO. Sobre fondo crema dice: «Las cadenas tienen app, web y envíos. ¿Y tu
+> farmacia de barrio?». Una farmacia sola se junta con farmacias de Fisherton, Echesortu y Alberdi y
+> forman el isotipo de la red. Después: «Vendé online», «Cotizá recetas por WhatsApp», «Llegá a más
+> vecinos», «Vos seguís siendo el único dueño», «0 % costo fijo. Solo pagás cuando concretás una venta».
+> Cierre: «Inscripción hasta el 10 de diciembre. Sumate como Farmacia Fundadora. Postular mi farmacia.
+> Lanzamiento: 1.º de enero de 2027».
+
 ## Cómo editar y volver a renderizar
 
 Requiere Node.js 22+ y FFmpeg. Desde esta carpeta:
