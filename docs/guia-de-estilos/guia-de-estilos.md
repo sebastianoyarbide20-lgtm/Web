@@ -683,6 +683,8 @@ Objetivo: **WCAG 2.2 nivel AA** en todas las piezas digitales. La versión 2.0 d
 5. Logotipo abajo, con su área de respeto.
 6. Margen interno mínimo: 80 px sobre 1080 px (en historias, 250 px libres arriba y abajo).
 
+> **Producción:** las piezas nuevas se arman con las plantillas HTML de `publicaciones/_plantillas/` (estilos en `marca/publicacion.css`) y se exportan con `npm run render`, que verifica las reglas de esta guía. Canva queda para ajustar las piezas ya existentes.
+
 > Las piezas de Canva sumaron por su cuenta dos stickers que no están en los textos aprobados: "Somos barrio, somos red" (lanzamiento) y "Nuevo" (recetas). Revisá si se quedan antes de publicar.
 
 ### 14.3 Material de mostrador (recomendación)

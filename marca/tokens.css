@@ -1,0 +1,62 @@
+/*
+ * ALIAR ROSARIO · Tokens de marca («Barrio pop» v2.0)
+ * Copia exacta de docs/guia-de-estilos/guia-de-estilos.md, sección 15.
+ * Si cambia la guía, regenerá este archivo; no edites valores a mano acá.
+ */
+:root {
+  /* Fondos */
+  --bg: #FFF9F0;            /* crema */
+  --bg-2: #FBF1E3;          /* crema tostado (franjas) */
+  --surface: #FFFFFF;
+  --mint: #BFF0DA;
+  --mint-soft: #DDF8EB;
+  --lime: #DDF57A;
+  --lime-ink: #B6DB2E;      /* lima para trazos decorativos sobre crema */
+  --lilac: #E4DBFF;
+  --butter: #FFEDB3;
+
+  /* Tinta y texto */
+  --ink: #0D2B27;
+  --ink-2: #3D5752;
+  --line: #E8DFD1;
+
+  /* Marca */
+  --primary: #0F766E;       /* verde petróleo */
+  --primary-deep: #0B4F49;
+  --accent: #F97316;        /* coral: SOLO botones principales y urgencia */
+  --accent-hover: #FB8B3C;
+  --urgent-bg: #FFE3D0;
+  --urgent-text: #B4410C;
+
+  --danger: #C81E1E;
+  --danger-soft: #FFF1F1;
+
+  /* Tipografía */
+  --font-display: "Bricolage Grotesque", ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-body: "Figtree", ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-hand: "Caveat", "Segoe Print", cursive;
+  --fs-body: 1.0625rem;
+  --fs-lead: clamp(1.125rem, 1.05rem + 0.35vw, 1.3125rem);
+  --fs-h1: clamp(2.5rem, 1.55rem + 3.9vw, 4.6rem);
+  --fs-h2: clamp(2.1rem, 1.45rem + 2.7vw, 3.5rem);
+  --fs-h3: clamp(1.25rem, 1.15rem + 0.4vw, 1.5rem);
+
+  /* Formas y sombras desplazadas */
+  --r-sm: 12px;
+  --r: 20px;
+  --r-lg: 28px;
+  --r-xl: 36px;
+  --pill: 999px;
+  --b: 2px solid var(--ink);
+  --sh-s: 3px 3px 0 var(--ink);
+  --sh-m: 5px 5px 0 var(--ink);
+  --sh-l: 8px 8px 0 var(--ink);
+
+  --container: 1200px;
+  --gutter: 18px;
+  --section-y: 72px;
+  --ease: cubic-bezier(0.2, 0.75, 0.25, 1);
+  --spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+@media (min-width: 640px)  { :root { --gutter: 24px; --section-y: 88px; } }
+@media (min-width: 1024px) { :root { --gutter: 32px; --section-y: 112px; --fs-body: 1.125rem; } }
