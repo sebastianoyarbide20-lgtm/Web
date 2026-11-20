@@ -26,7 +26,7 @@ farmacias de barrio.
 - **Sonido:** base pop de marimba a 120 BPM; se queda casi sola cuando la farmacia está
   sola y vuelve completa al formarse la red; subida y golpe cuando aterriza el logo.
 
-## B · «Cuando bajás la persiana»
+## B · «Cuando bajás la persiana» (construido después en `video/aliar-persiana/`)
 
 - **Recurso:** un momento en el día de una farmacéutica. **Forma:** antes y después.
 - Persiana que baja a la noche; al otro día, el celular muestra «¡Pedido nuevo! Del

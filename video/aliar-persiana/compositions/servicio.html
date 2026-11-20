@@ -1,0 +1,82 @@
+<template>
+  <style>
+    @font-face { font-family: "Bricolage Grotesque"; src: url("assets/fonts/BricolageGrotesque-var.woff2") format("woff2"); font-weight: 200 800; }
+    @font-face { font-family: "Figtree"; src: url("assets/fonts/Figtree-var.woff2") format("woff2"); font-weight: 300 900; }
+    #root { position: absolute; inset: 0; overflow: hidden; background: #0d2b27; color: #0d2b27; font-family: "Figtree", sans-serif; }
+    #root .full { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; }
+    #root .ph { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; object-fit: cover; }
+    #root .dots { position: absolute; inset: 0; background-image: radial-gradient(circle, rgba(13, 43, 39, 0.12) 3px, transparent 3.6px); background-size: 40px 40px; background-position: 20px 20px; }
+    #root .ln { position: absolute; left: 124px; white-space: nowrap; }
+    /* Bloques-sticker de titular (guía: borde Tinta + sombra sólida desplazada) */
+    #root .slab { display: inline-block; font-family: "Bricolage Grotesque", sans-serif; font-weight: 800; text-transform: uppercase; letter-spacing: -0.035em; line-height: 0.92; padding: 0.07em 0.16em 0.11em; border: 5px solid #0d2b27; border-radius: 24px; box-shadow: 10px 10px 0 #0d2b27; }
+    #root .ink { background: #0d2b27; color: #fff9f0; box-shadow: 10px 10px 0 #ddf57a; }
+    #root .lime { background: #ddf57a; color: #0d2b27; }
+    #root .cream { background: #fff9f0; color: #0d2b27; }
+    #root .coral { background: #f97316; color: #0d2b27; }
+    #root .tag { display: inline-flex; align-items: center; gap: 12px; padding: 12px 24px; border: 4px solid #0d2b27; border-radius: 999px; box-shadow: 6px 6px 0 #0d2b27; font: 800 32px/1.2 "Figtree", sans-serif; letter-spacing: 0.06em; text-transform: uppercase; white-space: nowrap; color: #0d2b27; }
+    #root .flash { position: absolute; inset: 0; background: #fff9f0; opacity: 0; }
+    /* Tarjeta flotante de la web (.float-card) */
+    #root .fcard { display: flex; align-items: center; gap: 24px; width: 756px; padding: 22px 28px; background: #ffffff; border: 4px solid #0d2b27; border-radius: 34px; box-shadow: 10px 10px 0 #0d2b27; }
+    #root .fcard .ic { flex: none; width: 96px; height: 96px; border-radius: 50%; border: 4px solid #0d2b27; display: flex; align-items: center; justify-content: center; }
+    #root .fcard .ic svg { width: 52px; height: 52px; }
+    #root .fcard b { display: block; font-family: "Bricolage Grotesque", sans-serif; font-weight: 800; font-size: 48px; line-height: 1.05; letter-spacing: -0.015em; }
+    #root .fcard span { display: block; margin-top: 4px; font-weight: 600; font-size: 32px; color: #3d5752; }
+    #root .banner { position: absolute; border: 5px solid #0d2b27; border-radius: 26px; box-shadow: 12px 12px 0 #0d2b27; overflow: hidden; background: #fff9f0; }
+    #root .banner img { display: block; width: 100%; height: 100%; }
+    #root .lilac-bg { position: absolute; inset: 0; background: #e4dbff; }
+    #root .wa { display: inline-flex; align-items: center; gap: 18px; height: 104px; padding: 0 16px 0 40px; background: #0f766e; color: #ffffff; border: 5px solid #0d2b27; border-radius: 999px; box-shadow: 8px 8px 0 #0d2b27; font: 800 42px/1 "Figtree", sans-serif; white-space: nowrap; }
+    #root .wa i { width: 76px; height: 76px; border-radius: 50%; background: #ddf57a; border: 4px solid #0d2b27; display: flex; align-items: center; justify-content: center; }
+    #root .wa svg { width: 40px; height: 40px; }
+    #root .route { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+  </style>
+  <div id="root" data-composition-id="servicio" data-width="1080" data-height="1920">
+    <!-- Plano 1: receta por foto (banner de recetas del repo) -->
+    <div id="sv-s1" class="full">
+      <div class="lilac-bg"><div class="dots"></div></div>
+      <div id="sv-l1" class="ln" style="top: 300px; left: 124px"><span class="slab ink" style="font-size: 170px; transform: rotate(-2deg)">Receta</span></div>
+      <div id="sv-l2" class="ln" style="top: 490px; left: 124px"><span class="slab lime" style="font-size: 160px; transform: rotate(1.5deg)">por foto.</span></div>
+      <div id="sv-b1" class="banner" style="left: 330px; top: 760px; width: 600px; height: 600px"><img src="assets/banners/campana-recetas.webp" alt="" /></div>
+      <div id="sv-wa" class="ln" style="top: 690px"><span class="wa" style="transform: rotate(-2deg)">Cotizás por WhatsApp<i><svg viewBox="0 0 24 24" fill="none" stroke="#0d2b27" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z" /></svg></i></span></div>
+    </div>
+    <!-- Plano 2: retiro o envío en el día, sobre Rosario al atardecer -->
+    <div id="sv-s2" class="full">
+      <div id="sv-ph" class="full">
+        <img class="ph" src="assets/photos/rosario-amanecer.jpg" alt="" style="object-position: 50% 50%" />
+        <svg class="route" viewBox="0 0 1080 1920" aria-hidden="true">
+          <path id="sv-route-sh" pathLength="1" d="M60 1500 C 260 1380, 300 1180, 520 1150 S 760 1060, 820 900" fill="none" stroke="#0d2b27" stroke-width="22" stroke-linecap="round" stroke-dasharray="1 1.2" stroke-dashoffset="1.1" />
+          <path id="sv-route" pathLength="1" d="M60 1500 C 260 1380, 300 1180, 520 1150 S 760 1060, 820 900" fill="none" stroke="#ddf57a" stroke-width="12" stroke-linecap="round" stroke-dasharray="1 1.2" stroke-dashoffset="1.1" />
+        </svg>
+        <div id="sv-pin" style="position: absolute; left: 772px; top: 800px; width: 96px; height: 96px; border-radius: 50%; background: #ddf57a; border: 5px solid #0d2b27; box-shadow: 6px 6px 0 #0d2b27; display: flex; align-items: center; justify-content: center"><svg viewBox="0 0 24 24" fill="none" stroke="#0d2b27" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="width:54px;height:54px"><path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0" /><circle cx="12" cy="10" r="3" /></svg></div>
+      </div>
+      <div id="sv-l3" class="ln" style="top: 320px; left: 124px"><span class="slab ink" style="font-size: 96px; transform: rotate(-2deg)">Retiro o envío</span></div>
+      <div id="sv-l4" class="ln" style="top: 455px; left: 124px"><span class="slab lime" style="font-size: 150px; transform: rotate(1.5deg)">en el día.</span></div>
+      <div id="sv-b2" class="banner" style="left: 150px; top: 700px; width: 470px; height: 470px"><img src="assets/banners/campana-verano.webp" alt="" /></div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const tl = gsap.timeline({ paused: true });
+      // golpe: el bloque entra grande y aterriza (expo.out)
+      const SLAM = (sel, at, from = 1.5, d = 0.22) => tl.fromTo(sel, { opacity: 0, scale: from, transformOrigin: "0% 50%" }, { opacity: 1, scale: 1, duration: d, ease: "expo.out" }, at);
+      // corte duro dentro de la escena (prende / apaga un plano)
+      const ON = (sel, at) => tl.fromTo(sel, { opacity: 0 }, { opacity: 1, duration: 0.01 }, at);
+      const OFF = (sel, at) => tl.fromTo(sel, { opacity: 1 }, { opacity: 0, duration: 0.01, immediateRender: false }, at);
+      // temblor de impacto (3 ciclos)
+      const SHAKE = (sel, at, a = 16) => { [[a, 0.045], [-a * 0.75, 0.05], [a * 0.45, 0.05], [0, 0.06]].reduce((t, [y, d], i, arr) => { const prev = i ? arr[i - 1][0] : 0; tl.fromTo(sel, { y: prev }, { y, duration: d, ease: "sine.inOut", immediateRender: false }, t); return t + d; }, at); };
+      // 0,0 · RECETA POR FOTO: el banner de recetas entra desde abajo
+      SLAM("#sv-l1", 0.02, 1.7); SLAM("#sv-l2", 0.18, 1.7);
+      tl.fromTo("#sv-b1", { y: 900, rotation: 18 }, { y: 0, rotation: -4, duration: 0.5, ease: "back.out(1.3)" }, 0.12);
+      tl.fromTo("#sv-wa", { opacity: 0, x: -500 }, { opacity: 1, x: 0, duration: 0.3, ease: "expo.out" }, 0.5);
+      // 1,5 · latigazo a la izquierda
+      tl.fromTo("#sv-s1", { x: 0 }, { x: -1150, duration: 0.12, ease: "power3.in", immediateRender: false }, 1.48);
+      // 1,6 · RETIRO O ENVÍO EN EL DÍA: Rosario al atardecer, la ruta se dibuja
+      ON("#sv-s2", 1.5); OFF("#sv-s1", 1.62);
+      tl.fromTo("#sv-ph", { x: 900, scale: 1.2 }, { x: 0, scale: 1.04, duration: 0.32, ease: "expo.out" }, 1.5);
+      SLAM("#sv-l3", 1.64); SLAM("#sv-l4", 1.8, 1.7);
+      tl.fromTo(["#sv-route-sh", "#sv-route"], { strokeDashoffset: 1.1 }, { strokeDashoffset: 0, duration: 0.55, ease: "power2.inOut" }, 1.9);
+      tl.fromTo("#sv-pin", { scale: 0, transformOrigin: "50% 100%" }, { scale: 1, duration: 0.3, ease: "back.out(2.2)" }, 2.42);
+      tl.fromTo("#sv-b2", { x: -900, rotation: -20 }, { x: 0, rotation: 5, duration: 0.42, ease: "back.out(1.3)" }, 2.0);
+      window.__timelines["servicio"] = tl;
+    })();
+  </script>
+</template>

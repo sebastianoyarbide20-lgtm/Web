@@ -1,0 +1,88 @@
+<template>
+  <style>
+    @font-face { font-family: "Bricolage Grotesque"; src: url("assets/fonts/BricolageGrotesque-var.woff2") format("woff2"); font-weight: 200 800; }
+    @font-face { font-family: "Figtree"; src: url("assets/fonts/Figtree-var.woff2") format("woff2"); font-weight: 300 900; }
+    #root { position: absolute; inset: 0; overflow: hidden; background: #0d2b27; color: #0d2b27; font-family: "Figtree", sans-serif; }
+    #root .full { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; }
+    #root .ph { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; object-fit: cover; }
+    #root .dots { position: absolute; inset: 0; background-image: radial-gradient(circle, rgba(13, 43, 39, 0.12) 3px, transparent 3.6px); background-size: 40px 40px; background-position: 20px 20px; }
+    #root .ln { position: absolute; left: 124px; white-space: nowrap; }
+    /* Bloques-sticker de titular (guía: borde Tinta + sombra sólida desplazada) */
+    #root .slab { display: inline-block; font-family: "Bricolage Grotesque", sans-serif; font-weight: 800; text-transform: uppercase; letter-spacing: -0.035em; line-height: 0.92; padding: 0.07em 0.16em 0.11em; border: 5px solid #0d2b27; border-radius: 24px; box-shadow: 10px 10px 0 #0d2b27; }
+    #root .ink { background: #0d2b27; color: #fff9f0; box-shadow: 10px 10px 0 #ddf57a; }
+    #root .lime { background: #ddf57a; color: #0d2b27; }
+    #root .cream { background: #fff9f0; color: #0d2b27; }
+    #root .coral { background: #f97316; color: #0d2b27; }
+    #root .tag { display: inline-flex; align-items: center; gap: 12px; padding: 12px 24px; border: 4px solid #0d2b27; border-radius: 999px; box-shadow: 6px 6px 0 #0d2b27; font: 800 32px/1.2 "Figtree", sans-serif; letter-spacing: 0.06em; text-transform: uppercase; white-space: nowrap; color: #0d2b27; }
+    #root .flash { position: absolute; inset: 0; background: #fff9f0; opacity: 0; }
+    /* Tarjeta flotante de la web (.float-card) */
+    #root .fcard { display: flex; align-items: center; gap: 24px; width: 756px; padding: 22px 28px; background: #ffffff; border: 4px solid #0d2b27; border-radius: 34px; box-shadow: 10px 10px 0 #0d2b27; }
+    #root .fcard .ic { flex: none; width: 96px; height: 96px; border-radius: 50%; border: 4px solid #0d2b27; display: flex; align-items: center; justify-content: center; }
+    #root .fcard .ic svg { width: 52px; height: 52px; }
+    #root .fcard b { display: block; font-family: "Bricolage Grotesque", sans-serif; font-weight: 800; font-size: 48px; line-height: 1.05; letter-spacing: -0.015em; }
+    #root .fcard span { display: block; margin-top: 4px; font-weight: 600; font-size: 32px; color: #3d5752; }
+    #root .banner { position: absolute; border: 5px solid #0d2b27; border-radius: 26px; box-shadow: 12px 12px 0 #0d2b27; overflow: hidden; background: #fff9f0; }
+    #root .banner img { display: block; width: 100%; height: 100%; }
+    #root .cream-bg { position: absolute; inset: 0; background: #fff9f0; }
+    #root .open { display: inline-flex; align-items: center; gap: 12px; }
+    #root .open i { width: 20px; height: 20px; border-radius: 50%; background: #0f766e; }
+  </style>
+  <div id="root" data-composition-id="red" data-width="1080" data-height="1920">
+    <!-- Plano 1: siempre hay una de la red abierta -->
+    <div id="rd-s1" class="full">
+      <div id="rd-ph" class="full">
+        <img class="ph" src="assets/photos/rosario-noche.jpg" alt="" style="object-position: 62% 50%" />
+        <div id="rd-p0" style="position: absolute; left: 176px; top: 966px; width: 88px; height: 88px"><div id="rd-r0" style="position: absolute; inset: 0; border-radius: 50%; border: 6px solid #ddf57a"></div><div style="position: absolute; inset: 0; border-radius: 50%; background: #ddf57a; border: 5px solid #0d2b27; display: flex; align-items: center; justify-content: center"><svg viewBox="0 0 24 24" fill="none" stroke="#0d2b27" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="width:46px;height:46px"><path d="m2 7 4.41-4.41A2 2 0 0 1 7.83 2h8.34a2 2 0 0 1 1.42.59L22 7" /><path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8" /><path d="M15 22v-4a2 2 0 0 0-2-2h-2a2 2 0 0 0-2 2v4" /><path d="M2 7h20" /></svg></div></div>
+        <div id="rd-p1" style="position: absolute; left: 386px; top: 836px; width: 88px; height: 88px"><div id="rd-r1" style="position: absolute; inset: 0; border-radius: 50%; border: 6px solid #ddf57a"></div><div style="position: absolute; inset: 0; border-radius: 50%; background: #ddf57a; border: 5px solid #0d2b27; display: flex; align-items: center; justify-content: center"><svg viewBox="0 0 24 24" fill="none" stroke="#0d2b27" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="width:46px;height:46px"><path d="m2 7 4.41-4.41A2 2 0 0 1 7.83 2h8.34a2 2 0 0 1 1.42.59L22 7" /><path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8" /><path d="M15 22v-4a2 2 0 0 0-2-2h-2a2 2 0 0 0-2 2v4" /><path d="M2 7h20" /></svg></div></div>
+        <div id="rd-p2" style="position: absolute; left: 606px; top: 1046px; width: 88px; height: 88px"><div id="rd-r2" style="position: absolute; inset: 0; border-radius: 50%; border: 6px solid #ddf57a"></div><div style="position: absolute; inset: 0; border-radius: 50%; background: #ddf57a; border: 5px solid #0d2b27; display: flex; align-items: center; justify-content: center"><svg viewBox="0 0 24 24" fill="none" stroke="#0d2b27" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="width:46px;height:46px"><path d="m2 7 4.41-4.41A2 2 0 0 1 7.83 2h8.34a2 2 0 0 1 1.42.59L22 7" /><path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8" /><path d="M15 22v-4a2 2 0 0 0-2-2h-2a2 2 0 0 0-2 2v4" /><path d="M2 7h20" /></svg></div></div>
+        <div id="rd-p3" style="position: absolute; left: 796px; top: 916px; width: 88px; height: 88px"><div id="rd-r3" style="position: absolute; inset: 0; border-radius: 50%; border: 6px solid #ddf57a"></div><div style="position: absolute; inset: 0; border-radius: 50%; background: #ddf57a; border: 5px solid #0d2b27; display: flex; align-items: center; justify-content: center"><svg viewBox="0 0 24 24" fill="none" stroke="#0d2b27" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="width:46px;height:46px"><path d="m2 7 4.41-4.41A2 2 0 0 1 7.83 2h8.34a2 2 0 0 1 1.42.59L22 7" /><path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8" /><path d="M15 22v-4a2 2 0 0 0-2-2h-2a2 2 0 0 0-2 2v4" /><path d="M2 7h20" /></svg></div></div>
+        <div id="rd-open" class="ln" style="left: 430px; top: 1110px"><span class="tag open" style="background: #bff0da; transform: rotate(-3deg)"><i></i>Abierta ahora</span></div>
+      </div>
+      <div id="rd-l1" class="ln" style="top: 310px; left: 124px"><span class="slab ink" style="font-size: 90px; transform: rotate(-1.5deg)">Siempre hay una</span></div>
+      <div id="rd-l2" class="ln" style="top: 425px; left: 124px"><span class="slab ink" style="font-size: 90px; transform: rotate(1deg)">de la red</span></div>
+      <div id="rd-l3" class="ln" style="top: 545px; left: 124px"><span class="slab lime" style="font-size: 170px; transform: rotate(-2deg)">abierta.</span></div>
+    </div>
+    <!-- Plano 2: los banners de la red, listos para tus redes -->
+    <div id="rd-s2" class="full">
+      <div id="rd-z" class="full">
+        <div class="cream-bg"><div class="dots"></div></div>
+        <div id="rd-l4" class="ln" style="top: 320px; left: 124px"><span class="slab ink" style="font-size: 140px; transform: rotate(-2deg)">Tus redes,</span></div>
+        <div id="rd-l5" class="ln" style="top: 480px; left: 124px"><span class="slab lime" style="font-size: 170px; transform: rotate(2deg)">listas.</span></div>
+        <div id="rd-sub" class="ln" style="top: 670px"><span class="tag" style="background: #ffffff">Campañas hechas por la red</span></div>
+        <div id="rd-bl" class="banner" style="left: 70px; top: 800px; width: 450px; height: 450px"><img src="assets/banners/campana-lanzamiento.webp" alt="" /></div>
+        <div id="rd-br" class="banner" style="left: 560px; top: 800px; width: 450px; height: 450px"><img src="assets/banners/campana-verano.webp" alt="" /></div>
+        <div id="rd-bc" class="banner" style="left: 315px; top: 760px; width: 450px; height: 450px"><img src="assets/banners/campana-recetas.webp" alt="" /></div>
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const tl = gsap.timeline({ paused: true });
+      // golpe: el bloque entra grande y aterriza (expo.out)
+      const SLAM = (sel, at, from = 1.5, d = 0.22) => tl.fromTo(sel, { opacity: 0, scale: from, transformOrigin: "0% 50%" }, { opacity: 1, scale: 1, duration: d, ease: "expo.out" }, at);
+      // corte duro dentro de la escena (prende / apaga un plano)
+      const ON = (sel, at) => tl.fromTo(sel, { opacity: 0 }, { opacity: 1, duration: 0.01 }, at);
+      const OFF = (sel, at) => tl.fromTo(sel, { opacity: 1 }, { opacity: 0, duration: 0.01, immediateRender: false }, at);
+      // temblor de impacto (3 ciclos)
+      const SHAKE = (sel, at, a = 16) => { [[a, 0.045], [-a * 0.75, 0.05], [a * 0.45, 0.05], [0, 0.06]].reduce((t, [y, d], i, arr) => { const prev = i ? arr[i - 1][0] : 0; tl.fromTo(sel, { y: prev }, { y, duration: d, ease: "sine.inOut", immediateRender: false }, t); return t + d; }, at); };
+      // 0,0 · skyline de noche que se acerca; se encienden las farmacias de la red
+      tl.fromTo("#rd-ph", { scale: 1.0, transformOrigin: "55% 55%" }, { scale: 1.2, duration: 1.6, ease: "power1.in" }, 0);
+      SLAM("#rd-l1", 0.02); SLAM("#rd-l2", 0.14); SLAM("#rd-l3", 0.3, 1.8);
+      [0, 1, 2, 3].forEach((i) => {
+        tl.fromTo("#rd-p" + i, { scale: 0 }, { scale: 1, duration: 0.25, ease: "back.out(2.4)" }, 0.2 + i * 0.13);
+        tl.fromTo("#rd-r" + i, { scale: 1, opacity: 0.9 }, { scale: 2.6, opacity: 0, duration: 0.6, ease: "power2.out" }, 0.3 + i * 0.13);
+      });
+      tl.fromTo("#rd-open", { opacity: 0, scale: 1.5, transformOrigin: "0% 50%" }, { opacity: 1, scale: 1, duration: 0.25, ease: "back.out(1.8)" }, 0.85);
+      // 1,6 · TUS REDES, LISTAS: los tres banners entran en abanico (corcheas)
+      ON("#rd-s2", 1.6); OFF("#rd-s1", 1.61);
+      SLAM("#rd-l4", 1.62); SLAM("#rd-l5", 1.78, 1.8);
+      tl.fromTo("#rd-bl", { x: -800, rotation: -40 }, { x: 0, rotation: -10, duration: 0.35, ease: "back.out(1.3)" }, 1.6);
+      tl.fromTo("#rd-br", { x: 800, rotation: 40 }, { x: 0, rotation: 10, duration: 0.35, ease: "back.out(1.3)" }, 1.8);
+      tl.fromTo("#rd-bc", { y: 1100, rotation: 12 }, { y: 0, rotation: -2, duration: 0.38, ease: "back.out(1.3)" }, 2.0);
+      tl.fromTo("#rd-sub", { opacity: 0, x: -300 }, { opacity: 1, x: 0, duration: 0.25, ease: "expo.out" }, 1.95);
+      // 2,95 · zoom a través del banner central
+      tl.fromTo("#rd-z", { scale: 1, transformOrigin: "50% 52%" }, { scale: 3.2, duration: 0.25, ease: "power3.in", immediateRender: false }, 2.95);
+      window.__timelines["red"] = tl;
+    })();
+  </script>
+</template>

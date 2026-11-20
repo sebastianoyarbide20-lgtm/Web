@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="es-AR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1080, height=1920" />
+    <title>ALIAR ROSARIO · Cuando bajás la persiana</title>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.15.0/dist/gsap.min.js"></script>
+    <style>
+      * { margin: 0; padding: 0; box-sizing: border-box; }
+      html, body { margin: 0; width: 1080px; height: 1920px; overflow: hidden; background: #0d2b27; }
+      #root { position: relative; width: 100%; height: 100%; }
+    </style>
+  </head>
+  <body>
+    <div id="root" data-composition-id="main" data-start="0" data-duration="24" data-width="1080" data-height="1920" data-motion-blur="on">
+      <!-- Escenas: 150 BPM, compás = 1,6 s -->
+      <div id="noche" data-composition-id="noche" data-composition-src="compositions/noche.html" data-start="0" data-duration="3.2" data-track-index="1" data-track-kind="graphics" data-width="1080" data-height="1920"></div>
+      <div id="busca" data-composition-id="busca" data-composition-src="compositions/busca.html" data-start="3.2" data-duration="3.2" data-track-index="1" data-track-kind="graphics" data-width="1080" data-height="1920"></div>
+      <div id="drop" data-composition-id="drop" data-composition-src="compositions/drop.html" data-start="6.4" data-duration="3.2" data-track-index="1" data-track-kind="graphics" data-width="1080" data-height="1920"></div>
+      <div id="servicio" data-composition-id="servicio" data-composition-src="compositions/servicio.html" data-start="9.6" data-duration="3.2" data-track-index="1" data-track-kind="graphics" data-width="1080" data-height="1920"></div>
+      <div id="red" data-composition-id="red" data-composition-src="compositions/red.html" data-start="12.8" data-duration="3.2" data-track-index="1" data-track-kind="graphics" data-width="1080" data-height="1920"></div>
+      <div id="tuya" data-composition-id="tuya" data-composition-src="compositions/tuya.html" data-start="16" data-duration="3.2" data-track-index="1" data-track-kind="graphics" data-width="1080" data-height="1920"></div>
+      <div id="frase" data-composition-id="frase" data-composition-src="compositions/frase.html" data-start="19.2" data-duration="1.6" data-track-index="1" data-track-kind="graphics" data-width="1080" data-height="1920"></div>
+      <div id="cierre" data-composition-id="cierre" data-composition-src="compositions/cierre.html" data-start="20.8" data-duration="3.2" data-track-index="1" data-track-kind="graphics" data-width="1080" data-height="1920"></div>
+
+      <!-- Música: base sintetizada en código (audio-src/score.js), 150 BPM -->
+      <audio id="musica" src="assets/audio/musica.mp3" data-start="0" data-duration="24" data-track-index="3" data-volume="0.8"></audio>
+
+      <!-- Efectos (Pixabay, ver assets/audio/sfx/CREDITS.md); cada pico ~1 cuadro después de su imagen -->
+      <audio id="sfx-reloj" src="assets/audio/sfx/click.mp3" data-start="0.34" data-duration="0.3" data-track-index="4" data-volume="1"></audio>
+      <audio id="sfx-persiana-1" src="assets/audio/sfx/impact-bass-1.mp3" data-start="1.13" data-duration="1.2" data-track-index="5" data-volume="0.4" data-fade-out="0.3"></audio>
+      <audio id="sfx-sello" src="assets/audio/sfx/pop.mp3" data-start="1.94" data-duration="0.4" data-track-index="6" data-volume="0.9"></audio>
+      <audio id="sfx-whoosh-vecino" src="assets/audio/sfx/whoosh.mp3" data-start="2.25" data-duration="0.5" data-track-index="4" data-volume="0.45"></audio>
+      <audio id="sfx-whoosh-celu" src="assets/audio/sfx/whoosh.mp3" data-start="3.05" data-duration="0.5" data-track-index="4" data-volume="0.35"></audio>
+      <audio id="sfx-glitch" src="assets/audio/sfx/glitch-1.mp3" data-start="3.8" data-duration="0.7" data-track-index="4" data-volume="0.4" data-fade-out="0.2"></audio>
+      <audio id="sfx-drop" src="assets/audio/sfx/impact-bass-2.mp3" data-start="4.42" data-duration="2.5" data-track-index="5" data-volume="0.32" data-fade-out="0.4"></audio>
+      <audio id="sfx-pedido" src="assets/audio/sfx/notification.mp3" data-start="8.07" data-duration="1.2" data-track-index="4" data-volume="0.75" data-fade-out="0.2"></audio>
+      <audio id="sfx-pop-receta" src="assets/audio/sfx/pop.mp3" data-start="8.5" data-duration="0.4" data-track-index="6" data-volume="0.8"></audio>
+      <audio id="sfx-pop-listo" src="assets/audio/sfx/pop.mp3" data-start="8.8" data-duration="0.4" data-track-index="6" data-volume="0.9"></audio>
+      <audio id="sfx-whoosh-servicio" src="assets/audio/sfx/whoosh.mp3" data-start="9.45" data-duration="0.5" data-track-index="4" data-volume="0.4"></audio>
+      <audio id="sfx-whoosh-envio" src="assets/audio/sfx/whoosh.mp3" data-start="11.05" data-duration="0.5" data-track-index="4" data-volume="0.4"></audio>
+      <audio id="sfx-whoosh-red" src="assets/audio/sfx/whoosh-cinematic.mp3" data-start="12.3" data-media-start="2.0" data-duration="1.0" data-track-index="4" data-volume="0.3" data-fade-out="0.3"></audio>
+      <audio id="sfx-pop-pin" src="assets/audio/sfx/pop.mp3" data-start="13.0" data-duration="0.4" data-track-index="6" data-volume="0.7"></audio>
+      <audio id="sfx-whoosh-redes" src="assets/audio/sfx/whoosh.mp3" data-start="14.25" data-duration="0.5" data-track-index="4" data-volume="0.4"></audio>
+      <audio id="sfx-whoosh-zoom" src="assets/audio/sfx/whoosh.mp3" data-start="15.84" data-duration="0.5" data-track-index="6" data-volume="0.35"></audio>
+      <audio id="sfx-whoosh-lima" src="assets/audio/sfx/whoosh.mp3" data-start="17.44" data-duration="0.5" data-track-index="4" data-volume="0.35"></audio>
+      <audio id="sfx-persiana-2" src="assets/audio/sfx/impact-bass-1.mp3" data-start="19.13" data-duration="0.8" data-track-index="5" data-volume="0.4" data-fade-out="0.2"></audio>
+      <audio id="sfx-ventas" src="assets/audio/sfx/pop.mp3" data-start="19.9" data-duration="0.4" data-track-index="4" data-volume="0.9"></audio>
+      <audio id="sfx-whoosh-cierre" src="assets/audio/sfx/whoosh.mp3" data-start="20.6" data-duration="0.5" data-track-index="6" data-volume="0.4"></audio>
+      <audio id="sfx-boton" src="assets/audio/sfx/click.mp3" data-start="21.85" data-duration="0.3" data-track-index="4" data-volume="1"></audio>
+    </div>
+    <script>
+      window.__timelines = window.__timelines || {};
+      window.__timelines["main"] = gsap.timeline({ paused: true });
+    </script>
+  </body>
+</html>

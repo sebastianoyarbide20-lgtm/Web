@@ -1,0 +1,74 @@
+<template>
+  <style>
+    @font-face { font-family: "Bricolage Grotesque"; src: url("assets/fonts/BricolageGrotesque-var.woff2") format("woff2"); font-weight: 200 800; }
+    @font-face { font-family: "Figtree"; src: url("assets/fonts/Figtree-var.woff2") format("woff2"); font-weight: 300 900; }
+    #root { position: absolute; inset: 0; overflow: hidden; background: #0d2b27; color: #0d2b27; font-family: "Figtree", sans-serif; }
+    #root .full { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; }
+    #root .ph { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; object-fit: cover; }
+    #root .dots { position: absolute; inset: 0; background-image: radial-gradient(circle, rgba(13, 43, 39, 0.12) 3px, transparent 3.6px); background-size: 40px 40px; background-position: 20px 20px; }
+    #root .ln { position: absolute; left: 124px; white-space: nowrap; }
+    /* Bloques-sticker de titular (guía: borde Tinta + sombra sólida desplazada) */
+    #root .slab { display: inline-block; font-family: "Bricolage Grotesque", sans-serif; font-weight: 800; text-transform: uppercase; letter-spacing: -0.035em; line-height: 0.92; padding: 0.07em 0.16em 0.11em; border: 5px solid #0d2b27; border-radius: 24px; box-shadow: 10px 10px 0 #0d2b27; }
+    #root .ink { background: #0d2b27; color: #fff9f0; box-shadow: 10px 10px 0 #ddf57a; }
+    #root .lime { background: #ddf57a; color: #0d2b27; }
+    #root .cream { background: #fff9f0; color: #0d2b27; }
+    #root .coral { background: #f97316; color: #0d2b27; }
+    #root .tag { display: inline-flex; align-items: center; gap: 12px; padding: 12px 24px; border: 4px solid #0d2b27; border-radius: 999px; box-shadow: 6px 6px 0 #0d2b27; font: 800 32px/1.2 "Figtree", sans-serif; letter-spacing: 0.06em; text-transform: uppercase; white-space: nowrap; color: #0d2b27; }
+    #root .flash { position: absolute; inset: 0; background: #fff9f0; opacity: 0; }
+    /* Tarjeta flotante de la web (.float-card) */
+    #root .fcard { display: flex; align-items: center; gap: 24px; width: 756px; padding: 22px 28px; background: #ffffff; border: 4px solid #0d2b27; border-radius: 34px; box-shadow: 10px 10px 0 #0d2b27; }
+    #root .fcard .ic { flex: none; width: 96px; height: 96px; border-radius: 50%; border: 4px solid #0d2b27; display: flex; align-items: center; justify-content: center; }
+    #root .fcard .ic svg { width: 52px; height: 52px; }
+    #root .fcard b { display: block; font-family: "Bricolage Grotesque", sans-serif; font-weight: 800; font-size: 48px; line-height: 1.05; letter-spacing: -0.015em; }
+    #root .fcard span { display: block; margin-top: 4px; font-weight: 600; font-size: 32px; color: #3d5752; }
+    #root .banner { position: absolute; border: 5px solid #0d2b27; border-radius: 26px; box-shadow: 12px 12px 0 #0d2b27; overflow: hidden; background: #fff9f0; }
+    #root .banner img { display: block; width: 100%; height: 100%; }
+    #root .cream-bg { position: absolute; inset: 0; background: #fff9f0; }
+    #root .cream-bg .dots { background-image: radial-gradient(circle, #e8dfd1 3px, transparent 3.6px); }
+    #root .word { position: absolute; left: 374px; top: 316px; font-family: "Bricolage Grotesque", sans-serif; font-weight: 800; font-size: 100px; line-height: 0.93; letter-spacing: -0.01em; white-space: nowrap; }
+    #root .word .pet { color: #0f766e; }
+    #root .utag { display: inline-flex; align-items: center; gap: 16px; padding: 14px 28px 14px 22px; background: #ffe3d0; color: #b4410c; border: 4px solid #0d2b27; border-radius: 999px; box-shadow: 6px 6px 0 #0d2b27; font: 800 30px/1.2 "Figtree", sans-serif; letter-spacing: 0.05em; text-transform: uppercase; white-space: nowrap; }
+    #root .pdot { position: relative; flex: none; width: 22px; height: 22px; }
+    #root .pdot i { position: absolute; inset: 0; border-radius: 50%; background: #f97316; }
+    #root .title { position: absolute; left: 124px; top: 668px; font-family: "Bricolage Grotesque", sans-serif; font-weight: 800; font-size: 120px; line-height: 1; letter-spacing: -0.038em; white-space: nowrap; }
+    #root .title .w { display: inline-block; }
+    #root .pill { display: inline-block; transform: rotate(-1.5deg); background: #e4dbff; border: 5px solid #0d2b27; border-radius: 999px; box-shadow: 7px 7px 0 #0d2b27; padding: 0 0.16em 0.06em; line-height: 0.98; }
+    #root .btn { display: inline-flex; align-items: center; gap: 22px; height: 120px; padding: 0 16px 0 44px; background: #f97316; border: 4px solid #0d2b27; border-radius: 999px; box-shadow: 8px 8px 0 #0d2b27; font: 800 44px/1 "Figtree", sans-serif; white-space: nowrap; }
+    #root .btn-c { width: 88px; height: 88px; border-radius: 50%; background: #0d2b27; display: flex; align-items: center; justify-content: center; }
+    #root .btn-c svg { width: 48px; height: 48px; }
+    #root .launch { position: absolute; left: 124px; top: 1196px; font-weight: 700; font-size: 34px; color: #3d5752; white-space: nowrap; }
+  </style>
+  <div id="root" data-composition-id="cierre" data-width="1080" data-height="1920" data-composition-variables='[{"id":"deadline","type":"string","label":"Urgencia","default":"Inscripción hasta el 10 de diciembre","maxLength":40},{"id":"cta","type":"string","label":"Botón","default":"Postular mi farmacia","maxLength":24},{"id":"launch","type":"string","label":"Lanzamiento","default":"Lanzamiento: 1.º de enero de 2027","maxLength":40}]'>
+    <div class="cream-bg"><div class="dots"></div></div>
+    <div id="ci-logo" style="position: absolute; left: 124px; top: 290px; width: 228px; height: 228px"><svg viewBox="66 70 100 100" aria-hidden="true" style="width:228px;height:228px;overflow:visible"><rect x="76" y="80" width="88" height="88" rx="28" fill="#0d2b27" /><rect x="70" y="74" width="88" height="88" rx="28" fill="#0f766e" stroke="#0d2b27" stroke-width="4" /><g transform="translate(88 92) scale(1.625)" fill="#ddf57a"><rect x="11.6" y="2.2" width="8.8" height="9.6" rx="2.6" /><rect x="11.6" y="20.2" width="8.8" height="9.6" rx="2.6" /><rect x="2.2" y="11.6" width="9.6" height="8.8" rx="2.6" /><rect x="20.2" y="11.6" width="9.6" height="8.8" rx="2.6" /><circle cx="16" cy="16" r="2.4" /></g></svg></div>
+    <div id="ci-word" class="word">ALIAR<br /><span class="pet">ROSARIO</span></div>
+    <div id="ci-tag" class="ln" style="top: 572px"><span class="utag" style="transform: rotate(-3deg)"><span class="pdot"><i id="ci-ring"></i><i></i></span><span data-var-text="deadline">Inscripción hasta el 10 de diciembre</span></span></div>
+    <h2 id="ci-title" class="title"><span class="w">Sé</span> <span class="w">Farmacia</span><br /><span class="w"><span class="pill">Fundadora</span></span><span class="w">.</span></h2>
+    <div id="ci-btn" class="ln" style="top: 952px"><span class="btn"><span data-var-text="cta">Postular mi farmacia</span><span class="btn-c"><svg viewBox="0 0 24 24" fill="none" stroke="#fff9f0" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" id="ci-arrow"><path d="M5 12h14" /><path d="m12 5 7 7-7 7" /></svg></span></span></div>
+    <div id="ci-free" class="ln" style="top: 1110px"><span class="tag" style="background: #bff0da">Sin abono</span></div>
+    <div id="ci-launch" class="launch" data-var-text="launch">Lanzamiento: 1.º de enero de 2027</div>
+  </div>
+  <script>
+    (function () {
+      const tl = gsap.timeline({ paused: true });
+      // golpe: el bloque entra grande y aterriza (expo.out)
+      const SLAM = (sel, at, from = 1.5, d = 0.22) => tl.fromTo(sel, { opacity: 0, scale: from, transformOrigin: "0% 50%" }, { opacity: 1, scale: 1, duration: d, ease: "expo.out" }, at);
+      // corte duro dentro de la escena (prende / apaga un plano)
+      const ON = (sel, at) => tl.fromTo(sel, { opacity: 0 }, { opacity: 1, duration: 0.01 }, at);
+      const OFF = (sel, at) => tl.fromTo(sel, { opacity: 1 }, { opacity: 0, duration: 0.01, immediateRender: false }, at);
+      // temblor de impacto (3 ciclos)
+      const SHAKE = (sel, at, a = 16) => { [[a, 0.045], [-a * 0.75, 0.05], [a * 0.45, 0.05], [0, 0.06]].reduce((t, [y, d], i, arr) => { const prev = i ? arr[i - 1][0] : 0; tl.fromTo(sel, { y: prev }, { y, duration: d, ease: "sine.inOut", immediateRender: false }, t); return t + d; }, at); };
+      // 0,0 · el isotipo cae girando a −6° (viene del zoom a través)
+      tl.fromTo("#ci-logo", { opacity: 0, scale: 3, rotation: 60, transformOrigin: "50% 50%" }, { opacity: 1, scale: 1, rotation: -6, duration: 0.38, ease: "expo.out" }, 0.0);
+      tl.fromTo("#ci-word", { clipPath: "inset(-10% 100% -10% 0%)" }, { clipPath: "inset(-10% 0% -10% 0%)", duration: 0.3, ease: "power3.out" }, 0.22);
+      SLAM("#ci-tag", 0.45, 1.4);
+      tl.fromTo("#ci-ring", { scale: 1, opacity: 0.75 }, { scale: 2.8, opacity: 0, duration: 0.8, ease: "power2.out", repeat: 2, repeatDelay: 0.0 }, 0.7);
+      tl.fromTo("#ci-title .w", { opacity: 0, scale: 1.4, transformOrigin: "0% 60%" }, { opacity: 1, scale: 1, duration: 0.18, ease: "expo.out", stagger: 0.07 }, 0.6);
+      tl.fromTo("#ci-btn", { opacity: 0, scale: 0.6, y: 40, transformOrigin: "0% 50%" }, { opacity: 1, scale: 1, y: 0, duration: 0.35, ease: "back.out(1.7)" }, 0.95);
+      SLAM("#ci-free", 1.0, 1.4);
+      tl.fromTo("#ci-launch", { opacity: 0 }, { opacity: 1, duration: 0.15 }, 1.08);
+      tl.fromTo("#ci-arrow", { x: 0 }, { x: 9, duration: 0.2, ease: "power2.out", yoyo: true, repeat: 3 }, 1.8);
+      window.__timelines["cierre"] = tl;
+    })();
+  </script>
+</template>
