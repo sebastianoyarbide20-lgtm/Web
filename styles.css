@@ -1046,6 +1046,7 @@ i[data-lucide] { display: inline-block; width: 1.25em; height: 1.25em; flex: non
 }
 .faq__help .icon-badge { background: var(--surface); }
 .faq__help p { color: var(--ink); }
+.faq__help p a { font-weight: 700; overflow-wrap: anywhere; }
 .faq__list { display: grid; gap: 14px; }
 .faq-item { border: var(--b); border-radius: var(--r); background: var(--surface); transition: background-color 0.25s, box-shadow 0.25s; }
 .faq-item:hover { box-shadow: var(--sh-s); }

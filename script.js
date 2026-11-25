@@ -13,9 +13,13 @@
     // Ej.: '+54 9 341 512 3456'. Mientras tenga "X", los botones de WhatsApp muestran un aviso.
     whatsapp: '+54 9 341 XXXXXXX',
 
-    // Opcional: endpoint para recibir postulaciones reales (Formspree, Web3Forms, etc.).
-    // Ej.: 'https://formspree.io/f/abcdwxyz'. Vacío = envío simulado (no se guarda ningún dato).
-    formEndpoint: '',
+    // Correo de contacto del proyecto (se muestra en el pie y en las preguntas frecuentes).
+    email: 'proyectoalianzayrespaldo@gmail.com',
+
+    // Endpoint que recibe las postulaciones y las reenvía al correo de contacto (FormSubmit).
+    // La primera postulación dispara un correo de activación: hay que confirmarlo una sola vez.
+    // Vacío = envío simulado (no se guarda ningún dato).
+    formEndpoint: 'https://formsubmit.co/ajax/proyectoalianzayrespaldo@gmail.com',
 
     // Opcional: link de agenda (Calendly, Google Calendar, Cal.com...).
     // Vacío = el botón "Agendar" pide el turno por WhatsApp con los datos ya cargados.
@@ -794,7 +798,7 @@
         return;
       }
       mostrarAlerta('');
-      if (form.elements._gotcha && form.elements._gotcha.value) return; // bot detectado
+      if (form.elements._honey && form.elements._honey.value) return; // bot detectado
 
       setLoading(true);
       try {
@@ -805,12 +809,14 @@
             headers: { Accept: 'application/json' },
           });
           if (!respuesta.ok) throw new Error(`HTTP ${respuesta.status}`);
+          const datos = await respuesta.json().catch(() => ({}));
+          if (String(datos.success) === 'false') throw new Error(datos.message || 'Envío rechazado');
         } else {
           await wait(reduceMotion() ? 200 : 1100); // envío simulado
         }
         mostrarExito();
       } catch (error) {
-        mostrarAlerta('No pudimos enviar tu postulación. Probá de nuevo en unos segundos o escribinos por WhatsApp.');
+        mostrarAlerta(`No pudimos enviar tu postulación. Probá de nuevo en unos segundos o escribinos a ${CONFIG.email}.`);
       } finally {
         setLoading(false);
       }
