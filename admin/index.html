@@ -1,0 +1,130 @@
+<!doctype html>
+<html lang="es-AR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Postulaciones · ALIAR ROSARIO</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,700..800&family=Figtree:wght@400..800&display=swap">
+<style>
+:root{--bg:#FFF9F0;--ink:#0D2B27;--ink2:#3D5752;--mint:#BFF0DA;--lime:#DDF57A;--lilac:#E4DBFF;--butter:#FFEDB3;--primary:#0F766E;--danger:#C81E1E;--line:#E8DFD1}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:17px/1.55 Figtree,system-ui,sans-serif}
+h1,h2{font-family:"Bricolage Grotesque",system-ui,sans-serif;letter-spacing:-.03em;line-height:1.05;margin:0}
+.wrap{max-width:1100px;margin:0 auto;padding:24px 18px 60px}
+.top{display:flex;flex-wrap:wrap;gap:12px;align-items:center;justify-content:space-between;margin-bottom:22px}
+.brand{font-family:"Bricolage Grotesque",sans-serif;font-weight:800;font-size:1.2rem}.brand span{color:var(--primary)}
+.btn{display:inline-flex;align-items:center;gap:8px;min-height:46px;padding:8px 20px;border:2px solid var(--ink);border-radius:999px;background:#fff;color:var(--ink);font:800 1rem Figtree,sans-serif;cursor:pointer;box-shadow:3px 3px 0 var(--ink);text-decoration:none}
+.btn:hover{transform:translate(-2px,-2px);box-shadow:5px 5px 0 var(--ink)}
+.btn--lime{background:var(--lime)}
+.card{padding:22px;border:2px solid var(--ink);border-radius:24px;background:#fff;box-shadow:5px 5px 0 var(--ink)}
+.login{max-width:440px;margin:12vh auto 0;display:grid;gap:16px}
+label{font-weight:800}
+input{width:100%;min-height:54px;padding:12px 16px;border:2px solid var(--ink);border-radius:14px;background:var(--bg);font:inherit}
+input:focus{outline:3px solid var(--primary);outline-offset:2px}
+.err{color:var(--danger);font-weight:700;min-height:1.5em}
+.stats{display:flex;flex-wrap:wrap;gap:12px;margin-bottom:18px}
+.stat{padding:10px 16px;border:2px solid var(--ink);border-radius:999px;background:var(--mint);font-weight:800}
+.list{display:grid;gap:16px}
+.item{display:grid;gap:10px;padding:18px 20px;border:2px solid var(--ink);border-radius:22px;background:#fff;box-shadow:4px 4px 0 var(--ink)}
+.item:nth-child(4n+1){background:var(--mint)}.item:nth-child(4n+2){background:var(--lilac)}.item:nth-child(4n+3){background:var(--butter)}.item:nth-child(4n){background:var(--lime)}
+.item h2{font-size:1.45rem}
+.when{font-size:.9rem;font-weight:700;color:var(--ink2)}
+dl{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:8px 18px;margin:0}
+dt{font-size:.78rem;font-weight:800;letter-spacing:.06em;text-transform:uppercase;color:var(--ink2)}
+dd{margin:0;font-weight:700;overflow-wrap:anywhere}
+.empty{padding:40px 10px;text-align:center;color:var(--ink2)}
+[hidden]{display:none!important}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <section id="login" class="card login">
+    <div class="brand">ALIAR <span>ROSARIO</span></div>
+    <h1>Postulaciones</h1>
+    <p>Zona privada. Ingresá la clave para ver las farmacias que se postularon.</p>
+    <form id="f" style="display:grid;gap:12px">
+      <label for="clave">Clave</label>
+      <input id="clave" type="password" autocomplete="current-password" required>
+      <p class="err" id="err" role="alert"></p>
+      <button class="btn btn--lime" type="submit">Entrar</button>
+    </form>
+  </section>
+
+  <section id="panel" hidden>
+    <div class="top">
+      <div><div class="brand">ALIAR <span>ROSARIO</span></div><h1>Postulaciones recibidas</h1></div>
+      <div style="display:flex;gap:10px;flex-wrap:wrap">
+        <button class="btn" id="recargar" type="button">Actualizar</button>
+        <button class="btn btn--lime" id="csv" type="button">Descargar CSV</button>
+        <button class="btn" id="salir" type="button">Salir</button>
+      </div>
+    </div>
+    <div class="stats"><span class="stat" id="total"></span></div>
+    <div class="list" id="lista"></div>
+  </section>
+</div>
+<script>
+(function () {
+  var $ = function (s) { return document.querySelector(s); };
+  var ETIQ = { nombre: 'Nombre', farmacia: 'Farmacia', barrio: 'Barrio', whatsapp: 'WhatsApp', envios: 'Envíos a domicilio', sistema: 'Sistema de gestión' };
+  var ORDEN = ['nombre', 'farmacia', 'barrio', 'whatsapp', 'envios', 'sistema'];
+  var datos = [];
+  function clave() { try { return sessionStorage.getItem('clave') || ''; } catch (e) { return ''; } }
+  function guardar(v) { try { v ? sessionStorage.setItem('clave', v) : sessionStorage.removeItem('clave'); } catch (e) {} }
+  function fecha(iso) { try { return new Date(iso).toLocaleString('es-AR', { timeZone: 'America/Argentina/Buenos_Aires', dateStyle: 'long', timeStyle: 'short' }); } catch (e) { return iso; } }
+  function el(tag, cls, txt) { var n = document.createElement(tag); if (cls) n.className = cls; if (txt != null) n.textContent = txt; return n; }
+  async function cargar(c) {
+    var r = await fetch('/api/postulaciones', { headers: { 'x-clave': c } });
+    if (r.status === 401) throw new Error('Clave incorrecta');
+    if (!r.ok) throw new Error('No se pudo cargar (' + r.status + ')');
+    var j = await r.json();
+    datos = j.items || [];
+  }
+  function pintar() {
+    $('#total').textContent = datos.length + (datos.length === 1 ? ' postulación' : ' postulaciones');
+    var l = $('#lista'); l.textContent = '';
+    if (!datos.length) { l.appendChild(el('p', 'empty', 'Todavía no llegó ninguna postulación.')); return; }
+    datos.forEach(function (d) {
+      var it = el('article', 'item');
+      it.appendChild(el('h2', '', d.farmacia || '(sin nombre)'));
+      it.appendChild(el('p', 'when', fecha(d.recibido)));
+      var dl = el('dl');
+      ORDEN.forEach(function (k) {
+        if (!d[k]) return;
+        var w = el('div'); w.appendChild(el('dt', '', ETIQ[k]));
+        var dd = el('dd');
+        if (k === 'whatsapp') {
+          var num = String(d[k]).replace(/\D/g, ''); if (num.length === 10) num = '549' + num;
+          var a = el('a', '', d[k]); a.href = 'https://wa.me/' + num; a.target = '_blank'; a.rel = 'noopener'; dd.appendChild(a);
+        } else dd.textContent = d[k];
+        w.appendChild(dd); dl.appendChild(w);
+      });
+      it.appendChild(dl); l.appendChild(it);
+    });
+  }
+  function csv() {
+    var cols = ['recibido'].concat(ORDEN);
+    var q = function (v) { return '"' + String(v == null ? '' : v).replace(/"/g, '""') + '"'; };
+    var filas = [cols.map(q).join(',')].concat(datos.map(function (d) { return cols.map(function (c) { return q(d[c]); }).join(','); }));
+    var b = new Blob(['﻿' + filas.join('\r\n')], { type: 'text/csv;charset=utf-8' });
+    var a = document.createElement('a'); a.href = URL.createObjectURL(b); a.download = 'postulaciones-aliar-rosario.csv'; a.click();
+    setTimeout(function () { URL.revokeObjectURL(a.href); }, 1000);
+  }
+  function mostrar(si) { $('#login').hidden = si; $('#panel').hidden = !si; }
+  async function entrar(c, auto) {
+    $('#err').textContent = '';
+    try { await cargar(c); guardar(c); pintar(); mostrar(true); }
+    catch (e) { guardar(''); mostrar(false); if (!auto) $('#err').textContent = e.message; }
+  }
+  $('#f').addEventListener('submit', function (e) { e.preventDefault(); entrar($('#clave').value, false); });
+  $('#recargar').addEventListener('click', function () { entrar(clave(), false); });
+  $('#csv').addEventListener('click', csv);
+  $('#salir').addEventListener('click', function () { guardar(''); $('#clave').value = ''; mostrar(false); });
+  if (clave()) entrar(clave(), true);
+})();
+</script>
+</body>
+</html>

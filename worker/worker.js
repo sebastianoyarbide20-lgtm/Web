@@ -1,12 +1,43 @@
-// Worker de ALIAR ROSARIO: sirve la web estática y recibe las postulaciones en /api/postular.
-// Guarda cada postulación en KV (binding POSTULACIONES) y, además, intenta avisar por correo con FormSubmit.
-const CORREO = 'aliar.proyecto@gmail.com';
+// Worker de ALIAR ROSARIO: sirve la web estática y maneja las postulaciones.
+//   POST /api/postular        recibe el formulario y lo guarda en KV (binding POSTULACIONES)
+//   GET  /api/postulaciones   lista lo guardado; exige el header x-clave = secreto ADMIN_PASSWORD
+// La página privada para verlas está en /admin/ (admin/index.html).
+// El secreto ADMIN_PASSWORD NO está en el repo: se define como binding secret_text al desplegar.
 const json = (body, status = 200) =>
-  new Response(JSON.stringify(body), { status, headers: { 'content-type': 'application/json; charset=utf-8', 'cache-control': 'no-store' } });
+  new Response(JSON.stringify(body), { status, headers: { 'content-type': 'application/json; charset=utf-8', 'cache-control': 'no-store', 'x-robots-tag': 'noindex' } });
+
+async function claveValida(recibida, esperada) {
+  if (!esperada) return false;
+  const enc = new TextEncoder();
+  const [a, b] = await Promise.all([crypto.subtle.digest('SHA-256', enc.encode(recibida)), crypto.subtle.digest('SHA-256', enc.encode(esperada))]);
+  return crypto.subtle.timingSafeEqual(a, b);
+}
 
 export default {
-  async fetch(request, env, ctx) {
+  async fetch(request, env) {
     const url = new URL(request.url);
+
+    if (url.pathname === '/api/postulaciones') {
+      if (!(await claveValida(request.headers.get('x-clave') || '', env.ADMIN_PASSWORD))) {
+        await new Promise((r) => setTimeout(r, 800));
+        return json({ ok: false, error: 'Clave incorrecta' }, 401);
+      }
+      const claves = [];
+      let cursor;
+      do {
+        const pagina = await env.POSTULACIONES.list({ prefix: 'postulacion:', cursor });
+        claves.push(...pagina.keys.map((k) => k.name));
+        cursor = pagina.list_complete ? undefined : pagina.cursor;
+      } while (cursor);
+      const items = [];
+      for (let i = 0; i < claves.length; i += 25) {
+        const lote = await Promise.all(claves.slice(i, i + 25).map((k) => env.POSTULACIONES.get(k, 'json')));
+        items.push(...lote.filter(Boolean));
+      }
+      items.sort((x, y) => String(y.recibido).localeCompare(String(x.recibido)));
+      return json({ ok: true, items });
+    }
+
     if (url.pathname !== '/api/postular') return env.ASSETS.fetch(request);
     if (request.method !== 'POST') return json({ ok: false, error: 'Método no permitido' }, 405);
 
@@ -19,17 +50,7 @@ export default {
     if (!datos.nombre || !datos.farmacia || !datos.whatsapp) return json({ ok: false, error: 'Faltan datos' }, 400);
 
     const registro = { recibido: new Date().toISOString(), ...datos };
-    await env.POSTULACIONES.put(`postulacion:${registro.recibido}:${crypto.randomUUID().slice(0, 8)}`, JSON.stringify(registro));
-
-    // Aviso por correo (mejor esfuerzo: si falla o tarda, la postulación igual quedó guardada).
-    const aviso = new FormData();
-    for (const [k, v] of Object.entries(datos)) aviso.append(k, v);
-    aviso.append('_subject', 'Nueva postulación de Farmacia Fundadora · ALIAR ROSARIO');
-    aviso.append('_template', 'table');
-    aviso.append('_captcha', 'false');
-    ctx.waitUntil(
-      fetch(`https://formsubmit.co/ajax/${CORREO}`, { method: 'POST', body: aviso, headers: { Accept: 'application/json' }, signal: AbortSignal.timeout(8000) }).catch(() => {})
-    );
+    await env.POSTULACIONES.put('postulacion:' + registro.recibido + ':' + crypto.randomUUID().slice(0, 8), JSON.stringify(registro));
     return json({ ok: true });
   },
 };
