@@ -10,8 +10,8 @@
      ------------------------------------------------------------------------ */
   const CONFIG = {
     // WhatsApp del coordinador en Rosario, con código de país.
-    // Ej.: '+54 9 341 512 3456'. Mientras tenga "X", los botones de WhatsApp muestran un aviso.
-    whatsapp: '+54 9 341 XXXXXXX',
+    // WhatsApp Business del proyecto, con código de país (se usa en wa.me/5493417181147).
+    whatsapp: '+54 9 341 718 1147',
 
     // Correo de contacto del proyecto (se muestra en el pie y en las preguntas frecuentes).
     email: 'proyectoalianzayrespaldo@gmail.com',
