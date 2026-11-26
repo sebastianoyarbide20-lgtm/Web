@@ -14,7 +14,7 @@
     whatsapp: '+54 9 341 718 1147',
 
     // Correo de contacto del proyecto (se muestra en el pie y en las preguntas frecuentes).
-    email: 'proyectoalianzayrespaldo@gmail.com',
+    email: 'aliar.proyecto@gmail.com',
 
     // Endpoint que recibe las postulaciones (Worker de Cloudflare: las guarda y avisa por correo).
     // Vacío = envío simulado (no se guarda ningún dato).

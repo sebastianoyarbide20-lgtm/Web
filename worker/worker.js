@@ -1,6 +1,6 @@
 // Worker de ALIAR ROSARIO: sirve la web estática y recibe las postulaciones en /api/postular.
 // Guarda cada postulación en KV (binding POSTULACIONES) y, además, intenta avisar por correo con FormSubmit.
-const CORREO = 'proyectoalianzayrespaldo@gmail.com';
+const CORREO = 'aliar.proyecto@gmail.com';
 const json = (body, status = 200) =>
   new Response(JSON.stringify(body), { status, headers: { 'content-type': 'application/json; charset=utf-8', 'cache-control': 'no-store' } });
 
