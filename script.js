@@ -16,10 +16,9 @@
     // Correo de contacto del proyecto (se muestra en el pie y en las preguntas frecuentes).
     email: 'proyectoalianzayrespaldo@gmail.com',
 
-    // Endpoint que recibe las postulaciones y las reenvía al correo de contacto (FormSubmit).
-    // La primera postulación dispara un correo de activación: hay que confirmarlo una sola vez.
+    // Endpoint que recibe las postulaciones (Worker de Cloudflare: las guarda y avisa por correo).
     // Vacío = envío simulado (no se guarda ningún dato).
-    formEndpoint: 'https://formsubmit.co/ajax/proyectoalianzayrespaldo@gmail.com',
+    formEndpoint: '/api/postular',
 
     // Opcional: link de agenda (Calendly, Google Calendar, Cal.com...).
     // Vacío = el botón "Agendar" pide el turno por WhatsApp con los datos ya cargados.
@@ -807,10 +806,11 @@
             method: 'POST',
             body: new FormData(form),
             headers: { Accept: 'application/json' },
+            signal: AbortSignal.timeout(15000), // nunca queda cargando para siempre
           });
           if (!respuesta.ok) throw new Error(`HTTP ${respuesta.status}`);
           const datos = await respuesta.json().catch(() => ({}));
-          if (String(datos.success) === 'false') throw new Error(datos.message || 'Envío rechazado');
+          if (datos.ok === false) throw new Error(datos.error || 'Envío rechazado');
         } else {
           await wait(reduceMotion() ? 200 : 1100); // envío simulado
         }
