@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="es-AR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1080, height=1920" />
+    <title>ALIAR ROSARIO · Reel 5 · 1 + 1 + 1 + 1</title>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.15.0/dist/gsap.min.js"></script>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      html,
+      body {
+        margin: 0;
+        width: 1080px;
+        height: 1920px;
+        overflow: hidden;
+        background: #fff9f0;
+      }
+      #root {
+        position: relative;
+        width: 100%;
+        height: 100%;
+      }
+      /* Fondo Crema con textura de puntos (guía 14.2): fijo, sin tiempo */
+      #bg {
+        position: absolute;
+        inset: 0;
+        background-color: #fff9f0;
+        background-image: radial-gradient(#e8dfd1 2.4px, transparent 2.9px);
+        background-size: 40px 40px;
+        background-position: 20px 20px;
+      }
+    </style>
+  </head>
+  <body>
+    <div
+      id="root"
+      data-composition-id="main"
+      data-start="0"
+      data-duration="18.6"
+      data-width="1080"
+      data-height="1920"
+    >
+      <div id="bg" data-layout-ignore></div>
+
+      <!-- Escenas -->
+      <div
+        id="horas"
+        data-composition-id="horas"
+        data-composition-src="compositions/horas.html"
+        data-start="0"
+        data-duration="8.2"
+        data-track-index="0"
+        data-track-kind="graphics"
+        data-width="1080"
+        data-height="1920"
+      ></div>
+      <div
+        id="red"
+        data-composition-id="red"
+        data-composition-src="compositions/red.html"
+        data-start="8.2"
+        data-duration="7"
+        data-track-index="0"
+        data-track-kind="graphics"
+        data-width="1080"
+        data-height="1920"
+      ></div>
+      <div
+        id="cierre"
+        data-composition-id="cierre"
+        data-composition-src="compositions/cierre.html"
+        data-start="15.2"
+        data-duration="3.4"
+        data-track-index="0"
+        data-track-kind="graphics"
+        data-width="1080"
+        data-height="1920"
+      ></div>
+
+      <!-- Efectos de sonido (Pixabay Content License). Cada pico cae un cuadro después de su imagen. -->
+      <audio id="sfx-cerrado" class="clip" src="assets/sfx/impact-bass-1.mp3" data-start="1.56" data-duration="1.6" data-volume="0.23" data-fade-out="0.5" data-track-index="3"></audio>
+      <audio id="sfx-pop-1" class="clip" src="assets/sfx/pop.mp3" data-start="2.81" data-duration="0.5" data-volume="0.46" data-track-index="1"></audio>
+      <audio id="sfx-pop-2" class="clip" src="assets/sfx/pop.mp3" data-start="3.41" data-duration="0.5" data-volume="0.53" data-track-index="1"></audio>
+      <audio id="sfx-pop-3" class="clip" src="assets/sfx/pop.mp3" data-start="3.91" data-duration="0.5" data-volume="0.59" data-track-index="1"></audio>
+      <audio id="sfx-junta" class="clip" src="assets/sfx/whoosh-short.mp3" data-start="5.02" data-duration="0.575" data-volume="0.46" data-track-index="1"></audio>
+      <audio id="sfx-corte" class="clip" src="assets/sfx/whoosh.mp3" data-start="8.07" data-duration="0.575" data-volume="0.53" data-track-index="1"></audio>
+      <audio id="sfx-barrios" class="clip" src="assets/sfx/sparkle.mp3" data-start="8.62" data-duration="1.8" data-volume="0.3" data-fade-out="0.4" data-track-index="3"></audio>
+      <audio id="sfx-stickers" class="clip" src="assets/sfx/pop.mp3" data-start="11.06" data-duration="0.5" data-volume="0.46" data-track-index="1"></audio>
+      <audio id="sfx-falta" class="clip" src="assets/sfx/ping.mp3" data-start="12.61" data-duration="1.32" data-volume="0.4" data-track-index="1"></audio>
+      <audio id="sfx-marca" class="clip" src="assets/sfx/impact-bass-1.mp3" data-start="15.31" data-duration="2.1" data-volume="0.53" data-fade-out="0.6" data-track-index="1"></audio>
+      <audio id="sfx-subida" class="clip" src="assets/sfx/riser.mp3" data-start="9.31" data-duration="9.29" data-volume="0.36" data-fade-out="1.5" data-track-index="2"></audio>
+    </div>
+    <script>
+      window.__timelines = window.__timelines || {};
+      window.__timelines["main"] = gsap.timeline({ paused: true });
+    </script>
+  </body>
+</html>

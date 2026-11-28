@@ -1,0 +1,282 @@
+<template>
+  <style>
+    @font-face { font-family: "Bricolage Grotesque"; font-weight: 800; src: url("assets/fonts/bricolage-grotesque-latin-800-normal.woff2") format("woff2"); }
+    @font-face { font-family: "Figtree"; font-weight: 600; src: url("assets/fonts/figtree-latin-600-normal.woff2") format("woff2"); }
+    @font-face { font-family: "Figtree"; font-weight: 800; src: url("assets/fonts/figtree-latin-800-normal.woff2") format("woff2"); }
+    @font-face { font-family: "Caveat"; font-weight: 700; src: url("assets/fonts/caveat-latin-700-normal.woff2") format("woff2"); }
+
+    #root {
+      position: absolute;
+      inset: 0;
+      --ink: #0d2b27;
+      --ink-2: #3d5752;
+      --primary: #0f766e;
+      --mint: #bff0da;
+      --lime: #ddf57a;
+      --lilac: #e4dbff;
+      --butter: #ffedb3;
+      font-family: "Figtree", sans-serif;
+      color: var(--ink);
+    }
+
+    /* Titulares (Bricolage 800, Tinta) */
+    .h-title {
+      position: absolute;
+      left: 120px;
+      top: 290px;
+      width: 840px;
+      font-family: "Bricolage Grotesque", sans-serif;
+      font-weight: 800;
+      font-size: 94px;
+      line-height: 1.04;
+      letter-spacing: -0.01em;
+    }
+    .h-title .w { display: inline-block; }
+    .pill {
+      display: inline-block;
+      padding: 0 22px 6px;
+      margin-left: 4px;
+      background: var(--lilac);
+      border: 3px solid var(--ink);
+      border-radius: 999px;
+      transform: rotate(-1.5deg);
+    }
+    #h-plus { font-size: 150px; top: 300px; }
+    #h-plus .sep { color: var(--primary); padding: 0 14px; }
+
+    /* Tarjetas de farmacia */
+    .card {
+      position: absolute;
+      left: 120px;
+      width: 840px;
+      height: 136px;
+      border: 2px solid var(--ink);
+      border-radius: 28px;
+      box-shadow: 5px 5px 0 var(--ink);
+    }
+    .card .badge {
+      position: absolute;
+      left: 22px;
+      top: 18px;
+      width: 60px;
+      height: 60px;
+      border-radius: 18px;
+      border: 2px solid var(--ink);
+      background: #fff;
+      font-family: "Bricolage Grotesque", sans-serif;
+      font-weight: 800;
+      font-size: 28px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .card .name {
+      position: absolute;
+      left: 100px;
+      top: 20px;
+      font-weight: 800;
+      font-size: 34px;
+    }
+    .card .hours {
+      position: absolute;
+      right: 26px;
+      top: 26px;
+      font-weight: 600;
+      font-size: 28px;
+      color: var(--ink-2);
+    }
+    .track {
+      position: absolute;
+      left: 22px;
+      right: 22px;
+      bottom: 20px;
+      height: 26px;
+      background: #fff;
+      border: 2px solid var(--ink);
+      border-radius: 999px;
+      overflow: hidden;
+    }
+    .fill {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      background: var(--primary);
+      transform-origin: 0% 50%;
+    }
+
+    #h-c1 { top: 700px; background: var(--mint); }
+    #h-c2 { top: 860px; background: var(--lilac); }
+    #h-c3 { top: 1020px; background: var(--butter); }
+    #h-c4 { top: 1180px; background: var(--lime); }
+
+    /* Sticker «Cerrado» (sólido: Tinta + Lima) */
+    #h-cerrado {
+      position: absolute;
+      left: 612px;
+      top: 630px;
+      padding: 10px 22px;
+      background: var(--ink);
+      color: var(--lime);
+      border: 2px solid var(--ink);
+      border-radius: 999px;
+      box-shadow: 3px 3px 0 var(--primary);
+      font-weight: 800;
+      font-size: 28px;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+
+    /* Tarjeta combinada «Toda la red» */
+    #h-red {
+      position: absolute;
+      left: 120px;
+      top: 720px;
+      width: 840px;
+      height: 330px;
+      background: #fff;
+      border: 2px solid var(--ink);
+      border-radius: 36px;
+      box-shadow: 8px 8px 0 var(--ink);
+    }
+    #h-red .label {
+      position: absolute;
+      left: 40px;
+      top: 34px;
+      font-family: "Bricolage Grotesque", sans-serif;
+      font-weight: 800;
+      font-size: 54px;
+    }
+    #h-red .hours {
+      position: absolute;
+      right: 40px;
+      top: 46px;
+      font-weight: 800;
+      font-size: 36px;
+      color: var(--primary);
+    }
+    #h-red .track { left: 40px; right: 40px; bottom: auto; top: 140px; height: 56px; }
+    #h-red .ticks {
+      position: absolute;
+      left: 40px;
+      right: 40px;
+      top: 210px;
+      height: 30px;
+      font-weight: 600;
+      font-size: 28px;
+      color: var(--ink-2);
+    }
+    #h-red .ticks span { position: absolute; transform: translateX(-50%); white-space: nowrap; }
+    #h-red .note {
+      position: absolute;
+      left: 40px;
+      bottom: 22px;
+      font-family: "Caveat", cursive;
+      font-weight: 700;
+      font-size: 40px;
+      color: var(--primary);
+    }
+    .deco {
+      position: absolute;
+      font-size: 64px;
+      color: var(--primary);
+    }
+  </style>
+
+  <div id="root" data-composition-id="horas" data-width="1080" data-height="1920">
+    <span class="deco" style="left: 46px; top: 150px" data-layout-ignore>✦</span>
+    <span class="deco" style="left: 970px; top: 1500px; color: #b6db2e" data-layout-ignore>✦</span>
+
+    <!-- Gancho: visible desde el cuadro 0 -->
+    <h1 id="h-title-a" class="h-title clip" data-start="0" data-duration="2.6">
+      <span class="w">1</span> <span class="w">farmacia</span> <span class="w">sola</span><br />
+      <span class="w">cierra</span> <span class="w">a</span> <span class="w">las</span> <span class="w pill">21 h.</span>
+    </h1>
+
+    <h2 id="h-plus" class="h-title clip" data-start="2.5" data-duration="2.75">
+      <span class="w" id="h-p1">+1</span><span class="sep w" id="h-s1">·</span><span class="w" id="h-p2">+1</span><span class="sep w" id="h-s2">·</span><span class="w" id="h-p3">+1</span>
+    </h2>
+
+    <h2 id="h-title-c" class="h-title clip" data-start="5.2" data-duration="3">
+      <span class="w">Juntas,</span> <span class="w">cubren</span><br />
+      <span class="w pill">más horas.</span>
+    </h2>
+
+    <!-- Tarjeta 1: siempre en pantalla hasta que se combinan -->
+    <div id="h-c1" class="card clip" data-start="0" data-duration="6">
+      <div class="badge">DP</div>
+      <div class="name">Del Parque</div>
+      <div class="hours">8 h a 21 h</div>
+      <div class="track"><div class="fill" id="h-f1" style="left: 33.33%; width: 54.17%"></div></div>
+    </div>
+    <div id="h-cerrado" class="clip" data-start="1.55" data-duration="1.1" data-layout-allow-overlap>Cerrado</div>
+
+    <div id="h-c2" class="card clip" data-start="2.6" data-duration="3.4">
+      <div class="badge">AL</div>
+      <div class="name">Alameda</div>
+      <div class="hours">7 h a 15 h</div>
+      <div class="track"><div class="fill" id="h-f2" style="left: 29.17%; width: 33.33%"></div></div>
+    </div>
+    <div id="h-c3" class="card clip" data-start="3.2" data-duration="2.8">
+      <div class="badge">EN</div>
+      <div class="name">El Nogal</div>
+      <div class="hours">14 h a 24 h</div>
+      <div class="track"><div class="fill" id="h-f3" style="left: 58.33%; width: 41.67%"></div></div>
+    </div>
+    <div id="h-c4" class="card clip" data-start="3.7" data-duration="2.3">
+      <div class="badge">LA</div>
+      <div class="name">Los Aromos</div>
+      <div class="hours">9 h a 20 h</div>
+      <div class="track"><div class="fill" id="h-f4" style="left: 37.5%; width: 45.83%"></div></div>
+    </div>
+
+    <!-- Las cuatro franjas se funden en una -->
+    <div id="h-red" class="clip" data-start="5.35" data-duration="2.85">
+      <div class="label">Toda la red</div>
+      <div class="hours">7 h a 24 h</div>
+      <div class="track"><div class="fill" id="h-fr" style="left: 29.17%; width: 70.83%"></div></div>
+      <div class="ticks">
+        <span style="left: 0%; transform: none">0 h</span><span style="left: 25%">6 h</span><span style="left: 50%">12 h</span><span style="left: 75%">18 h</span><span style="left: 100%; transform: translateX(-100%)">24 h</span>
+      </div>
+      <div class="note">horarios de ejemplo</div>
+    </div>
+  </div>
+
+  <script>
+    const tl = gsap.timeline({ paused: true });
+
+    // 1 · La barra de Del Parque se llena de 8 h a 21 h y se corta
+    tl.fromTo("#h-f1", { scaleX: 0 }, { scaleX: 1, duration: 1.25, ease: "power1.inOut" }, 0.25);
+    tl.fromTo("#h-cerrado", { scale: 0.4, rotation: -14, opacity: 0 }, { scale: 1, rotation: -3, opacity: 1, duration: 0.35, ease: "back.out(2.2)" }, 1.55);
+    tl.to("#h-cerrado", { opacity: 0, filter: "blur(6px)", duration: 0.18, ease: "power2.in" }, 2.42);
+
+    // Gancho sale palabra por palabra
+    tl.to("#h-title-a .w", { opacity: 0, filter: "blur(8px)", duration: 0.16, stagger: 0.025, ease: "power2.in" }, 2.3);
+
+    // 2 · +1 · +1 · +1, cada vez más rápido
+    const lands = [2.9, 3.5, 3.95];
+    ["#h-c2", "#h-c3", "#h-c4"].forEach((c, i) => {
+      const t0 = lands[i] - 0.3;
+      tl.fromTo(c, { y: 90, scale: 0.88, opacity: 0 }, { y: 0, scale: 1, opacity: 1, duration: 0.42, ease: "back.out(1.5)" }, t0);
+      tl.fromTo(`#h-f${i + 2}`, { scaleX: 0 }, { scaleX: 1, duration: 0.5, ease: "power2.out" }, lands[i]);
+    });
+    tl.fromTo("#h-p1", { scale: 0.3, opacity: 0 }, { scale: 1, opacity: 1, duration: 0.3, ease: "back.out(2.4)" }, 2.9);
+    tl.fromTo(["#h-s1", "#h-p2"], { scale: 0.3, opacity: 0 }, { scale: 1, opacity: 1, duration: 0.3, ease: "back.out(2.4)", stagger: 0.05 }, 3.45);
+    tl.fromTo(["#h-s2", "#h-p3"], { scale: 0.3, opacity: 0 }, { scale: 1, opacity: 1, duration: 0.3, ease: "back.out(2.4)", stagger: 0.05 }, 3.9);
+    tl.to("#h-plus .w", { opacity: 0, filter: "blur(8px)", duration: 0.16, stagger: 0.02, ease: "power2.in" }, 5.0);
+
+    // 3 · Se funden: las tarjetas suben hacia la franja combinada
+    const toY = [20, -140, -300, -460];
+    ["#h-c1", "#h-c2", "#h-c3", "#h-c4"].forEach((c, i) => {
+      tl.to(c, { y: toY[i], scale: 0.94, opacity: 0, filter: "blur(10px)", duration: 0.5, ease: "power3.in" }, 5.05 + i * 0.03);
+    });
+    tl.fromTo("#h-red", { scale: 0.86, opacity: 0, filter: "blur(10px)" }, { scale: 1, opacity: 1, filter: "blur(0px)", duration: 0.55, ease: "back.out(1.4)" }, 5.4);
+    tl.fromTo("#h-fr", { scaleX: 0 }, { scaleX: 1, duration: 0.7, ease: "expo.out" }, 5.7);
+
+    tl.fromTo("#h-title-c .w", { opacity: 0, filter: "blur(6px)" }, { opacity: 1, filter: "blur(0px)", duration: 0.14, stagger: 0.07, ease: "power4.out" }, 5.35);
+
+    // Salida hacia el mapa
+    tl.to(["#h-title-c", "#h-red"], { y: -70, opacity: 0, filter: "blur(12px)", duration: 0.3, ease: "power3.in", stagger: 0.04 }, 7.85);
+
+    window.__timelines["horas"] = tl;
+  </script>
+</template>

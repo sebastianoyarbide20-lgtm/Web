@@ -1,0 +1,302 @@
+<template>
+  <style>
+    @font-face { font-family: "Bricolage Grotesque"; font-weight: 800; src: url("assets/fonts/bricolage-grotesque-latin-800-normal.woff2") format("woff2"); }
+    @font-face { font-family: "Figtree"; font-weight: 700; src: url("assets/fonts/figtree-latin-700-normal.woff2") format("woff2"); }
+    @font-face { font-family: "Figtree"; font-weight: 800; src: url("assets/fonts/figtree-latin-800-normal.woff2") format("woff2"); }
+    @font-face { font-family: "Caveat"; font-weight: 700; src: url("assets/fonts/caveat-latin-700-normal.woff2") format("woff2"); }
+
+    #root {
+      position: absolute;
+      inset: 0;
+      --ink: #0d2b27;
+      --ink-2: #3d5752;
+      --primary: #0f766e;
+      --mint-soft: #ddf8eb;
+      --lime: #ddf57a;
+      --lilac: #e4dbff;
+      --line: #e8dfd1;
+      --accent: #f97316;
+      font-family: "Figtree", sans-serif;
+      color: var(--ink);
+    }
+
+    .r-title {
+      position: absolute;
+      left: 120px;
+      top: 290px;
+      width: 840px;
+      font-family: "Bricolage Grotesque", sans-serif;
+      font-weight: 800;
+      font-size: 94px;
+      line-height: 1.04;
+      letter-spacing: -0.01em;
+    }
+    .r-title .w { display: inline-block; }
+    #r-t2 { font-size: 72px; }
+    .pill {
+      display: inline-block;
+      padding: 0 22px 6px;
+      background: var(--lilac);
+      border: 3px solid var(--ink);
+      border-radius: 999px;
+      rotate: -1.5deg;
+    }
+
+    /* Mapa */
+    #r-map {
+      position: absolute;
+      left: 120px;
+      top: 540px;
+      width: 840px;
+      height: 700px;
+      background: #fff;
+      border: 2px solid var(--ink);
+      border-radius: 36px;
+      box-shadow: 8px 8px 0 var(--ink);
+      overflow: hidden;
+    }
+    #r-map-in {
+      position: absolute;
+      inset: 0;
+    }
+    #r-map-in svg.base { position: absolute; inset: 0; }
+    .rio {
+      position: absolute;
+      left: 742px;
+      top: 300px;
+      font-family: "Caveat", cursive;
+      font-weight: 700;
+      font-size: 40px;
+      color: var(--primary);
+      rotate: 84deg;
+      white-space: nowrap;
+    }
+    .eyebrow {
+      position: absolute;
+      left: 30px;
+      top: 28px;
+      padding: 6px 18px;
+      background: var(--lime);
+      border: 2px solid var(--ink);
+      border-radius: 999px;
+      box-shadow: 3px 3px 0 var(--ink);
+      font-weight: 800;
+      font-size: 28px;
+      letter-spacing: 0.08em;
+      rotate: -2deg;
+    }
+
+    .pt {
+      position: absolute;
+      width: 36px;
+      height: 36px;
+      margin: -18px 0 0 -18px;
+      border-radius: 50%;
+      background: var(--primary);
+      border: 3px solid var(--ink);
+      box-shadow: 2px 2px 0 var(--ink);
+    }
+    .lab-pos { position: absolute; }
+    .lab-pos.izq { translate: -100% 0; }
+    .lab {
+      padding: 4px 14px;
+      background: #fff;
+      border: 2px solid var(--ink);
+      border-radius: 999px;
+      font-weight: 800;
+      font-size: 30px;
+      white-space: nowrap;
+    }
+
+    /* Lugar vacío */
+    #r-slot {
+      position: absolute;
+      left: 265px;
+      top: 548px;
+      width: 76px;
+      height: 76px;
+      margin: -38px 0 0 -38px;
+      border-radius: 50%;
+      background: #fff;
+      border: 4px dashed var(--ink-2);
+    }
+    #r-slot .dot,
+    #r-slot .ring {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      width: 22px;
+      height: 22px;
+      margin: -11px 0 0 -11px;
+      border-radius: 50%;
+      background: var(--accent);
+    }
+    #r-slot .ring { background: transparent; border: 3px solid var(--accent); }
+    #r-tu {
+      position: absolute;
+      left: 318px;
+      top: 590px;
+      font-family: "Caveat", cursive;
+      font-weight: 700;
+      font-size: 54px;
+      color: var(--primary);
+      white-space: nowrap;
+    }
+
+    .sticker {
+      position: absolute;
+      padding: 12px 26px;
+      border: 2px solid var(--ink);
+      border-radius: 999px;
+      box-shadow: 3px 3px 0 var(--ink);
+      font-weight: 800;
+      font-size: 32px;
+      white-space: nowrap;
+    }
+    #r-s1 { left: 140px; top: 1110px; background: var(--lime); }
+    #r-s2 { left: 470px; top: 1170px; background: var(--lilac); }
+
+    /* Etiqueta de urgencia */
+    #r-urg {
+      position: absolute;
+      left: 120px;
+      top: 420px;
+      padding: 10px 24px 10px 54px;
+      background: #ffe3d0;
+      color: #b4410c;
+      border: 2px solid var(--ink);
+      border-radius: 999px;
+      box-shadow: 3px 3px 0 var(--ink);
+      font-weight: 800;
+      font-size: 28px;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      white-space: nowrap;
+    }
+    #r-urg .dot,
+    #r-urg .ring {
+      position: absolute;
+      left: 22px;
+      top: 50%;
+      width: 16px;
+      height: 16px;
+      margin-top: -8px;
+      border-radius: 50%;
+      background: var(--accent);
+    }
+    #r-urg .ring { background: transparent; border: 2px solid var(--accent); }
+  </style>
+
+  <div id="root" data-composition-id="red" data-width="1080" data-height="1920">
+    <h2 id="r-t1" class="r-title clip" data-start="0" data-duration="2.45">Más barrios.</h2>
+    <h2 id="r-t2" class="r-title clip" data-start="2.35" data-duration="2.05">
+      <span class="w">Más</span> <span class="w">poder</span> <span class="w">de</span> <span class="w">compra.</span><br />
+      <span class="w">Más</span> <span class="w">marketing.</span>
+    </h2>
+    <h2 id="r-t3" class="r-title clip" data-start="4.35" data-duration="2.65">
+      <span class="w">Falta</span> <span class="w pill">la tuya.</span>
+    </h2>
+
+    <div id="r-map" class="clip" data-start="0" data-duration="7" data-layout-allow-overflow>
+      <div id="r-map-in">
+        <svg class="base" width="840" height="700" viewBox="0 0 840 700" aria-hidden="true">
+          <!-- Calles (punteadas) -->
+          <g stroke="#e8dfd1" stroke-width="3" stroke-dasharray="2 12" stroke-linecap="round" fill="none">
+            <path d="M0 140 H720 M0 260 H710 M0 430 H700 M0 560 H705 M110 0 V700 M250 0 V700 M380 0 V700 M500 0 V700" />
+          </g>
+          <!-- Bulevares -->
+          <g stroke="#e8dfd1" stroke-width="7" stroke-linecap="round" fill="none">
+            <path d="M560 0 V700" />
+            <path d="M0 470 C200 470 420 455 700 445" />
+          </g>
+          <!-- Río Paraná -->
+          <path d="M720 0 C700 120 735 200 712 320 C690 440 730 540 708 700 L840 700 L840 0 Z" fill="#ddf8eb" stroke="#0d2b27" stroke-width="2" />
+          <!-- Conexiones de la red (se dibujan) -->
+          <g id="r-edges" stroke="#0f766e" stroke-width="5" stroke-linecap="round" fill="none">
+            <line pathLength="1" x1="615" y1="345" x2="535" y2="230" />
+            <line pathLength="1" x1="535" y1="230" x2="600" y2="95" />
+            <line pathLength="1" x1="615" y1="345" x2="395" y2="385" />
+            <line pathLength="1" x1="395" y1="385" x2="150" y2="300" />
+            <line pathLength="1" x1="615" y1="345" x2="610" y2="505" />
+            <line pathLength="1" x1="395" y1="385" x2="535" y2="230" />
+          </g>
+          <g id="r-edges-new" stroke="#3d5752" stroke-width="4" stroke-linecap="round" stroke-dasharray="0.04 0.04" fill="none">
+            <line pathLength="1" x1="395" y1="385" x2="265" y2="548" />
+            <line pathLength="1" x1="150" y1="300" x2="265" y2="548" />
+          </g>
+        </svg>
+        <div class="rio" data-layout-ignore>Río Paraná</div>
+        <div class="eyebrow" id="r-eyebrow">ROSARIO</div>
+
+        <div class="pt" id="r-p-centro" style="left: 615px; top: 345px"></div>
+        <div class="pt" id="r-p-pichincha" style="left: 535px; top: 230px"></div>
+        <div class="pt" id="r-p-echesortu" style="left: 395px; top: 385px"></div>
+        <div class="pt" id="r-p-alberdi" style="left: 600px; top: 95px"></div>
+        <div class="pt" id="r-p-fisherton" style="left: 150px; top: 300px"></div>
+        <div class="pt" id="r-p-martin" style="left: 610px; top: 505px"></div>
+
+        <div class="lab-pos izq" style="left: 588px; top: 322px"><div class="lab" id="r-l-centro">Centro</div></div>
+        <div class="lab-pos izq" style="left: 508px; top: 207px"><div class="lab" id="r-l-pichincha">Pichincha</div></div>
+        <div class="lab-pos" style="left: 345px; top: 410px"><div class="lab" id="r-l-echesortu">Echesortu</div></div>
+        <div class="lab-pos izq" style="left: 573px; top: 72px"><div class="lab" id="r-l-alberdi">Alberdi</div></div>
+        <div class="lab-pos" style="left: 100px; top: 325px"><div class="lab" id="r-l-fisherton">Fisherton</div></div>
+        <div class="lab-pos izq" style="left: 583px; top: 482px"><div class="lab" id="r-l-martin">Barrio Martin</div></div>
+
+        <div id="r-slot"><div class="ring"></div><div class="dot"></div></div>
+        <div id="r-tu">¿tu farmacia?</div>
+      </div>
+    </div>
+
+    <div id="r-s1" class="sticker clip" data-start="2.7" data-duration="1.75" data-layout-allow-overlap>Compras en conjunto</div>
+    <div id="r-s2" class="sticker clip" data-start="2.85" data-duration="1.6" data-layout-allow-overlap>Campañas para todas</div>
+
+    <div id="r-urg" class="clip" data-start="5.15" data-duration="1.85"><span class="ring"></span><span class="dot"></span>Cupos limitados por barrio</div>
+  </div>
+
+  <script>
+    const tl = gsap.timeline({ paused: true });
+
+    // Entrada del mapa: viene de abajo con desenfoque y aterriza
+    tl.fromTo("#r-map", { y: 180, opacity: 0, filter: "blur(14px)" }, { y: 0, opacity: 1, filter: "blur(0px)", duration: 0.6, ease: "expo.out" }, 0);
+    tl.fromTo("#r-t1", { opacity: 0, filter: "blur(8px)" }, { opacity: 1, filter: "blur(0px)", duration: 0.18, ease: "power4.out" }, 0.2);
+
+    // Barrios que se encienden
+    const barrios = ["centro", "pichincha", "echesortu", "alberdi", "fisherton", "martin"];
+    barrios.forEach((b, i) => {
+      const t = 0.45 + i * 0.26;
+      tl.fromTo(`#r-p-${b}`, { scale: 0 }, { scale: 1, duration: 0.4, ease: "back.out(2.6)" }, t);
+      tl.fromTo(`#r-l-${b}`, { opacity: 0, y: 10 }, { opacity: 1, y: 0, duration: 0.28, ease: "power4.out" }, t + 0.12);
+    });
+    tl.fromTo("#r-slot", { scale: 0, opacity: 0 }, { scale: 0, opacity: 0, duration: 0.01 }, 0);
+    tl.fromTo("#r-tu", { opacity: 0 }, { opacity: 0, duration: 0.01 }, 0);
+    tl.fromTo("#r-edges line", { strokeDasharray: 1, strokeDashoffset: 1 }, { strokeDashoffset: 1, duration: 0.01 }, 0);
+    tl.fromTo("#r-edges-new line", { strokeDashoffset: 1, opacity: 0 }, { strokeDashoffset: 1, opacity: 0, duration: 0.01 }, 0);
+
+    tl.to("#r-t1", { opacity: 0, filter: "blur(8px)", duration: 0.16, ease: "power2.in" }, 2.25);
+
+    // Más poder de compra · más marketing: palabras de gris a tinta
+    tl.fromTo("#r-t2 .w", { color: "#e8dfd1" }, { color: "#0d2b27", duration: 0.12, stagger: 0.08, ease: "none" }, 2.4);
+    tl.to("#r-edges line", { strokeDashoffset: 0, duration: 0.7, stagger: 0.07, ease: "power2.inOut" }, 2.4);
+    tl.fromTo("#r-s1", { scale: 0.4, rotation: -10, opacity: 0 }, { scale: 1, rotation: -3, opacity: 1, duration: 0.4, ease: "back.out(2)" }, 2.75);
+    tl.fromTo("#r-s2", { scale: 0.4, rotation: 10, opacity: 0 }, { scale: 1, rotation: 2, opacity: 1, duration: 0.4, ease: "back.out(2)" }, 2.9);
+    tl.to(["#r-s1", "#r-s2"], { opacity: 0, filter: "blur(8px)", duration: 0.18, ease: "power2.in" }, 4.2);
+    tl.to("#r-t2 .w", { opacity: 0, filter: "blur(8px)", duration: 0.14, stagger: 0.02, ease: "power2.in" }, 4.2);
+
+    // Falta la tuya
+    tl.fromTo("#r-t3 .w", { opacity: 0, filter: "blur(6px)" }, { opacity: 1, filter: "blur(0px)", duration: 0.14, stagger: 0.12, ease: "power4.out" }, 4.4);
+    tl.fromTo("#r-map-in", { scale: 1 }, { scale: 1.12, transformOrigin: "265px 548px", duration: 0.9, ease: "power2.inOut" }, 4.45);
+    tl.to("#r-eyebrow", { opacity: 0, duration: 0.2, ease: "power2.in" }, 4.4);
+    tl.to("#r-slot", { scale: 1, opacity: 1, duration: 0.32, ease: "back.out(2.2)" }, 4.45);
+    tl.to("#r-edges-new line", { opacity: 1, strokeDashoffset: 0, duration: 0.6, stagger: 0.1, ease: "power2.out" }, 4.8);
+    tl.fromTo("#r-slot .ring", { scale: 1, opacity: 0.8 }, { scale: 2.8, opacity: 0, duration: 1, ease: "power2.out", repeat: 1 }, 4.75);
+    tl.to("#r-tu", { opacity: 1, duration: 0.01 }, 5.0);
+    tl.fromTo("#r-tu", { filter: "blur(6px)", rotation: -6, y: 10 }, { filter: "blur(0px)", rotation: -4, y: 0, duration: 0.3, ease: "power4.out" }, 5.0);
+    tl.fromTo("#r-urg", { scale: 0.5, opacity: 0 }, { scale: 1, opacity: 1, duration: 0.38, ease: "back.out(2)" }, 5.2);
+    tl.fromTo("#r-urg .ring", { scale: 1, opacity: 0.8 }, { scale: 2.6, opacity: 0, duration: 0.9, ease: "power2.out", repeat: 1 }, 5.5);
+
+    // Salida
+    tl.to(["#r-t3", "#r-urg", "#r-map"], { y: -60, opacity: 0, filter: "blur(12px)", duration: 0.28, ease: "power3.in", stagger: 0.03 }, 6.62);
+
+    window.__timelines["red"] = tl;
+  </script>
+</template>

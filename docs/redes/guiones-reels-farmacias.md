@@ -13,7 +13,7 @@ Los cinco guiones cuentan la misma idea con un concepto de marketing distinto ca
 | 2 | La historia de Graciela | *StoryBrand*: la farmacia es la protagonista y ALIAR, la guía | Consideración (identificación) | Mini ficción con voz en off | 35 s |
 | 3 | Lo que ALIAR no es | Posicionamiento por oposición + respuesta a objeciones | Consideración (confianza) | Lista con stickers tachados | 30 s |
 | 4 | ¿Cuál es la trampa? | Inversión del riesgo + ecuación de valor | Conversión (decisión) | Pregunta frecuente respondida a cámara | 30 s |
-| 5 | 1 + 1 + 1 + 1 | Efecto red + economía de escala | Descubrimiento (alcance) | *Motion graphics* en bucle, sin cara | 16 s |
+| 5 | 1 + 1 + 1 + 1 | Efecto red + economía de escala | Descubrimiento (alcance) | *Motion graphics* en bucle, sin cara | 18,6 s |
 
 ---
 
@@ -231,7 +231,9 @@ En una red, cada integrante nuevo suma valor a todos los demás: más horarios c
 
 **Texto alternativo:** «Animación: una farmacia sola cierra a las 21 h; al sumarse otras tres, los horarios se combinan, se encienden barrios de Rosario en el mapa y aparece un lugar vacío con la pregunta "¿tu farmacia?".»
 
-**Notas de producción:** se puede hacer entero con HyperFrames o Remotion a partir de los tokens de la guía. Los horarios son ilustrativos y así se aclara en pantalla. La frase final «Porque 1 farmacia sola…» empalma con el gancho del primer cuadro («…cierra a las 21 h») para que el bucle se lea como una sola oración.
+**Video terminado:** `videos/reel-05-red/renders/aliar-reel-05-red.mp4` (18,6 s; la placa final se alargó para que se pueda leer). Proyecto editable en `videos/reel-05-red/`.
+
+**Notas de producción:** hecho con HyperFrames a partir de los tokens de la guía. Los horarios son ilustrativos y así se aclara en pantalla. La frase final «Porque 1 farmacia sola…» empalma con el gancho del primer cuadro («…cierra a las 21 h») para que el bucle se lea como una sola oración.
 
 ---
 
