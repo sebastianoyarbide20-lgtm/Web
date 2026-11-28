@@ -13,8 +13,39 @@ async function claveValida(recibida, esperada) {
   return crypto.subtle.timingSafeEqual(a, b);
 }
 
+// Aviso por WhatsApp con CallMeBot (gratis). Se activa solo si existen en Cloudflare:
+//   CALLMEBOT_APIKEY  (secreto)  la clave que CallMeBot te manda por WhatsApp al activarlo
+//   AVISO_WHATSAPP    (variable) número que recibe el aviso, con código de país y sin "+",
+//                                por ejemplo 5493417181147. Si falta, se usa el WhatsApp del proyecto.
+async function avisarPorWhatsApp(env, r) {
+  if (!env.CALLMEBOT_APIKEY) return;
+  const telefono = String(env.AVISO_WHATSAPP || '5493417181147').replace(/\D/g, '');
+  const origen = [r.origen_fuente, r.origen_medio, r.origen_campania, r.origen_anuncio].filter(Boolean).join(' / ')
+    || (r.origen_referente ? 'Referido: ' + r.origen_referente : 'Directo / sin UTM');
+  const lineas = [
+    '🟢 Nueva postulación ALIAR ROSARIO',
+    `Farmacia: ${r.farmacia}`,
+    `Nombre: ${r.nombre}`,
+    `Barrio: ${r.barrio || '-'}`,
+    `WhatsApp: ${r.whatsapp}`,
+    r.envios ? `Envíos: ${r.envios}` : '',
+    r.sistema ? `Sistema: ${r.sistema}` : '',
+    `Origen: ${origen}`,
+    'Ver todas: https://aliar-rosario.aliarrosario.workers.dev/admin/',
+  ].filter(Boolean);
+  const url = 'https://api.callmebot.com/whatsapp.php?phone=' + telefono
+    + '&text=' + encodeURIComponent(lineas.join('\n').slice(0, 1500))
+    + '&apikey=' + encodeURIComponent(env.CALLMEBOT_APIKEY);
+  try {
+    const res = await fetch(url, { signal: AbortSignal.timeout(20000) });
+    if (!res.ok) console.log('CallMeBot respondió', res.status);
+  } catch (e) {
+    console.log('No se pudo avisar por WhatsApp:', e && e.message);
+  }
+}
+
 export default {
-  async fetch(request, env) {
+  async fetch(request, env, ctx) {
     const url = new URL(request.url);
 
     if (url.pathname === '/api/postulaciones') {
@@ -51,6 +82,8 @@ export default {
 
     const registro = { recibido: new Date().toISOString(), ...datos };
     await env.POSTULACIONES.put('postulacion:' + registro.recibido + ':' + crypto.randomUUID().slice(0, 8), JSON.stringify(registro));
+    // El aviso sale en segundo plano: la persona ve el «¡Listo!» sin esperar a WhatsApp.
+    ctx.waitUntil(avisarPorWhatsApp(env, registro));
     return json({ ok: true });
   },
 };

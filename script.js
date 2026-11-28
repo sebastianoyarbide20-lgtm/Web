@@ -26,6 +26,10 @@
 
     // Cierre de inscripción (AAAA-MM-DD, hora de Argentina) para el contador de días.
     cierreInscripcion: '2026-12-10',
+
+    // ID del Píxel de Meta (Administrador de eventos de Meta → Orígenes de datos).
+    // Vacío = el píxel no se carga. Solo números, por ejemplo '123456789012345'.
+    metaPixelId: '',
   };
 
   /* ------------------------------------------------------------------------
@@ -85,7 +89,61 @@
     anchor.setAttribute('data-wa-link', '');
   }
 
+  /* ------------------------------------------------------------------------
+     MEDICIÓN: origen de la visita (UTM) y Píxel de Meta
+     ------------------------------------------------------------------------ */
+  const ORIGEN_KEY = 'aliar_origen';
+  const UTM = {
+    utm_source: 'origen_fuente', utm_medium: 'origen_medio', utm_campaign: 'origen_campania',
+    utm_content: 'origen_anuncio', utm_term: 'origen_termino', fbclid: 'origen_fbclid', gclid: 'origen_gclid',
+  };
+
+  // Guarda de dónde vino la visita. Si llega desde un anuncio (con UTM o fbclid),
+  // ese origen reemplaza al anterior; una visita directa no borra un origen ya guardado.
+  function initOrigen() {
+    let params;
+    try { params = new URLSearchParams(window.location.search); } catch (error) { return; }
+    const nuevo = {};
+    Object.entries(UTM).forEach(([param, campo]) => {
+      const v = params.get(param);
+      if (v) nuevo[campo] = v.slice(0, 150);
+    });
+    let guardado = null;
+    try { guardado = JSON.parse(localStorage.getItem(ORIGEN_KEY) || 'null'); } catch (error) { guardado = null; }
+    if (Object.keys(nuevo).length || !guardado) {
+      let referente = '';
+      try { referente = document.referrer && new URL(document.referrer).host !== location.host ? document.referrer.slice(0, 200) : ''; } catch (error) { referente = ''; }
+      const origen = { ...nuevo, origen_referente: referente, origen_pagina: (location.pathname + location.search).slice(0, 200), origen_fecha: new Date().toISOString() };
+      try { localStorage.setItem(ORIGEN_KEY, JSON.stringify(origen)); } catch (error) { /* modo privado: se usa solo en esta visita */ }
+      window.__aliarOrigen = origen;
+    } else {
+      window.__aliarOrigen = guardado;
+    }
+  }
+  const origenVisita = () => window.__aliarOrigen || {};
+
+  function initPixel() {
+    const id = String(CONFIG.metaPixelId || '').trim();
+    if (!/^\d{6,20}$/.test(id) || window.fbq) return;
+    /* eslint-disable */
+    !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+    n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
+    document,'script','https://connect.facebook.net/en_US/fbevents.js');
+    /* eslint-enable */
+    window.fbq('init', id);
+    window.fbq('track', 'PageView');
+  }
+  function medir(evento, datos) {
+    try { if (typeof window.fbq === 'function') window.fbq('track', evento, datos || {}); } catch (error) { /* sin medición */ }
+  }
+
   function initWhatsApp() {
+    // Cada clic en un botón de WhatsApp cuenta como «Contacto» en Meta.
+    document.addEventListener('click', (event) => {
+      if (event.target.closest('a[href^="https://wa.me/"]')) medir('Contact', { content_name: 'WhatsApp' });
+    });
     $$('[data-wa]').forEach((a) => setWhatsApp(a, a.dataset.wa));
     $$('[data-wa-display]').forEach((el) => { el.textContent = CONFIG.whatsapp; });
     // Mientras el número no esté configurado, evitamos abrir un chat roto.
@@ -806,9 +864,11 @@
       setLoading(true);
       try {
         if (CONFIG.formEndpoint) {
+          const cuerpo = new FormData(form);
+          Object.entries(origenVisita()).forEach(([k, v]) => { if (v) cuerpo.append(k, v); });
           const respuesta = await fetch(CONFIG.formEndpoint, {
             method: 'POST',
-            body: new FormData(form),
+            body: cuerpo,
             headers: { Accept: 'application/json' },
             signal: AbortSignal.timeout(15000), // nunca queda cargando para siempre
           });
@@ -818,6 +878,7 @@
         } else {
           await wait(reduceMotion() ? 200 : 1100); // envío simulado
         }
+        medir('Lead', { content_name: 'Postulación Farmacia Fundadora' });
         mostrarExito();
       } catch (error) {
         mostrarAlerta(`No pudimos enviar tu postulación. Probá de nuevo en unos segundos o escribinos a ${CONFIG.email}.`);
@@ -885,6 +946,8 @@
      10. INICIO
      ------------------------------------------------------------------------ */
   function init() {
+    initOrigen();
+    initPixel();
     renderIcons();
     initHeader();
     initMobileMenu();

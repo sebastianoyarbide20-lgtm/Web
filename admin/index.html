@@ -69,8 +69,11 @@ dd{margin:0;font-weight:700;overflow-wrap:anywhere}
 <script>
 (function () {
   var $ = function (s) { return document.querySelector(s); };
-  var ETIQ = { nombre: 'Nombre', farmacia: 'Farmacia', barrio: 'Barrio', whatsapp: 'WhatsApp', envios: 'Envíos a domicilio', sistema: 'Sistema de gestión' };
-  var ORDEN = ['nombre', 'farmacia', 'barrio', 'whatsapp', 'envios', 'sistema'];
+  var ETIQ = { nombre: 'Nombre', farmacia: 'Farmacia', barrio: 'Barrio', whatsapp: 'WhatsApp', envios: 'Envíos a domicilio', sistema: 'Sistema de gestión',
+    origen_fuente: 'Origen: fuente', origen_medio: 'Origen: medio', origen_campania: 'Origen: campaña', origen_anuncio: 'Origen: anuncio', origen_termino: 'Origen: término',
+    origen_referente: 'Origen: sitio de referencia', origen_pagina: 'Origen: página de entrada', origen_fbclid: 'Origen: clic de Meta (fbclid)', origen_gclid: 'Origen: clic de Google (gclid)' };
+  var ORDEN = ['nombre', 'farmacia', 'barrio', 'whatsapp', 'envios', 'sistema',
+    'origen_fuente', 'origen_medio', 'origen_campania', 'origen_anuncio', 'origen_termino', 'origen_referente', 'origen_pagina', 'origen_fbclid', 'origen_gclid'];
   var datos = [];
   function clave() { try { return sessionStorage.getItem('clave') || ''; } catch (e) { return ''; } }
   function guardar(v) { try { v ? sessionStorage.setItem('clave', v) : sessionStorage.removeItem('clave'); } catch (e) {} }
@@ -90,7 +93,8 @@ dd{margin:0;font-weight:700;overflow-wrap:anywhere}
     datos.forEach(function (d) {
       var it = el('article', 'item');
       it.appendChild(el('h2', '', d.farmacia || '(sin nombre)'));
-      it.appendChild(el('p', 'when', fecha(d.recibido)));
+      var o = [d.origen_fuente, d.origen_medio, d.origen_campania].filter(Boolean).join(' / ') || (d.origen_referente ? 'Referido' : 'Directo / sin UTM');
+      it.appendChild(el('p', 'when', fecha(d.recibido) + ' · ' + o));
       var dl = el('dl');
       ORDEN.forEach(function (k) {
         if (!d[k]) return;
