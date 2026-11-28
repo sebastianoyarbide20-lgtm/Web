@@ -1437,3 +1437,20 @@ html:not(.js) .wa-float { opacity: 1; visibility: visible; transform: none; }
   .bento .bento__item:last-child p { grid-column: 2; }
   .bento .bento__item:last-child .icon-badge { grid-row: span 2; }
 }
+
+/* 21. AJUSTES DE ESCRITORIO (v2.2) — no afectan la vista de celular ========= */
+.bento__perks { display: none; }
+@media (min-width: 1024px) {
+  /* Tarjeta 0 %: lista corta para llenar el espacio vacío */
+  .bento__perks { display: grid; gap: 10px; margin: 0; padding: 0; list-style: none; }
+  .bento__perks li { display: flex; align-items: center; gap: 10px; font-weight: 700; color: #fff; }
+  .bento__perks .lucide, .bento__perks i[data-lucide] {
+    width: 26px; height: 26px; padding: 4px; flex: none; border-radius: 50%; background: var(--lime); color: var(--ink);
+  }
+
+  /* Formulario: la columna izquierda acompaña al formulario */
+
+  .signup__intro .reminder, .signup__intro .wa-alt { width: 100%; margin-top: 6px; }
+  .signup__intro .wa-alt { text-align: left; justify-items: start; }
+
+}

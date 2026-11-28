@@ -892,6 +892,29 @@
     initForm();
     initStickyCta();
     initCountdown();
+    initSignupDesktop();
+  }
+
+  /* En computadora, «Fechas clave» y WhatsApp van en la columna izquierda,
+     debajo del título, para que no quede vacía. En celular no cambia nada. */
+  function initSignupDesktop() {
+    const intro = $('.signup__intro');
+    const col = $('#form-postular');
+    const reminder = $('#form-postular .reminder');
+    const waAlt = $('#form-postular .wa-alt');
+    if (!intro || !col || !reminder || !waAlt || !window.matchMedia) return;
+    const mq = window.matchMedia('(min-width: 1024px)');
+    const ubicar = () => {
+      if (mq.matches) {
+        intro.append(reminder, waAlt);
+        reminder.open = true;
+      } else if (reminder.parentElement !== col) {
+        col.append(reminder, waAlt);
+        reminder.open = false;
+      }
+    };
+    ubicar();
+    if (mq.addEventListener) mq.addEventListener('change', ubicar);
   }
 
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init);
