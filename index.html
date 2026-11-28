@@ -90,7 +90,7 @@
           </ul>
 
           <div class="navbar__actions">
-            <a class="btn btn--primary btn--sm navbar__cta" href="#postular">Postular mi farmacia</a>
+            <a class="btn btn--primary btn--sm navbar__cta" href="#form-postular">Postular mi farmacia</a>
             <button class="navbar__toggle" type="button" aria-expanded="false" aria-controls="menu-movil">
               <span class="visually-hidden" data-toggle-label>Abrir menú</span>
               <i data-lucide="menu" class="navbar__toggle-open"></i>
@@ -109,7 +109,7 @@
               <li><a href="#barrios"><span>Barrios del piloto</span><i data-lucide="arrow-up-right"></i></a></li>
               <li><a href="#preguntas"><span>Preguntas frecuentes</span><i data-lucide="arrow-up-right"></i></a></li>
             </ul>
-            <a class="btn btn--primary btn--lg btn--block" href="#postular"><span>Postular mi farmacia</span><span class="btn__icon" aria-hidden="true"><i data-lucide="arrow-right"></i></span></a>
+            <a class="btn btn--primary btn--lg btn--block" href="#form-postular"><span>Postular mi farmacia</span><span class="btn__icon" aria-hidden="true"><i data-lucide="arrow-right"></i></span></a>
           </div>
         </div>
       </div>
@@ -139,7 +139,7 @@
           </p>
 
           <div class="hero__actions" id="hero-actions">
-            <a class="btn btn--primary btn--lg" href="#postular"><span>Postular mi farmacia como Fundadora</span><span class="btn__icon" aria-hidden="true"><i data-lucide="arrow-right"></i></span></a>
+            <a class="btn btn--primary btn--lg" href="#form-postular"><span>Postular mi farmacia como Fundadora</span><span class="btn__icon" aria-hidden="true"><i data-lucide="arrow-right"></i></span></a>
             <a class="btn btn--secondary btn--lg" href="#prototipo"><span>Ver el prototipo funcionando</span><span class="btn__icon" aria-hidden="true"><i data-lucide="play"></i></span></a>
           </div>
 
@@ -191,33 +191,60 @@
     </div>
 
     <!-- ===================================================================
-         SECCIÓN 2 · CINTILLO DE CONFIANZA INMEDIATA
+         SECCIÓN 2 · POR QUÉ SUMARTE (confianza + ventajas para Farmacias Fundadoras)
          =================================================================== -->
-    <section class="trust" aria-labelledby="trust-title">
+    <section class="section founders" id="fundadoras" aria-labelledby="fundadoras-title">
       <div class="container">
-        <h2 class="visually-hidden" id="trust-title">Por qué confiar en ALIAR ROSARIO</h2>
-        <ul class="trust__grid" role="list" data-reveal-group>
-          <li class="trust__item trust__item--mint" data-reveal>
-            <span class="icon-badge"><i data-lucide="badge-percent"></i></span>
-            <h3 class="trust__title">0% costo fijo para arrancar</h3>
-            <p>En la etapa piloto no pagás abono mensual: solo una comisión por pedido efectivamente vendido.</p>
-          </li>
-          <li class="trust__item trust__item--lilac" data-reveal>
+        <header class="section-head section-head--center" data-reveal>
+          <p class="eyebrow">Por qué sumarte ahora</p>
+          <h2 id="fundadoras-title">Lo que ganás como Farmacia Fundadora</h2>
+        </header>
+
+        <div class="bento snap-row" data-reveal-group tabindex="0" aria-label="Ventajas para Farmacias Fundadoras (deslizá para ver más)">
+          <article class="bento__item bento__item--feature" data-reveal>
+            <div class="bento__figure" aria-hidden="true">
+              <span class="bento__big">0%</span>
+              <span class="bento__big-label">costo fijo para arrancar</span>
+            </div>
+            <div>
+              <h3>Riesgo cero en el arranque</h3>
+              <p>Sin abono mensual durante el piloto: solo pagás una comisión por cada venta concretada en la plataforma.</p>
+            </div>
+          </article>
+
+          <article class="bento__item bento__item--wide card card--hover" data-reveal>
+            <div class="bento__text">
+              <span class="icon-badge"><i data-lucide="vote"></i></span>
+              <h3>Voz y voto en las reglas de la alianza</h3>
+              <p>Las farmacias fundadoras participan directamente en la definición de los acuerdos de zonas, operación y estándares de la red.</p>
+            </div>
+            <div class="table-art" aria-hidden="true">
+              <div class="table-art__seats">
+                <span style="--c:#15803D">DP</span><span style="--c:#6D28D9">AL</span><span style="--c:#BE123C">EN</span><span style="--c:#1D4ED8">LA</span><span class="table-art__more">+2</span>
+              </div>
+              <div class="table-art__topics"><span>Zonas</span><span>Operación</span><span>Estándares</span></div>
+            </div>
+          </article>
+
+          <article class="bento__item card card--hover" data-reveal>
             <span class="icon-badge"><i data-lucide="store"></i></span>
-            <h3 class="trust__title">Tu marca y tus clientes son tuyos</h3>
-            <p>La red trabaja para las farmacias independientes, nunca compite con ellas ni te quita el vínculo con el vecino.</p>
-          </li>
-          <li class="trust__item trust__item--butter" data-reveal>
-            <span class="icon-badge"><i data-lucide="shield-check"></i></span>
-            <h3 class="trust__title">Encuadre profesional y normativo</h3>
-            <p>Operación pensada junto a referentes farmacéuticos y bajo la normativa vigente en Santa Fe y ANMAT.</p>
-          </li>
-          <li class="trust__item trust__item--lime" data-reveal>
-            <span class="icon-badge"><i data-lucide="monitor-smartphone"></i></span>
-            <h3 class="trust__title">No es una idea en papel</h3>
-            <p>Ya contamos con un prototipo web funcional y campañas creativas listas para salir al mercado el 1.º de enero.</p>
-          </li>
-        </ul>
+            <h3>Tu marca y tus clientes son tuyos</h3>
+            <p>La red trabaja para las farmacias independientes: nunca compite con ellas ni te quita el vínculo con el vecino.</p>
+          </article>
+
+          <article class="bento__item card card--hover" data-reveal>
+            <span class="icon-badge"><i data-lucide="map-pin"></i></span>
+            <h3>Prioridad en tu barrio</h3>
+            <p>Sos la farmacia referente de tu zona en las primeras campañas publicitarias de lanzamiento en Rosario.</p>
+          </article>
+
+          <article class="bento__item card card--hover" data-reveal>
+            <span class="icon-badge"><i data-lucide="hand-helping"></i></span>
+            <h3>Acompañamiento mano a mano</h3>
+            <p>Nuestro equipo te asiste en la adaptación de tu perfil, la carga inicial y el seguimiento semanal de métricas durante todo el piloto.</p>
+          </article>
+        </div>
+        <p class="snap-hint" aria-hidden="true">Deslizá para ver más →</p>
       </div>
     </section>
     <!-- ===================================================================
@@ -231,7 +258,7 @@
           <p class="lead">No es porque atiendan mejor. Es porque hoy el vecino se ve obligado a elegir entre la cercanía de su farmacia de siempre y la comodidad de pedir desde el celular.</p>
         </header>
 
-        <div class="problem__grid" data-reveal-group>
+        <div class="problem__grid snap-row" data-reveal-group tabindex="0" aria-label="Problemas de la farmacia de barrio (deslizá para ver más)">
           <article class="card card--hover problem-card" data-reveal>
             <div class="problem-card__top">
               <span class="icon-badge icon-badge--muted"><i data-lucide="smartphone"></i></span>
@@ -456,7 +483,7 @@
         </div>
 
         <!-- 5 pilares operativos en grilla Bento -->
-        <ol class="pillars" role="list" data-reveal-group>
+        <ol class="pillars snap-row" role="list" data-reveal-group tabindex="0" aria-label="Cómo funciona la plataforma (deslizá para ver más)">
           <li class="card card--hover pillar pillar--wide" data-reveal>
             <div class="pillar__body">
               <div class="pillar__top">
@@ -536,44 +563,45 @@
           <p class="lead">No prometemos soluciones mágicas para mañana. Arrancamos con un piloto sólido, medible y cuidado junto a un primer grupo de farmacias de Rosario, para escalar con resultados reales en la mano.</p>
         </header>
 
-        <ol class="timeline" role="list" data-reveal-group>
+        <ol class="timeline snap-row" role="list" data-reveal-group tabindex="0" aria-label="Hoja de ruta (deslizá para ver más)">
           <li class="milestone milestone--now" data-reveal>
             <span class="milestone__marker" aria-hidden="true"><i data-lucide="users"></i></span>
-            <div class="milestone__card card card--hover">
+            <div class="milestone__card card">
               <p class="milestone__meta"><span class="milestone__n">Hito 1</span><span class="tag tag--urgent tag--tilt"><span class="tag__dot" aria-hidden="true"></span>Ahora</span></p>
               <p class="milestone__date">Hasta el 10 de diciembre de 2026</p>
               <h3>Convocatoria de Farmacias Fundadoras</h3>
-              <p>Entrevistas breves con farmacias interesadas, muestra del prototipo y selección de las primeras 4 a 6 farmacias de barrios distintos.</p>
+              <p>Entrevistas, demo del prototipo y selección de 4 a 6 farmacias de barrios distintos.</p>
             </div>
           </li>
           <li class="milestone" data-reveal>
             <span class="milestone__marker" aria-hidden="true"><i data-lucide="handshake"></i></span>
-            <div class="milestone__card card card--hover">
+            <div class="milestone__card card">
               <p class="milestone__meta"><span class="milestone__n">Hito 2</span></p>
               <p class="milestone__date">11 al 28 de diciembre de 2026</p>
-              <h3>Mesa Fundadora y Puesta a Punto</h3>
-              <p>Definimos juntas las reglas claras de convivencia (zonas, operativa y estándares) y adaptamos la plataforma web a la identidad de cada farmacia piloto.</p>
+              <h3>Mesa Fundadora y puesta a punto</h3>
+              <p>Reglas de convivencia acordadas entre todas y la plataforma adaptada a cada farmacia.</p>
             </div>
           </li>
           <li class="milestone milestone--launch" data-reveal>
             <span class="milestone__marker" aria-hidden="true"><i data-lucide="rocket"></i></span>
-            <div class="milestone__card card card--hover">
+            <div class="milestone__card card">
               <p class="milestone__meta"><span class="milestone__n">Hito 3</span><span class="tag tag--solid">Salida al mercado</span><span class="tag tag--teal">Etapa 1</span></p>
               <p class="milestone__date">1.º de enero de 2027</p>
-              <h3>Lanzamiento Piloto en Rosario (3 a 4 meses)</h3>
-              <p>Salimos al público con la tienda web, gestión de recetas por WhatsApp, retiro en mostrador o envío coordinado y campaña activa en Instagram. Medimos pedidos semanales, ticket promedio y clientes que vuelven a comprar.</p>
+              <h3>Lanzamiento piloto (3 a 4 meses)</h3>
+              <p>Tienda web, recetas por WhatsApp, retiro o envío y campaña en Instagram. Medimos cada semana.</p>
             </div>
           </li>
           <li class="milestone milestone--future" data-reveal>
             <span class="milestone__marker" aria-hidden="true"><i data-lucide="trending-up"></i></span>
-            <div class="milestone__card card card--hover">
+            <div class="milestone__card card">
               <p class="milestone__meta"><span class="milestone__n">Hito 4</span><span class="tag tag--neutral">Etapas 2 y 3</span></p>
               <p class="milestone__date">Evolución 2027</p>
-              <h3>App Propia, Integración y Escala</h3>
-              <p>Con el piloto validado avanzamos hacia la app nativa (iPhone y Android), integración de stock y obras sociales, cobertura de más barrios, expansión al Gran Rosario (Funes, Villa Gobernador Gálvez, Granadero Baigorria y Pérez) y acuerdos de compra en conjunto para mejorar tus márgenes.</p>
+              <h3>App, integración y escala</h3>
+              <p>App propia, stock y obras sociales integrados, más barrios, Gran Rosario y compras en conjunto.</p>
             </div>
           </li>
         </ol>
+        <p class="snap-hint" aria-hidden="true">Deslizá para ver más →</p>
       </div>
     </section>
 
@@ -589,68 +617,20 @@
             <p class="lead">Para evitar superposiciones y asegurar volumen de pedidos a cada farmacia en el arranque del 1.º de enero, seleccionaremos un cupo acotado por zona en esta primera etapa.</p>
           </header>
 
-          <ul class="barrio-grid" role="list" data-reveal-group>
-            <li data-reveal>
-              <button class="barrio" type="button" data-barrio="Centro">
-                <span class="barrio__pin"><i data-lucide="map-pin"></i></span>
-                <span class="barrio__name">Centro</span>
-                <span class="tag tag--urgent tag--sm"><span class="tag__dot" aria-hidden="true"></span>Cupo Piloto Abierto</span>
-                <span class="barrio__cta">Postularme acá <i data-lucide="arrow-right"></i></span>
-              </button>
-            </li>
-            <li data-reveal>
-              <button class="barrio" type="button" data-barrio="Fisherton">
-                <span class="barrio__pin"><i data-lucide="map-pin"></i></span>
-                <span class="barrio__name">Fisherton</span>
-                <span class="tag tag--urgent tag--sm"><span class="tag__dot" aria-hidden="true"></span>Cupo Piloto Abierto</span>
-                <span class="barrio__cta">Postularme acá <i data-lucide="arrow-right"></i></span>
-              </button>
-            </li>
-            <li data-reveal>
-              <button class="barrio" type="button" data-barrio="Pichincha">
-                <span class="barrio__pin"><i data-lucide="map-pin"></i></span>
-                <span class="barrio__name">Pichincha</span>
-                <span class="tag tag--urgent tag--sm"><span class="tag__dot" aria-hidden="true"></span>Cupo Piloto Abierto</span>
-                <span class="barrio__cta">Postularme acá <i data-lucide="arrow-right"></i></span>
-              </button>
-            </li>
-            <li data-reveal>
-              <button class="barrio" type="button" data-barrio="Echesortu">
-                <span class="barrio__pin"><i data-lucide="map-pin"></i></span>
-                <span class="barrio__name">Echesortu</span>
-                <span class="tag tag--urgent tag--sm"><span class="tag__dot" aria-hidden="true"></span>Cupo Piloto Abierto</span>
-                <span class="barrio__cta">Postularme acá <i data-lucide="arrow-right"></i></span>
-              </button>
-            </li>
-            <li data-reveal>
-              <button class="barrio" type="button" data-barrio="Alberdi">
-                <span class="barrio__pin"><i data-lucide="map-pin"></i></span>
-                <span class="barrio__name">Alberdi</span>
-                <span class="tag tag--urgent tag--sm"><span class="tag__dot" aria-hidden="true"></span>Cupo Piloto Abierto</span>
-                <span class="barrio__cta">Postularme acá <i data-lucide="arrow-right"></i></span>
-              </button>
-            </li>
-            <li data-reveal>
-              <button class="barrio" type="button" data-barrio="Barrio Martin">
-                <span class="barrio__pin"><i data-lucide="map-pin"></i></span>
-                <span class="barrio__name">Barrio Martin</span>
-                <span class="tag tag--urgent tag--sm"><span class="tag__dot" aria-hidden="true"></span>Cupo Piloto Abierto</span>
-                <span class="barrio__cta">Postularme acá <i data-lucide="arrow-right"></i></span>
-              </button>
-            </li>
-            <li class="barrio-grid__wide" data-reveal>
-              <button class="barrio barrio--other" type="button" data-barrio="Otro barrio de Rosario">
-                <span class="barrio__pin"><i data-lucide="map"></i></span>
-                <span class="barrio__name">Otros barrios de Rosario</span>
-                <span class="tag tag--neutral tag--sm">Lista prioritaria para Etapa 2</span>
-                <span class="barrio__cta">Sumarme a la lista <i data-lucide="arrow-right"></i></span>
-              </button>
-            </li>
+          <p class="barrio-status" data-reveal><span class="tag tag--urgent"><span class="tag__dot" aria-hidden="true"></span>Cupo piloto abierto en los 6 barrios</span></p>
+          <ul class="barrio-grid" role="list" aria-label="Barrios del piloto: tocá el tuyo para postularte" data-reveal>
+            <li><button class="barrio" type="button" data-barrio="Centro"><i data-lucide="map-pin"></i><span class="barrio__name">Centro</span></button></li>
+            <li><button class="barrio" type="button" data-barrio="Fisherton"><i data-lucide="map-pin"></i><span class="barrio__name">Fisherton</span></button></li>
+            <li><button class="barrio" type="button" data-barrio="Pichincha"><i data-lucide="map-pin"></i><span class="barrio__name">Pichincha</span></button></li>
+            <li><button class="barrio" type="button" data-barrio="Echesortu"><i data-lucide="map-pin"></i><span class="barrio__name">Echesortu</span></button></li>
+            <li><button class="barrio" type="button" data-barrio="Alberdi"><i data-lucide="map-pin"></i><span class="barrio__name">Alberdi</span></button></li>
+            <li><button class="barrio" type="button" data-barrio="Barrio Martin"><i data-lucide="map-pin"></i><span class="barrio__name">Barrio Martin</span></button></li>
+            <li class="barrio-grid__wide"><button class="barrio barrio--other" type="button" data-barrio="Otro barrio de Rosario"><i data-lucide="map"></i><span class="barrio__name">Otro barrio o Gran Rosario</span></button></li>
           </ul>
 
           <p class="barrios__note" data-reveal>
             <i data-lucide="info"></i>
-            <span>¿Tu farmacia está en otro barrio de Rosario o en el Gran Rosario? Inscribite igual: estamos mapeando demanda para abrir nuevas zonas apenas finalice el piloto inicial.</span>
+            <span>Tocá tu barrio para postularte. Si estás en otra zona, inscribite igual: armamos una lista prioritaria para la Etapa 2.</span>
           </p>
         </div>
 
@@ -703,56 +683,6 @@
       </div>
     </section>
 
-    <!-- ===================================================================
-         SECCIÓN 7 · BENEFICIOS EXCLUSIVOS PARA FARMACIAS FUNDADORAS
-         =================================================================== -->
-    <section class="section founders" id="fundadoras" aria-labelledby="fundadoras-title">
-      <div class="container">
-        <header class="section-head section-head--center" data-reveal>
-          <p class="eyebrow">Por qué sumarte ahora y no esperar</p>
-          <h2 id="fundadoras-title">Ventajas reservadas para las farmacias que lanzan el 1.º de enero</h2>
-        </header>
-
-        <div class="bento" data-reveal-group>
-          <article class="bento__item bento__item--feature" data-reveal>
-            <div class="bento__figure" aria-hidden="true">
-              <span class="bento__big">0%</span>
-              <span class="bento__big-label">cuota fija mensual</span>
-            </div>
-            <div>
-              <h3>Riesgo cero en el arranque</h3>
-              <p>Sin cuota fija mensual durante el piloto: solo pagás comisión sobre ventas concretadas a través de la plataforma.</p>
-            </div>
-          </article>
-
-          <article class="bento__item bento__item--wide card card--hover" data-reveal>
-            <div class="bento__text">
-              <span class="icon-badge"><i data-lucide="vote"></i></span>
-              <h3>Voz y voto en las reglas de la alianza</h3>
-              <p>Las farmacias fundadoras participan directamente en la definición de los acuerdos de zonas, operación y estándares de la red.</p>
-            </div>
-            <div class="table-art" aria-hidden="true">
-              <div class="table-art__seats">
-                <span style="--c:#15803D">DP</span><span style="--c:#6D28D9">AL</span><span style="--c:#BE123C">EN</span><span style="--c:#1D4ED8">LA</span><span class="table-art__more">+2</span>
-              </div>
-              <div class="table-art__topics"><span>Zonas</span><span>Operación</span><span>Estándares</span></div>
-            </div>
-          </article>
-
-          <article class="bento__item card card--hover" data-reveal>
-            <span class="icon-badge"><i data-lucide="map-pin"></i></span>
-            <h3>Prioridad en tu barrio</h3>
-            <p>Sos la farmacia referente de tu zona en las primeras campañas publicitarias de lanzamiento en Rosario.</p>
-          </article>
-
-          <article class="bento__item card card--hover" data-reveal>
-            <span class="icon-badge"><i data-lucide="hand-helping"></i></span>
-            <h3>Acompañamiento mano a mano</h3>
-            <p>Nuestro equipo te asiste en la adaptación de tu perfil, la carga inicial y el seguimiento semanal de métricas durante todo el piloto.</p>
-          </article>
-        </div>
-      </div>
-    </section>
 
     <!-- ===================================================================
          SECCIÓN 8 · RESPALDO PROFESIONAL Y REGLAS CLARAS
@@ -793,7 +723,7 @@
           <div class="faq__help">
             <span class="icon-badge"><i data-lucide="messages-square"></i></span>
             <p><b>¿Tenés otra duda?</b> Escribinos por WhatsApp y te responde el coordinador en Rosario, o mandanos un correo a <a href="mailto:aliar.proyecto@gmail.com">aliar.proyecto@gmail.com</a>.</p>
-            <a class="btn btn--whatsapp btn--sm" href="https://wa.me/5493417181147?text=Hola,%20tengo%20una%20farmacia%20en%20%5Bbarrio%5D%20y%20quiero%20saber%20m%C3%A1s%20de%20ALIAR" target="_blank" rel="noopener" data-wa="Hola, tengo una farmacia en [barrio] y quiero saber más de ALIAR"><span>Escribir por WhatsApp</span><span class="btn__icon" aria-hidden="true"><i data-lucide="message-circle"></i></span></a>
+            <a class="btn btn--whatsapp btn--sm" href="https://wa.me/5493417181147?text=Hola,%20tengo%20una%20farmacia%20en%20Rosario%20y%20quiero%20saber%20m%C3%A1s%20de%20ALIAR" target="_blank" rel="noopener" data-wa="Hola, tengo una farmacia en Rosario y quiero saber más de ALIAR"><span>Escribir por WhatsApp</span><span class="btn__icon" aria-hidden="true"><i data-lucide="message-circle"></i></span></a>
           </div>
         </div>
 
@@ -836,31 +766,13 @@
     <section class="section signup" id="postular" aria-labelledby="postular-title">
       <div class="container signup__layout">
         <div class="signup__intro" data-reveal>
-          <p class="signup__kicker"><span class="eyebrow">Último paso</span><span class="tag tag--urgent"><span class="tag__dot" aria-hidden="true"></span>Cierre de inscripción: 10 de diciembre</span></p>
+          <p class="signup__kicker"><span class="eyebrow">Último paso</span><span class="tag tag--urgent"><span class="tag__dot" aria-hidden="true"></span>Cierre de inscripción: 10 de diciembre</span><span class="tag tag--urgent tag--sm" data-countdown hidden></span></p>
           <h2 id="postular-title">Postulá tu farmacia para el lanzamiento del 1.º de enero</h2>
           <p class="hand-note" aria-hidden="true">¡te lleva menos de 1 minuto!</p>
-          <p class="lead">Completá estos datos en menos de 1 minuto. Te contactamos por WhatsApp para mostrarte el prototipo en vivo y evaluar el cupo de tu barrio.</p>
-
-          <div class="reminder">
-            <div class="reminder__head">
-              <p class="reminder__title"><i data-lucide="calendar-days"></i>Fechas clave</p>
-              <span class="tag tag--urgent tag--sm" data-countdown hidden></span>
-            </div>
-            <ol class="reminder__dates" role="list">
-              <li class="is-current"><span class="reminder__date">Hasta el 10 de diciembre</span><span>Inscripción de Farmacias Fundadoras</span></li>
-              <li><span class="reminder__date">11 al 28 de diciembre</span><span>Selección de las 4 a 6 farmacias piloto</span></li>
-              <li><span class="reminder__date">1.º de enero de 2027</span><span>Salida oficial al mercado en Rosario</span></li>
-            </ol>
-            <p class="reminder__title reminder__title--spaced"><i data-lucide="list-checks"></i>Qué incluye la charla</p>
-            <ul class="checklist" role="list">
-              <li><i data-lucide="check"></i>15 minutos sin compromiso, en tu farmacia o por videollamada</li>
-              <li><i data-lucide="check"></i>El prototipo funcionando, en vivo</li>
-              <li><i data-lucide="check"></i>Revisión del cupo disponible en tu barrio</li>
-            </ul>
-          </div>
+          <p class="lead">Te contactamos por WhatsApp para mostrarte el prototipo en vivo y ver el cupo de tu barrio.</p>
         </div>
 
-        <div class="signup__col" data-reveal>
+        <div class="signup__col" id="form-postular" data-reveal>
           <div class="form-card" id="form-card">
             <!-- FORMULARIO -->
             <form class="form" id="postulacion-form" method="post" novalidate>
@@ -985,8 +897,8 @@
                 <p class="accelerate__title">¿Querés adelantar la charla?</p>
                 <p>Elegí un horario de 15 minutos (presencial en tu farmacia o por videollamada):</p>
                 <div class="accelerate__actions">
-                  <a class="btn btn--primary btn--block" href="https://wa.me/5493417181147?text=Hola,%20tengo%20una%20farmacia%20en%20%5Bbarrio%5D%20y%20quiero%20saber%20m%C3%A1s%20de%20ALIAR" target="_blank" rel="noopener" id="btn-agendar"><span>Agendar visita o videollamada de 15 min</span><span class="btn__icon" aria-hidden="true"><i data-lucide="calendar-check"></i></span></a>
-                  <a class="btn btn--whatsapp btn--block" href="https://wa.me/5493417181147?text=Hola,%20tengo%20una%20farmacia%20en%20%5Bbarrio%5D%20y%20quiero%20saber%20m%C3%A1s%20de%20ALIAR" target="_blank" rel="noopener" id="btn-wa-ahora"><span>Enviar mensaje por WhatsApp ahora</span><span class="btn__icon" aria-hidden="true"><i data-lucide="message-circle"></i></span></a>
+                  <a class="btn btn--primary btn--block" href="https://wa.me/5493417181147?text=Hola,%20tengo%20una%20farmacia%20en%20Rosario%20y%20quiero%20saber%20m%C3%A1s%20de%20ALIAR" target="_blank" rel="noopener" id="btn-agendar"><span>Agendar visita o videollamada de 15 min</span><span class="btn__icon" aria-hidden="true"><i data-lucide="calendar-check"></i></span></a>
+                  <a class="btn btn--whatsapp btn--block" href="https://wa.me/5493417181147?text=Hola,%20tengo%20una%20farmacia%20en%20Rosario%20y%20quiero%20saber%20m%C3%A1s%20de%20ALIAR" target="_blank" rel="noopener" id="btn-wa-ahora"><span>Enviar mensaje por WhatsApp ahora</span><span class="btn__icon" aria-hidden="true"><i data-lucide="message-circle"></i></span></a>
                 </div>
               </div>
 
@@ -994,10 +906,29 @@
             </div>
           </div>
 
+          <!-- Fechas y detalle de la charla (desplegable, debajo del formulario) -->
+          <details class="reminder">
+            <summary class="reminder__summary"><span>Fechas clave y qué incluye la charla</span><span class="reminder__chev" aria-hidden="true"><i data-lucide="chevron-down"></i></span></summary>
+            <div class="reminder__body">
+              <p class="reminder__title"><i data-lucide="calendar-days"></i>Fechas clave</p>
+              <ol class="reminder__dates" role="list">
+                <li class="is-current"><span class="reminder__date">Hasta el 10 de diciembre</span><span>Inscripción de Farmacias Fundadoras</span></li>
+                <li><span class="reminder__date">11 al 28 de diciembre</span><span>Selección de las 4 a 6 farmacias piloto</span></li>
+                <li><span class="reminder__date">1.º de enero de 2027</span><span>Salida oficial al mercado en Rosario</span></li>
+              </ol>
+              <p class="reminder__title reminder__title--spaced"><i data-lucide="list-checks"></i>Qué incluye la charla</p>
+              <ul class="checklist" role="list">
+                <li><i data-lucide="check"></i>15 minutos sin compromiso, en tu farmacia o por videollamada</li>
+                <li><i data-lucide="check"></i>El prototipo funcionando, en vivo</li>
+                <li><i data-lucide="check"></i>Revisión del cupo disponible en tu barrio</li>
+              </ul>
+            </div>
+          </details>
+
           <!-- Alternativa directa por WhatsApp -->
           <div class="wa-alt">
             <p class="wa-alt__text">¿Preferís mandarnos un audio o mensaje rápido ahora?</p>
-            <a class="btn btn--whatsapp btn--lg btn--block" href="https://wa.me/5493417181147?text=Hola,%20tengo%20una%20farmacia%20en%20%5Bbarrio%5D%20y%20quiero%20saber%20m%C3%A1s%20de%20ALIAR" target="_blank" rel="noopener" data-wa="Hola, tengo una farmacia en [barrio] y quiero saber más de ALIAR"><span>Escribir por WhatsApp al coordinador en Rosario</span><span class="btn__icon" aria-hidden="true"><i data-lucide="message-circle"></i></span></a>
+            <a class="btn btn--whatsapp btn--lg btn--block" href="https://wa.me/5493417181147?text=Hola,%20tengo%20una%20farmacia%20en%20Rosario%20y%20quiero%20saber%20m%C3%A1s%20de%20ALIAR" target="_blank" rel="noopener" data-wa="Hola, tengo una farmacia en Rosario y quiero saber más de ALIAR"><span>Escribir por WhatsApp al coordinador en Rosario</span><span class="btn__icon" aria-hidden="true"><i data-lucide="message-circle"></i></span></a>
           </div>
         </div>
       </div>
@@ -1011,7 +942,7 @@
     <div class="container">
       <div class="footer__cta">
         <p class="footer__cta-text">¿Tu farmacia de barrio, con la fuerza de una red?</p>
-        <a class="btn btn--primary btn--lg" href="#postular"><span>Postular mi farmacia</span><span class="btn__icon" aria-hidden="true"><i data-lucide="arrow-right"></i></span></a>
+        <a class="btn btn--primary btn--lg" href="#form-postular"><span>Postular mi farmacia</span><span class="btn__icon" aria-hidden="true"><i data-lucide="arrow-right"></i></span></a>
       </div>
 
       <div class="footer__grid">
@@ -1031,7 +962,7 @@
             <li><a href="#prototipo">Ver prototipo</a></li>
             <li><a href="#barrios">Barrios del piloto</a></li>
             <li><a href="#preguntas">Preguntas frecuentes</a></li>
-            <li><a href="#postular">Postular mi farmacia</a></li>
+            <li><a href="#form-postular">Postular mi farmacia</a></li>
           </ul>
         </nav>
 
@@ -1039,7 +970,7 @@
           <p class="footer__label">Contacto</p>
           <ul role="list">
                         <li><a href="mailto:aliar.proyecto@gmail.com"><i data-lucide="mail"></i>aliar.proyecto@gmail.com</a></li>
-            <li><a href="https://wa.me/5493417181147?text=Hola,%20tengo%20una%20farmacia%20en%20%5Bbarrio%5D%20y%20quiero%20saber%20m%C3%A1s%20de%20ALIAR" target="_blank" rel="noopener" data-wa="Hola, tengo una farmacia en [barrio] y quiero saber más de ALIAR"><i data-lucide="message-circle"></i>WhatsApp: <span data-wa-display>+54 9 341 718 1147</span></a></li>
+            <li><a href="https://wa.me/5493417181147?text=Hola,%20tengo%20una%20farmacia%20en%20Rosario%20y%20quiero%20saber%20m%C3%A1s%20de%20ALIAR" target="_blank" rel="noopener" data-wa="Hola, tengo una farmacia en Rosario y quiero saber más de ALIAR"><i data-lucide="message-circle"></i>WhatsApp: <span data-wa-display>+54 9 341 718 1147</span></a></li>
           </ul>
         </div>
       </div>
@@ -1054,11 +985,11 @@
 
   <!-- CTA fija en celulares -->
   <div class="sticky-cta" id="sticky-cta">
-    <a class="btn btn--primary btn--block" href="#postular"><span>Postular mi farmacia</span><span class="btn__icon" aria-hidden="true"><i data-lucide="arrow-right"></i></span></a>
+    <a class="btn btn--primary btn--block" href="#form-postular"><span>Postular mi farmacia</span><span class="btn__icon" aria-hidden="true"><i data-lucide="arrow-right"></i></span></a>
   </div>
 
   <!-- Botón flotante de WhatsApp (celulares) -->
-  <a class="wa-float" href="https://wa.me/5493417181147?text=Hola,%20tengo%20una%20farmacia%20en%20%5Bbarrio%5D%20y%20quiero%20saber%20m%C3%A1s%20de%20ALIAR" target="_blank" rel="noopener" data-wa="Hola, tengo una farmacia en [barrio] y quiero saber más de ALIAR" aria-label="Escribir por WhatsApp a ALIAR ROSARIO"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="currentColor" d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/></svg></a>
+  <a class="wa-float" href="https://wa.me/5493417181147?text=Hola,%20tengo%20una%20farmacia%20en%20Rosario%20y%20quiero%20saber%20m%C3%A1s%20de%20ALIAR" target="_blank" rel="noopener" data-wa="Hola, tengo una farmacia en Rosario y quiero saber más de ALIAR" aria-label="Escribir por WhatsApp a ALIAR ROSARIO"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="currentColor" d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/></svg></a>
 
   <!-- Avisos breves -->
   <div class="toast" id="toast" role="status" aria-live="polite" aria-atomic="true"></div>

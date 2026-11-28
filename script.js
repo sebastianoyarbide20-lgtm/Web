@@ -621,7 +621,7 @@
       void field.offsetWidth;
       field.classList.add('is-highlight');
     }
-    const destino = $('#postular');
+    const destino = $('#form-postular') || $('#postular');
     if (destino) destino.scrollIntoView({ behavior: scrollBehavior(), block: 'start' });
     showToast(nombre === 'Otro barrio de Rosario'
       ? 'Te sumamos a la lista prioritaria: completá tus datos.'
@@ -843,6 +843,7 @@
       const visible = pasoElHero && !formularioVisible;
       bar.classList.toggle('is-visible', visible);
       document.body.classList.toggle('has-sticky', visible);
+      document.body.classList.toggle('past-hero', pasoElHero); // muestra el botón flotante de WhatsApp
     };
     new IntersectionObserver(([entry]) => {
       pasoElHero = !entry.isIntersecting && entry.boundingClientRect.top < 0;

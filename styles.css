@@ -1313,3 +1313,127 @@ html.js [data-reveal].is-visible { opacity: 1; translate: 0 0; }
 /* Enlaces a la política de privacidad */
 .form__privacy a { font-weight: 700; color: var(--primary); }
 .footer__bottom a { color: var(--lime); font-weight: 700; }
+
+/* 20. PÁGINA MÁS CORTA EN CELULAR (v2.1) ================================== */
+
+/* Carruseles horizontales en celular: tarjetas que antes se apilaban */
+.snap-hint { display: none; }
+@media (max-width: 767px) {
+  .snap-row {
+    display: grid; grid-auto-flow: column; grid-auto-columns: 84%; grid-template-columns: none;
+    gap: 14px; margin-inline: calc(var(--gutter) * -1); padding: 6px var(--gutter) 16px;
+    overflow-x: auto; overscroll-behavior-x: contain; scroll-snap-type: x mandatory;
+    scroll-padding-inline: var(--gutter); scrollbar-width: none;
+  }
+  .snap-row::-webkit-scrollbar { display: none; }
+  .snap-row > * { scroll-snap-align: start; min-width: 0; }
+  .snap-row:focus-visible { outline: 3px solid var(--primary); outline-offset: -3px; }
+  html.js .snap-row > [data-reveal] { opacity: 1; translate: none; }
+  .snap-hint {
+    display: block; margin-top: 4px; font-family: var(--font-hand); font-size: 1.35rem; font-weight: 700;
+    line-height: 1; color: var(--primary); text-align: right;
+  }
+  /* Contenido decorativo que alarga las tarjetas en celular */
+  .pillar__art, .hours, .bridge__art, .table-art { display: none; }
+  .pillar--wide { gap: 12px; }
+  .pillar .card-num, .problem-card .card-num { font-size: 2rem; }
+}
+
+/* Ventajas (ex «Por qué confiar» + «Fundadoras») */
+@media (min-width: 768px) {
+  .bento__item:last-child { grid-column: auto; }
+  .bento__item:nth-child(5) { background: var(--lime); }
+}
+@media (min-width: 1024px) {
+  .bento { grid-template-columns: 1.05fr 1fr 1fr; }
+  .bento__item--wide { grid-column: span 2; }
+}
+.bento__item:nth-child(5) { background: var(--lime); }
+
+/* Hoja de ruta horizontal y compacta */
+.timeline .milestone__card { gap: 6px; padding: 18px 20px; }
+.timeline .milestone__card h3 { font-size: 1.15rem; }
+.timeline .milestone__card p:last-child { font-size: 0.975rem; line-height: 1.5; }
+.timeline .milestone__date { font-size: 1rem; }
+@media (max-width: 767px) {
+  .timeline .milestone { grid-template-columns: 1fr; grid-template-rows: auto 1fr; gap: 14px; }
+  .timeline .milestone::before { top: 25px; bottom: auto; left: 26px; width: calc(100% + 14px); height: 0; border-left: 0; border-top: 2px dashed var(--ink); }
+  .timeline .milestone__card { height: 100%; }
+}
+@media (min-width: 768px) and (max-width: 1023px) {
+  .timeline { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px; }
+  .timeline .milestone::before { display: none; }
+}
+
+/* Barrios en chips */
+.barrio-status { margin-bottom: 14px; }
+.barrio-grid { display: flex; flex-wrap: wrap; gap: 10px; }
+.barrio-grid > li { display: block; }
+.barrio {
+  display: inline-flex; align-items: center; gap: 8px; min-height: 48px; padding: 8px 18px 8px 12px;
+  border: var(--b); border-radius: var(--pill); background: var(--surface); color: var(--ink);
+  box-shadow: var(--sh-s); font: 800 1.05rem/1.1 var(--font-display); letter-spacing: -0.01em;
+}
+.barrio .lucide, .barrio i[data-lucide] { width: 20px; height: 20px; color: var(--primary); }
+.barrio__name { font-size: inherit; }
+.barrio:hover, .barrio.is-linked, .barrio:focus-visible { transform: translate(-2px, -2px); box-shadow: var(--sh-m); background: var(--lime); }
+.barrio--other { background: var(--lilac); }
+@media (max-width: 767px) { .barrios__map { display: none; } }
+
+/* Formulario: primero los campos; fechas y charla en desplegable debajo */
+.signup__intro .hand-note { margin-top: -4px; }
+@media (max-width: 1023px) {
+  .signup__layout { gap: 22px; }
+  .signup__intro { gap: 12px; }
+  .signup__intro .hand-note { display: none; }
+}
+.reminder { padding: 0; gap: 0; box-shadow: var(--sh-s); }
+.reminder__summary {
+  display: flex; align-items: center; justify-content: space-between; gap: 12px; min-height: 56px; padding: 14px 18px;
+  font-family: var(--font-display); font-size: 1.1rem; font-weight: 800; letter-spacing: -0.01em; list-style: none; cursor: pointer;
+}
+.reminder__summary::-webkit-details-marker { display: none; }
+.reminder__chev { display: grid; place-items: center; width: 32px; height: 32px; flex: none; border: var(--b); border-radius: 50%; background: var(--lime); transition: transform 0.25s var(--ease); }
+.reminder__chev .lucide, .reminder__chev i[data-lucide] { width: 18px; height: 18px; }
+.reminder[open] .reminder__chev { transform: rotate(180deg); }
+.reminder__body { display: grid; gap: 12px; padding: 0 18px 20px; }
+
+/* Hero: en celular solo una etiqueta, para que el botón principal entre en la primera pantalla */
+@media (max-width: 639px) {
+  .hero { padding-top: 16px; }
+  .hero__content { gap: 18px; }
+  .hero__badge-text { display: none; }
+}
+
+/* Botón flotante de WhatsApp: aparece después del hero */
+.wa-float { opacity: 0; visibility: hidden; transform: translateY(16px) scale(0.85); transition: opacity 0.25s var(--ease), transform 0.3s var(--spring), visibility 0s linear 0.3s; }
+body.past-hero .wa-float { opacity: 1; visibility: visible; transform: none; transition: opacity 0.25s var(--ease), transform 0.3s var(--spring); }
+html:not(.js) .wa-float { opacity: 1; visibility: visible; transform: none; }
+
+/* Áreas táctiles de al menos 44 px */
+.pharm-chip, .product__add { min-height: 44px; }
+.product__add { padding-inline: 14px; }
+.app__cart { min-width: 44px; min-height: 44px; }
+.footer__nav a, .footer__contact a { display: inline-flex; align-items: center; min-height: 44px; }
+.footer__nav ul, .footer__contact ul { gap: 2px; }
+.footer__bottom a { display: inline-flex; align-items: center; min-height: 44px; }
+
+/* Celular: menos repetición y menos aire */
+@media (max-width: 639px) {
+  :root { --section-y: 56px; }
+  /* En el hero, el botón va antes de la bajada para que se vea sin hacer scroll */
+  .hero__actions { order: 2; }
+  .hero__lead { order: 3; }
+  .hero__micro { order: 4; }
+  .hero__stage { max-width: 340px; padding: 26px 0 40px; }
+}
+@media (max-width: 767px) {
+  /* Ya están en el botón flotante de WhatsApp y en el menú */
+  .faq__help { display: none; }
+  .footer__nav { display: none; }
+}
+@media (min-width: 1024px) {
+  .bento .bento__item:last-child { grid-column: 1 / -1; grid-template-columns: auto minmax(0, 1fr); align-items: center; column-gap: 18px; }
+  .bento .bento__item:last-child p { grid-column: 2; }
+  .bento .bento__item:last-child .icon-badge { grid-row: span 2; }
+}
