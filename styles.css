@@ -1476,3 +1476,98 @@ html:not(.js) .wa-float { opacity: 1; visibility: visible; transform: none; }
   .hero__lead { font-size: 0.975rem; }
   .hero .btn--lg { --h: 52px; }
 }
+
+/* 23. CADA SECCIÓN EN UNA PANTALLA DE COMPUTADORA (v2.4) ==================
+   Solo ≥1024 px: cada sección ocupa el alto visible (pantalla menos el menú
+   fijo) y su contenido queda centrado verticalmente, como el hero.
+   Los tamaños usan vh para entrar en notebooks y monitores. Celular sin cambios. */
+@media (min-width: 1024px) {
+  :root { --screen: calc(100vh - var(--nav-h, 86px)); }
+  .site-header { top: calc(var(--announce-h, 0px) * -1); }
+  .demo__tab-text { align-self: center; }
+  main > .section {
+    display: flex; flex-direction: column; justify-content: center;
+    min-height: var(--screen); padding-block: clamp(16px, 3vh, 48px);
+  }
+  main > .section > .container { width: 100%; }
+
+  /* Encabezados de sección más compactos */
+  .section-head { gap: clamp(6px, 1.2vh, 14px); max-width: 1000px; margin-bottom: clamp(14px, 3vh, 40px); }
+  .section h2 { font-size: clamp(1.8rem, min(3.2vw, 6vh), 3.4rem); line-height: 1.02; }
+  .section .lead { font-size: clamp(0.95rem, 0.5rem + 1vh, 1.15rem); line-height: 1.5; }
+  .eyebrow { margin-bottom: 0; }
+  .section-head--center { max-width: 1180px; }
+  .section-head--center .lead { max-width: 96ch; }
+
+  /* Tarjetas más bajas */
+  .section .card { padding: clamp(14px, 2.4vh, 28px) clamp(18px, 1.8vw, 28px); }
+  .section .card h3 { font-size: clamp(1.05rem, 0.6rem + 1.1vh, 1.35rem); }
+  .section .card p { font-size: clamp(0.875rem, 0.55rem + 0.75vh, 1rem); line-height: 1.5; }
+  .icon-badge { width: clamp(36px, 5.5vh, 50px); height: clamp(36px, 5.5vh, 50px); }
+  .card-num { font-size: clamp(1.6rem, 4.5vh, 2.6rem); }
+
+  /* Ventajas */
+  .bento { gap: clamp(12px, 2vh, 22px); }
+  .bento__item--feature { padding: clamp(18px, 3vh, 36px); gap: clamp(10px, 2vh, 24px); }
+  .bento__big { font-size: clamp(3.4rem, 11vh, 7rem); }
+  .bento__perks { gap: 6px; }
+  .bento__perks li { font-size: clamp(0.875rem, 0.55rem + 0.8vh, 1rem); }
+  .table-art { padding: 12px; gap: 10px; }
+
+  /* Problema */
+  .problem__grid { gap: clamp(14px, 2vh, 22px); }
+  .bridge { margin-top: clamp(14px, 2.6vh, 32px); padding: clamp(18px, 3.4vh, 44px) clamp(24px, 3vw, 48px); grid-template-columns: minmax(0, 1fr) 200px; }
+  .bridge__text { font-size: clamp(1.3rem, 0.6rem + 2.2vh, 2.2rem); }
+  .bridge__art { max-width: 200px; }
+
+  /* Cómo funciona: el prototipo es una pantalla y los pilares otra */
+  .demo { margin-bottom: 0; align-items: center; }
+  .demo__title { font-size: clamp(1.25rem, 0.5rem + 2vh, 2.1rem); }
+  .demo { grid-template-columns: 340px minmax(0, 1fr); padding: clamp(18px, 3.4vh, 36px); gap: 28px; }
+  .demo__intro { gap: clamp(8px, 1.4vh, 14px); }
+  .demo__caption { display: none; }
+  .demo__tabs { gap: 6px; }
+  .demo__tab { padding-block: 5px; }
+  .demo__tab:not([aria-selected="true"]) .demo__tab-desc { display: none; }
+  .demo__note { font-size: 0.875rem; }
+  .product__img { aspect-ratio: 2 / 1; min-height: 0; overflow: hidden; }
+  .product__img .lucide, .product__img i[data-lucide] { width: auto; height: 58%; }
+  .app__panels { max-height: 452px; min-height: 200px; overflow-y: auto; overscroll-behavior: contain; }
+  .pillars { gap: clamp(12px, 2vh, 22px); }
+  .pillars-screen {
+    display: flex; flex-direction: column; justify-content: center;
+    min-height: var(--screen); margin-top: clamp(16px, 3vh, 48px); padding-block: clamp(16px, 3vh, 48px);
+  }
+  .pillar { gap: 8px; }
+  .pillar--wide { gap: 12px; }
+  .pillar__art { max-width: 220px; max-height: 22vh; }
+  .hours { gap: 4px; padding: 10px; }
+
+  /* Plan por etapas */
+  .timeline { gap: 16px; }
+  .timeline .milestone__card { padding: clamp(14px, 2.2vh, 20px) 18px; }
+
+  /* Barrios */
+  .barrios__map { max-height: calc(var(--screen) - 60px); }
+  .barrio { min-height: 44px; }
+
+  /* Preguntas */
+  .faq-item summary { padding: clamp(10px, 1.7vh, 18px) 20px; font-size: clamp(0.95rem, 0.55rem + 0.9vh, 1.15rem); }
+  .faq-item__answer { padding-bottom: 14px; font-size: 0.95rem; }
+  .faq__list { gap: clamp(8px, 1.3vh, 14px); }
+
+  /* Formulario */
+  .form-card { padding: clamp(14px, 2.6vh, 34px) clamp(22px, 2.4vw, 36px); }
+  .form { gap: clamp(8px, 1.5vh, 20px); }
+  .form__heading { font-size: clamp(1.2rem, 0.6rem + 1.6vh, 1.6rem); }
+  .form__row { gap: 14px; }
+  .field { gap: 5px; }
+  .field > label, .field legend { font-size: 0.95rem; }
+  .field input[type="text"], .field input[type="tel"], .field select { min-height: clamp(42px, 5.8vh, 54px); padding-block: 6px; font-size: 1rem; }
+  .choice__box { min-height: 44px; padding: 6px 12px; font-size: 0.875rem; }
+  .form-card .btn--lg { --h: clamp(48px, 7vh, 60px); }
+  .form__privacy { font-size: 0.8125rem; line-height: 1.4; }
+  .signup__layout { align-items: center; }
+  .signup__intro { gap: clamp(8px, 1.6vh, 18px); }
+  .signup__intro .wa-alt { padding: 14px 18px; gap: 8px; }
+}

@@ -106,6 +106,9 @@
     const navbar = $('#navbar');
     if (!header || !navbar) return;
     const desktop = window.matchMedia('(min-width: 768px)');
+    // En computadora (≥1024) la barra de anuncio se va al hacer scroll y cada
+    // sección ocupa justo el alto visible debajo del menú.
+    const pantalla = window.matchMedia('(min-width: 1024px)');
     const rootStyle = document.documentElement.style;
 
     // Mide la barra de anuncio y el menú para el "sticky" y el desplazamiento a anclas.
@@ -113,7 +116,8 @@
       const a = announce ? announce.offsetHeight : 0;
       const n = navbar.offsetHeight;
       rootStyle.setProperty('--announce-h', `${a}px`);
-      rootStyle.setProperty('--scroll-pad', `${(desktop.matches ? a + n : n) + 16}px`);
+      rootStyle.setProperty('--nav-h', `${n}px`);
+      rootStyle.setProperty('--scroll-pad', `${pantalla.matches ? n : (desktop.matches ? a + n : n) + 16}px`);
     };
     measure();
     window.addEventListener('resize', measure, { passive: true });
@@ -893,6 +897,67 @@
     initStickyCta();
     initCountdown();
     initSignupDesktop();
+    initFitScreens();
+  }
+
+  /* En computadora, cada sección debe entrar en una pantalla. Si su contenido
+     es más alto que el espacio visible, se achica con zoom lo justo para entrar.
+     En celular y tablet no hace nada. */
+  function initFitScreens() {
+    if (!window.matchMedia || !('zoom' in document.documentElement.style)) return;
+    const mq = window.matchMedia('(min-width: 1024px)');
+    const uno = (sel, raiz) => (raiz || document).querySelector(sel);
+    const grupos = () => Array.from(document.querySelectorAll('main > section.section')).map((s) => {
+      const c = uno(':scope > .container', s);
+      if (s.id === 'como-funciona') {
+        return [
+          { marco: s, partes: [uno('.section-head', c), uno('.demo', c)].filter(Boolean) },
+          { marco: uno('.pillars-screen', c), partes: [uno('.pillars', c)].filter(Boolean) },
+        ];
+      }
+      return [{ marco: s, partes: [c].filter(Boolean) }];
+    }).flat().filter((g) => g.marco && g.partes.length);
+
+    const ajustar = () => {
+      const lista = grupos();
+      lista.forEach((g) => g.partes.forEach((el) => { el.style.zoom = ''; el.style.width = ''; el.style.maxWidth = ''; }));
+      if (!mq.matches) return;
+      const navH = parseFloat(getComputedStyle(document.documentElement).getPropertyValue('--nav-h')) || 86;
+      const disponible = window.innerHeight - navH;
+      lista.forEach((g) => {
+        const cs = getComputedStyle(g.marco);
+        const espacio = disponible - parseFloat(cs.paddingTop) - parseFloat(cs.paddingBottom);
+        const arriba = g.partes[0].getBoundingClientRect().top;
+        const abajo = g.partes[g.partes.length - 1].getBoundingClientRect().bottom;
+        const alto = abajo - arriba;
+        if (alto > espacio && espacio > 200) {
+          // Se achica sin perder ancho: el bloque conserva el mismo ancho en pantalla.
+          const anchos = g.partes.map((el) => el.getBoundingClientRect().width);
+          const aplicar = (z) => g.partes.forEach((el, i) => {
+            el.style.zoom = String(z);
+            el.style.maxWidth = 'none';
+            el.style.width = `${anchos[i] / z}px`;
+          });
+          const medir = () => g.partes[g.partes.length - 1].getBoundingClientRect().bottom - g.partes[0].getBoundingClientRect().top;
+          let z = Math.max(0.6, Math.floor((espacio / alto) * 1000) / 1000);
+          aplicar(z);
+          // Al ganar ancho el texto ocupa menos renglones: se aprovecha ese espacio.
+          for (let i = 0; i < 3; i += 1) {
+            const prox = Math.min(1, Math.floor(z * (espacio / medir()) * 1000) / 1000);
+            if (prox <= z + 0.005) break;
+            aplicar(prox);
+            if (medir() > espacio) { aplicar(z); break; }
+            z = prox;
+          }
+        }
+      });
+    };
+    let t;
+    const programar = () => { clearTimeout(t); t = setTimeout(ajustar, 120); };
+    ajustar();
+    window.addEventListener('resize', programar, { passive: true });
+    if (document.fonts && document.fonts.ready) document.fonts.ready.then(ajustar);
+    window.addEventListener('load', ajustar);
   }
 
   /* En computadora, «Fechas clave» y WhatsApp van en la columna izquierda,
@@ -907,7 +972,6 @@
     const ubicar = () => {
       if (mq.matches) {
         intro.append(reminder, waAlt);
-        reminder.open = true;
       } else if (reminder.parentElement !== col) {
         col.append(reminder, waAlt);
         reminder.open = false;
